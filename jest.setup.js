@@ -1,0 +1,53 @@
+// Learn more: https://github.com/testing-library/jest-dom
+import '@testing-library/jest-dom'
+
+// Mock Next.js router
+jest.mock('next/router', () => ({
+  useRouter() {
+    return {
+      route: '/',
+      pathname: '/',
+      query: {},
+      asPath: '/',
+      push: jest.fn(),
+      pop: jest.fn(),
+      reload: jest.fn(),
+      back: jest.fn(),
+      prefetch: jest.fn().mockResolvedValue(undefined),
+      beforePopState: jest.fn(),
+      events: {
+        on: jest.fn(),
+        off: jest.fn(),
+        emit: jest.fn(),
+      },
+    }
+  },
+}))
+
+// Mock Next.js navigation (for App Router)
+jest.mock('next/navigation', () => ({
+  useRouter() {
+    return {
+      push: jest.fn(),
+      replace: jest.fn(),
+      refresh: jest.fn(),
+      back: jest.fn(),
+      forward: jest.fn(),
+      prefetch: jest.fn(),
+    }
+  },
+  usePathname() {
+    return '/'
+  },
+  useSearchParams() {
+    return new URLSearchParams()
+  },
+}))
+
+// Suppress console errors in tests (optional)
+// global.console = {
+//   ...console,
+//   error: jest.fn(),
+//   warn: jest.fn(),
+// }
+

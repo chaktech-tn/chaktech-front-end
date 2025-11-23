@@ -1,0 +1,27 @@
+@import '~bootstrap/scss/bootstrap';
+@import "swiper/css/bundle";
+@import "~slick-carousel/slick/slick.css"; 
+@import 'node_modules/react-modal-video/scss/modal-video.scss';
+@import 'node_modules/react-tooltip/dist/react-tooltip.css';
+@import '@assets/css/nice-select.css';
+@import '@assets/scss/main.scss';
+
+// Ensure numbers stay LTR in RTL layouts (standard practice)
+[dir="rtl"],
+.rtl {
+  // Numbers, prices, and numeric values should remain LTR
+  .amount,
+  .price,
+  [class*="price"],
+  [class*="amount"],
+  [class*="total"],
+  [class*="quantity"],
+  [class*="count"],
+  [class*="number"],
+  span[dir="ltr"] {
+    direction: ltr !important;
+    display: inline-block;
+    unicode-bidi: embed;
+    text-align: left;
+  }
+}
