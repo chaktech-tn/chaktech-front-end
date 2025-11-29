@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+
 import { resetUser } from "@utils/posthog";
 
 const initialState = {

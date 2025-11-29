@@ -1,15 +1,16 @@
 "use client";
-import BuyNowModal from "@components/common/modals/buy-now-modal";
 
-import useCurrency from "@hooks/use-currency";
-import { CartTwo, Eye, HeartTwo } from "@svg/index";
-import { trackAddToCart } from "@utils/posthog";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+
+import BuyNowModal from "@components/common/modals/buy-now-modal";
+import useCurrency from "@hooks/use-currency";
+import { CartTwo, Eye, HeartTwo } from "@svg/index";
+import { trackAddToCart } from "@utils/posthog";
 // internal
 
 import {

@@ -1,13 +1,14 @@
 'use client';
-import ErrorMessage from "@components/error-message/error";
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Email, EyeCut, Lock, UserTwo } from "@svg/index";
-import { notifyError, notifySuccess } from "@utils/toast";
 import { useTranslations } from 'next-intl';
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { useRegisterUserMutation } from "src/redux/features/auth/authApi";
 import * as Yup from "yup";
+
+import ErrorMessage from "@components/error-message/error";
+import { Email, EyeCut, Lock, UserTwo } from "@svg/index";
+import { notifyError, notifySuccess } from "@utils/toast";
+import { useRegisterUserMutation } from "src/redux/features/auth/authApi";
 // internal
 
 

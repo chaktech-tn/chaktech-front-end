@@ -1,8 +1,9 @@
-import useCurrency from "@hooks/use-currency";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { useDispatch } from "react-redux";
+
+import useCurrency from "@hooks/use-currency";
 import { remove_product } from "src/redux/features/cartSlice";
 
 const SingleCartItem = ({ item }) => {

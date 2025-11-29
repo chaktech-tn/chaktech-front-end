@@ -1,6 +1,7 @@
 'use client';
-import { allCities } from '@data/tunisian-cities';
 import React, { useState, useRef, useEffect } from 'react';
+
+import { allCities } from '@data/tunisian-cities';
 
 const CitySelector = ({ value, onChange, onBlur, error, placeholder, required }) => {
   const [searchTerm, setSearchTerm] = useState(value || '');

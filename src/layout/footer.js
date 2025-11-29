@@ -13,7 +13,6 @@ import { siteConfig } from "@lib/seo-config";
 
 import CopyrightText from "./copyright-text";
 
-
 // single widget
 const resolveUrl = (url = "/") => {
   if (!url) return "/";

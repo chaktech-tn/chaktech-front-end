@@ -1,6 +1,7 @@
-import Home from "@svg/home";
 import Link from "next/link";
 import React from "react";
+
+import Home from "@svg/home";
 // internal
 
 const ProductDetailsBreadcrumb = ({title}) => {

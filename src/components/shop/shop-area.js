@@ -1,6 +1,7 @@
 // internal
-import ShopSidebar from "@components/common/sidebar/shop-sidebar";
 import React, { useState } from "react";
+
+import ShopSidebar from "@components/common/sidebar/shop-sidebar";
 
 import ProductGridItems from "./prd-grid-items";
 import ProductListItems from "./prd-list-items";

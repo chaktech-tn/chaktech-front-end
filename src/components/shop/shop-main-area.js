@@ -1,4 +1,6 @@
 "use client";
+import React, { useState } from "react";
+
 import ShopBreadcrumb from "@components/common/breadcrumb/shop-breadcrumb";
 import ShopCta from "@components/cta";
 import ProductPlaceholderGrid from "@components/products/product-placeholder";
@@ -6,7 +8,6 @@ import ShopArea from "@components/shop/shop-area";
 import Footer from "@layout/footer";
 import Header from "@layout/header";
 import Wrapper from "@layout/wrapper";
-import React, { useState } from "react";
 
 // internal
 import { useGetShowingProductsQuery } from "src/redux/features/productApi";

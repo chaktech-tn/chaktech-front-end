@@ -1,7 +1,9 @@
-import ErrorMessage from "@components/error-message/error";
-import ShopCategoryLoader from "@components/loader/shop-category-loader";
 import { useRouter } from "next/navigation";
 import React from "react";
+
+import ErrorMessage from "@components/error-message/error";
+import ShopCategoryLoader from "@components/loader/shop-category-loader";
+
 // internal
 import { useGetCategoriesQuery } from "src/redux/features/categoryApi";
 

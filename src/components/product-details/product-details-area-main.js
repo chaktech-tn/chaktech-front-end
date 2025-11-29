@@ -1,4 +1,8 @@
 'use client';
+import { useRouter } from "next/navigation";
+import { useEffect, useLayoutEffect } from "react";
+import { useDispatch } from "react-redux";
+
 import ShopCta from "@components/cta";
 import PrdDetailsLoader from "@components/loader/details-loader";
 import ProductDetailsBreadcrumb from "@components/product-details/breadcrumb";
@@ -8,14 +12,12 @@ import RelatedProducts from "@components/product-details/related-products";
 import Footer from "@layout/footer";
 import Header from "@layout/header";
 import Wrapper from "@layout/wrapper";
-import { useRouter } from "next/navigation";
-import { useEffect, useLayoutEffect } from "react";
-import { useDispatch } from "react-redux";
+
 // internal
+import { trackProductViewed } from "@utils/posthog";
 import { initialOrderQuantity } from "src/redux/features/cartSlice";
 import { useGetProductQuery, useGetProductBySlugQuery } from "src/redux/features/productApi";
 import { handleModalShow } from "src/redux/features/productSlice";
-import { trackProductViewed } from "@utils/posthog";
 // internal
 
 export default function ShopDetailsMainArea({ id, slug }) {

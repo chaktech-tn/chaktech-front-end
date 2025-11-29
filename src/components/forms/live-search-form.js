@@ -1,10 +1,11 @@
 "use client";
-import Search from "@svg/search";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
 import React, { useState, useEffect, useRef, useCallback } from "react";
+
+import Search from "@svg/search";
 import { useLazySearchProductsQuery } from "src/redux/features/productApi";
 
 const LiveSearchForm = ({ isMobile = false }) => {

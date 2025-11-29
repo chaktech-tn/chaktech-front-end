@@ -1,4 +1,6 @@
 // internal
+import React from "react";
+
 import BlockRenderer from "@components/content-blocks/BlockRenderer";
 import ShopCta from "@components/cta";
 import HeroBanner from "@components/hero-banner";
@@ -10,10 +12,8 @@ import ShopFeature from "@components/shop-feature";
 import Footer from "@layout/footer";
 import Header from "@layout/header";
 import Wrapper from "@layout/wrapper";
-import React from "react";
 
-const API_BASE_URL =
-  process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:5001";
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "https://api.chaktech.tn";
 
 async function getHomepageBlocks(locale = "fr") {
   try {

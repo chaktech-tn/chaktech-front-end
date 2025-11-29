@@ -1,9 +1,10 @@
 'use client';
 
-import ShopCategoryLoader from '@components/loader/shop-category-loader';
-import { formatCategoryName } from '@utils/formatCategoryName';
 import Link from 'next/link';
 import React from 'react';
+
+import ShopCategoryLoader from '@components/loader/shop-category-loader';
+import { formatCategoryName } from '@utils/formatCategoryName';
 import { useGetCategoriesQuery } from 'src/redux/features/categoryApi';
 
 const CategoryMenu = () => {

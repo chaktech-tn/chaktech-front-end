@@ -1,7 +1,8 @@
-import Pagination from "@ui/Pagination";
 import dayjs from "dayjs";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
+
+import Pagination from "@ui/Pagination";
 
 const MyOrderItems = ({ items, itemsPerPage }) => {
   const [currentItems, setCurrentItems] = useState(null);

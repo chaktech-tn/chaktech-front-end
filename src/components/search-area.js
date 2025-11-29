@@ -1,4 +1,7 @@
 'use client';
+import { useTranslations } from 'next-intl';
+import { useState } from "react";
+
 import BreadcrumbTwo from "@components/common/breadcrumb/breadcrumb-2";
 import EmptyCart from "@components/common/sidebar/cart-sidebar/empty-cart";
 import ShopCta from "@components/cta";
@@ -8,8 +11,7 @@ import SingleProduct from "@components/products/single-product";
 import Footer from "@layout/footer";
 import Header from "@layout/header";
 import Wrapper from "@layout/wrapper";
-import { useTranslations } from 'next-intl';
-import { useState } from "react";
+
 // internal
 import NiceSelect from "@ui/NiceSelect";
 import { useGetShowingProductsQuery } from "src/redux/features/productApi";

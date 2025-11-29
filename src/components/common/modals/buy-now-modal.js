@@ -1,4 +1,11 @@
 'use client';
+import { useRouter } from "next/navigation";
+import { useTranslations } from 'next-intl';
+import React, { useEffect, useState } from "react";
+import { Modal } from "react-bootstrap";
+import { useForm, Controller } from "react-hook-form";
+import { useDispatch, useSelector } from "react-redux";
+
 import CitySelector from "@components/common/city-selector";
 import ErrorMessage from "@components/error-message/error";
 import { trackMetaPixelEvent } from "@components/tracking/FacebookPixel";
@@ -8,17 +15,13 @@ import { Times } from "@svg/index";
 import { trackOrderCompleted, trackCheckoutStep, trackFormError, trackBeginCheckout } from "@utils/posthog";
 import { getOrCreateSessionToken } from "@utils/sessionToken";
 import { notifyError, notifySuccess } from "@utils/toast";
-import { useRouter } from "next/navigation";
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useForm, Controller } from "react-hook-form";
-import { Modal } from "react-bootstrap";
-import { useTranslations } from 'next-intl';
+
+
 // internal
+import { generateEventId, getMetaCookies } from "@utils/trackingUtils";
 import { setSessionToken } from "src/redux/features/abandonedCheckout/abandonedCheckoutSlice";
 import { add_cart_product } from "src/redux/features/cartSlice";
 import { useAddOrderMutation } from "src/redux/features/order/orderApi";
-import { generateEventId, getMetaCookies } from "@utils/trackingUtils";
 
 const BuyNowModal = ({ show, onHide, product }) => {
   const dispatch = useDispatch();

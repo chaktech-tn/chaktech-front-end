@@ -1,7 +1,8 @@
 // internal
+import React, { useEffect, useState } from "react";
+
 import SingleProduct from "@components/products/single-product";
 import Pagination from "@ui/Pagination";
-import React, { useEffect, useState } from "react";
 
 const ProductGridItems = ({ itemsPerPage, items, setShowingGridItems }) => {
   const [currentItems, setCurrentItems] = useState(null);

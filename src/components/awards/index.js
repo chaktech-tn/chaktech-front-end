@@ -1,15 +1,16 @@
 'use client';
 // internal
-import award_img_1 from "@assets/img/award/award-1.jpg";
-import award_img_2 from "@assets/img/award/award-2.jpg";
-import award_img_3 from "@assets/img/award/award-3.jpg";
-import award_img_4 from "@assets/img/award/award-4.jpg";
-import {RightArrowTwo} from "@svg/index";
 import dynamic from 'next/dynamic';
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { Tooltip as ReactTooltip } from 'react-tooltip';
+
+import award_img_1 from "@assets/img/award/award-1.jpg";
+import award_img_2 from "@assets/img/award/award-2.jpg";
+import award_img_3 from "@assets/img/award/award-3.jpg";
+import award_img_4 from "@assets/img/award/award-4.jpg";
+import {RightArrowTwo} from "@svg/index";
 
 // data
 const award_data = [

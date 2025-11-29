@@ -1,6 +1,7 @@
+import React from "react";
+
 import ProductPlaceholderGrid from "@components/products/product-placeholder";
 import SingleProduct from "@components/products/single-product";
-import React from "react";
 import { useGetRelatedProductsQuery } from "src/redux/features/productApi";
 
 

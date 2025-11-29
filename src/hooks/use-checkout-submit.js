@@ -1,15 +1,17 @@
 "use client";
+import * as dayjs from "dayjs";
+import { useRouter } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
+import { useForm } from "react-hook-form";
+import { useDispatch, useSelector } from "react-redux";
+
 import Loader from "@components/loader/loader";
 import { trackMetaPixelEvent } from "@components/tracking/FacebookPixel";
 import { trackOrderCompleted, trackFormError } from "@utils/posthog";
 import { getOrCreateSessionToken } from "@utils/sessionToken";
 import { notifyError, notifySuccess } from "@utils/toast";
 import { generateEventId, getMetaCookies } from "@utils/trackingUtils";
-import * as dayjs from "dayjs";
-import { useRouter } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
-import { useForm } from "react-hook-form";
-import { useDispatch, useSelector } from "react-redux";
+
 //internal import
 import { useGetOfferCouponsQuery } from "src/redux/features/coupon/couponApi";
 import { set_coupon } from "src/redux/features/coupon/couponSlice";

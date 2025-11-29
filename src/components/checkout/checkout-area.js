@@ -1,7 +1,8 @@
 "use client";
-import { trackCheckoutStep } from "@utils/posthog";
 import { useTranslations } from "next-intl";
 import React, { useState } from "react";
+
+import { trackCheckoutStep } from "@utils/posthog";
 
 // internal
 import BillingDetails from "./billing-details";

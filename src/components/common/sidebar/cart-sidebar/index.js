@@ -1,9 +1,10 @@
-import useCartInfo from "@hooks/use-cart-info";
-import useCurrency from "@hooks/use-currency";
-import { trackViewCart } from "@utils/posthog";
 import Link from "next/link";
 import React, { useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
+
+import useCartInfo from "@hooks/use-cart-info";
+import useCurrency from "@hooks/use-currency";
+import { trackViewCart } from "@utils/posthog";
 
 // internal
 import EmptyCart from "./empty-cart";

@@ -1,12 +1,13 @@
 'use client';
 // external
 // internal
+import Link from "next/link";
+
 import ShopCta from "@components/cta";
 import Footer from "@layout/footer";
 import Header from "@layout/header";
 import Wrapper from "@layout/wrapper";
 import {ErrorSvg, RightArrowThree} from "@svg/index";
-import Link from "next/link";
 
 export default function NotFound() {
   return (

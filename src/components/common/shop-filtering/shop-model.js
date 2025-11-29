@@ -1,7 +1,8 @@
 'use client';
-import { Search } from "@svg/index";
 import { useRouter, useSearchParams } from "next/navigation";
 import React, { useState } from "react";
+
+import { Search } from "@svg/index";
 // internal
 
 const ShopModel = ({ all_products }) => {

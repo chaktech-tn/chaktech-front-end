@@ -1,7 +1,6 @@
 import MainProvider from "@components/provider/main-provider";
+
 import "./globals.scss";
-import StructuredData from '@components/seo/structured-data';
-import FacebookPixel from '@components/tracking/FacebookPixel';
 import {
   Poppins,
   Inter,
@@ -51,6 +50,9 @@ const syne = Syne({
 import { headers } from 'next/headers';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, getLocale , setRequestLocale } from 'next-intl/server';
+
+import StructuredData from '@components/seo/structured-data';
+import FacebookPixel from '@components/tracking/FacebookPixel';
 
 import { locales, defaultLocale } from '../../i18n';
 import { defaultMetadata, siteConfig } from '../lib/seo-config';

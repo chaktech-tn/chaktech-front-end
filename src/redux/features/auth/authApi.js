@@ -1,5 +1,4 @@
 import { identifyUser } from "@utils/posthog";
-
 import { apiSlice } from "src/redux/api/apiSlice";
 
 import { userLoggedIn } from "./authSlice";

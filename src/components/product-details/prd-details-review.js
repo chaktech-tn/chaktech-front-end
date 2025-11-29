@@ -1,8 +1,9 @@
 // internal
-import user_1 from "@assets/img/users/user-1.jpg";
-import user_2 from "@assets/img/users/user-2.jpg";
 import ReviewForm from "@components/forms/review-form";
 import React from "react";
+
+import user_1 from "@assets/img/users/user-1.jpg";
+import user_2 from "@assets/img/users/user-2.jpg";
 
 import ProductReviewItem from "./product-review-item";
 

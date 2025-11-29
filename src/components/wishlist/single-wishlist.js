@@ -1,9 +1,10 @@
-import useCurrency from "@hooks/use-currency";
-import { Minus, Plus } from "@svg/index";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+
+import useCurrency from "@hooks/use-currency";
+import { Minus, Plus } from "@svg/index";
 // internal
 import {
   add_cart_product,

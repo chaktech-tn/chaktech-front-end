@@ -1,5 +1,6 @@
-import contactInfo from "@config/contact";
 import Link from "next/link";
+
+import contactInfo from "@config/contact";
 
 const PolicyArea = () => {
   return (

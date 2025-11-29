@@ -1,7 +1,8 @@
 'use client';
+import React from "react";
+
 import contactInfo from "@config/contact";
 
-import React from "react";
 
 const RefundReturnArea = () => {
 

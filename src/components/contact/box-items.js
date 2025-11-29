@@ -1,11 +1,12 @@
 // internal
+import Image from "next/image";
+import React from "react";
+
 import icon_1 from "@assets/img/contact/icon/contact-icon-1.png";
 import icon_3 from "@assets/img/contact/icon/contact-icon-2.png";
 import icon_2 from "@assets/img/contact/icon/contact-icon-3.png";
 import SocialLinks from "@components/social";
 import contactInfo from "@config/contact";
-import Image from "next/image";
-import React from "react";
 
 // single item
 function SingleItem({ icon, title, content }) {

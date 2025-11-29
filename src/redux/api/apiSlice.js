@@ -24,7 +24,7 @@ const getApiBaseUrl = () => {
   }
 
   // 3. Fallback default
-  return "http://localhost:5001";
+  return "https://api.chaktech.tn";
 };
 
 // Suppress rate limit errors in development mode

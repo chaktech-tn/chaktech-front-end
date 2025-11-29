@@ -1,12 +1,13 @@
 // internal
+import Image from 'next/image';
+import React from 'react';
+
 import laptop from "@assets/img/login/laptop.png";
 import man from "@assets/img/login/man.png";
 import shape_1 from "@assets/img/login/shape-1.png";
 import shape_2 from "@assets/img/login/shape-2.png";
 import shape_3 from "@assets/img/login/shape-3.png";
 import shape_4 from "@assets/img/login/shape-4.png";
-import Image from 'next/image';
-import React from 'react';
 
 const Shapes = () => {
   return (

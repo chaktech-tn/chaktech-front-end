@@ -1,5 +1,6 @@
-import { Dashboard, Mobile, Website } from "@svg/index";
 import Link from "next/link";
+
+import { Dashboard, Mobile, Website } from "@svg/index";
 // internal
 
  const service_data = [

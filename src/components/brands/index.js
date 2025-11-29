@@ -1,6 +1,10 @@
 'use client';
 // external
 // internal
+import Image from "next/image";
+import React, { useEffect, useRef } from "react";
+import Slider from "react-slick";
+
 import brand_1 from "@assets/img/brand/brand-1.png";
 import brand_2 from "@assets/img/brand/brand-2.png";
 import brand_3 from "@assets/img/brand/brand-3.png";
@@ -9,9 +13,6 @@ import brand_5 from "@assets/img/brand/brand-5.png";
 import brand_6 from "@assets/img/brand/brand-6.png";
 import brand_7 from "@assets/img/brand/brand-7.png";
 import brand_8 from "@assets/img/brand/brand-8.png";
-import Image from "next/image";
-import React, { useEffect, useRef } from "react";
-import Slider from "react-slick";
 
 // slider setting 1
 const settings_1 = {

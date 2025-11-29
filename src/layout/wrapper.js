@@ -1,9 +1,11 @@
 'use client';
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
 import ProductModal from "@components/common/modals/product-modal";
 import BackToTopCom from "@components/common/scroll-to-top";
 import {ToastContainer} from '@utils/toast';
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+
 // internal
 import { get_cart_products } from "src/redux/features/cartSlice";
 import { get_coupons } from "src/redux/features/coupon/couponSlice";

@@ -1,5 +1,11 @@
 "use client";
 // internal
+import Image from "next/image";
+import Link from "next/link";
+import { useLocale } from "next-intl";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
+
 import logo from "@assets/img/categories/chaktech-logo.webp";
 import OffCanvas from "@components/common/off-canvas";
 import CartSidebar from "@components/common/sidebar/cart-sidebar";
@@ -8,11 +14,6 @@ import useCartInfo from "@hooks/use-cart-info";
 import useSticky from "@hooks/use-sticky";
 import { useSiteSettings } from "@hooks/useSiteSettings";
 import { Cart, Heart, Search, User } from "@svg/index";
-import Image from "next/image";
-import Link from "next/link";
-import { useLocale } from "next-intl";
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
 
 import Menus from "./menus";
 

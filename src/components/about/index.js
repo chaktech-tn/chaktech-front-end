@@ -1,8 +1,9 @@
 'use client';
-import Brands from "@components/brands";
-import BreadcrumbTwo from "@components/common/breadcrumb/breadcrumb-2";
 import { useTranslations } from 'next-intl';
 import React from 'react';
+
+import Brands from "@components/brands";
+import BreadcrumbTwo from "@components/common/breadcrumb/breadcrumb-2";
 
 // internal
 import AboutFaqs from "./about-faqs";

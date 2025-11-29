@@ -1,6 +1,7 @@
-import thumb from "@assets/img/faq/faq-img-2.jpg";
 import Image from "next/image";
 import React from "react";
+
+import thumb from "@assets/img/faq/faq-img-2.jpg";
 // internal
 
 const FaqThumb = () => {

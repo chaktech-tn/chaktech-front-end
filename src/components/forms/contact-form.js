@@ -1,10 +1,11 @@
 'use client';
-import ErrorMessage from "@components/error-message/error";
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useTranslations } from 'next-intl';
 import React from "react";
 import { useForm } from "react-hook-form";
 import * as Yup from "yup";
+
+import ErrorMessage from "@components/error-message/error";
 // internal
 
 const ContactForm = () => {

@@ -1,7 +1,8 @@
 'use client';
-import {Payment, Refund, ShippingCar, Support} from "@svg/index";
 import { useTranslations } from 'next-intl';
 import React from 'react';
+
+import {Payment, Refund, ShippingCar, Support} from "@svg/index";
 // internal
 
 // SingleFeature

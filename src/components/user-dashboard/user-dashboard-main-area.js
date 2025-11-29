@@ -1,13 +1,15 @@
 "use client";
+import { useRouter } from "next/navigation";
+import { useTranslations } from 'next-intl';
+import React, { useEffect } from "react";
+
 import ErrorMessage from "@components/error-message/error";
 import Loader from "@components/loader/loader";
 import DashboardArea from "@components/user-dashboard/dashboard-area";
 import Footer from "@layout/footer";
 import Header from "@layout/header";
 import Wrapper from "@layout/wrapper";
-import { useRouter } from "next/navigation";
-import { useTranslations } from 'next-intl';
-import React, { useEffect } from "react";
+
 // internal
 import { useGetUserOrdersQuery } from "src/redux/features/orderApi";
 

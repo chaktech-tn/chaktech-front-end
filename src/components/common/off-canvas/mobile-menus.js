@@ -1,10 +1,11 @@
 'use client';
 
-import MobileCategoryMenu from "@components/menu/mobile-category-menu";
-import useMenuData from "@layout/menu-data";
 import Link from "next/link";
 import { useTranslations } from 'next-intl';
 import React, { useState } from "react";
+
+import MobileCategoryMenu from "@components/menu/mobile-category-menu";
+import useMenuData from "@layout/menu-data";
 // internal
 
 const MobileMenus = () => {

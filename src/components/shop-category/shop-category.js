@@ -5,10 +5,11 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css/scrollbar";
 
 // internal
+import { useGetCategoriesQuery } from "src/redux/features/categoryApi";
+
 import CategoryPlaceholderSlider from "./category-placeholder";
 import SingleCategory from "./single-category";
 
-import { useGetCategoriesQuery } from "src/redux/features/categoryApi";
 
 const ShopCategoryArea = () => {
   const [loop, setLoop] = useState(false);

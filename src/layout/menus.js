@@ -1,10 +1,11 @@
 'use client';
 
-import CategoryMenu from '@components/menu/category-menu';
-import { useMenu } from '@hooks/useMenu';
 import Link from 'next/link';
 import { useLocale } from 'next-intl';
 import React from 'react';
+
+import CategoryMenu from '@components/menu/category-menu';
+import { useMenu } from '@hooks/useMenu';
 
 const Menus = () => {
   const locale = useLocale();

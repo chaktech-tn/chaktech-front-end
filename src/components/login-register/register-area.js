@@ -1,7 +1,8 @@
 'use client';
-import RegisterForm from "@components/forms/register-form";
 import Link from "next/link";
 import { useTranslations } from 'next-intl';
+
+import RegisterForm from "@components/forms/register-form";
 
 // internal
 import Shapes from "./shapes";

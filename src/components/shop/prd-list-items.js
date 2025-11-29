@@ -1,7 +1,8 @@
 // internal
+import React, { useEffect, useState } from "react";
+
 import SingleListProduct from "@components/products/single-list-product";
 import Pagination from "@ui/Pagination";
-import React, { useEffect, useState } from "react";
 
 const ProductListItems = ({ itemsPerPage, items, setShowingListItems }) => {
   const [currentItems, setCurrentItems] = useState(null);

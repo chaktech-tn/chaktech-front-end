@@ -6,7 +6,7 @@ import { generateBreadcrumbStructuredData } from "@lib/seo-utils";
 
 async function getBlogBySlug(slug) {
   try {
-    const apiUrl = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:5001';
+    const apiUrl = process.env.NEXT_PUBLIC_API_BASE_URL || 'https://api.chaktech.tn';
     const res = await fetch(`${apiUrl}/blog/slug/${slug}`, {
       cache: 'no-store',
     });

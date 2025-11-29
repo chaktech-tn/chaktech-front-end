@@ -1,17 +1,18 @@
 "use client";
 // internal
-import OldNewPrice from "@components/products/old-new-price";
-import ProductCategories from "@components/products/product-categories";
-import ProductTags from "@components/products/product-tags";
-import Quantity from "@components/products/quantity";
-import SocialLinks from "@components/social";
-import { Compare, CartTwo, Times, HeartTwo } from "@svg/index";
 import Image from "next/image";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import React, { useState } from "react";
 import { Modal } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
+
+import OldNewPrice from "@components/products/old-new-price";
+import ProductCategories from "@components/products/product-categories";
+import ProductTags from "@components/products/product-tags";
+import Quantity from "@components/products/quantity";
+import SocialLinks from "@components/social";
+import { Compare, CartTwo, Times, HeartTwo } from "@svg/index";
 import {
   add_cart_product,
   initialOrderQuantity,

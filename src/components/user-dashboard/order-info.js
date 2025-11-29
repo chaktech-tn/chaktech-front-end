@@ -1,6 +1,7 @@
-import {Box, Delivery, Processing, Truck} from "@svg/index";
 import React from "react";
 import { useSelector } from "react-redux";
+
+import {Box, Delivery, Processing, Truck} from "@svg/index";
 
 function SingleOrderInfo({ icon, info, title }) {
   return (

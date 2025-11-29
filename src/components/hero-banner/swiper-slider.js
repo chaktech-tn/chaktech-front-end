@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import React, { useEffect, useState } from "react";
 import { Autoplay, EffectFade, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+
 import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/navigation";

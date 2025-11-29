@@ -4,7 +4,7 @@ import { generateProductMetadata, generateProductStructuredData, generateBreadcr
 
 async function getProductBySlug(slug) {
   try {
-    const apiUrl = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:5001';
+    const apiUrl = process.env.NEXT_PUBLIC_API_BASE_URL || 'https://api.chaktech.tn';
     const res = await fetch(`${apiUrl}/products/slug/${slug}`, {
       cache: 'no-store', // or 'force-cache' for better performance
     });

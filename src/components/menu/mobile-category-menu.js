@@ -1,9 +1,10 @@
 'use client';
 
-import { formatCategoryName } from '@utils/formatCategoryName';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import React, { useState } from 'react';
+
+import { formatCategoryName } from '@utils/formatCategoryName';
 import { useGetCategoriesQuery } from 'src/redux/features/categoryApi';
 
 const MobileCategoryMenu = () => {

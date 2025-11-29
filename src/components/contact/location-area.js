@@ -1,10 +1,11 @@
 // internal
+import Image from "next/image";
+
 import location_icon_1 from "@assets/img/contact/contact-location-1.png";
 import location_icon_2 from "@assets/img/contact/contact-location-2.png";
 import location_icon_3 from "@assets/img/contact/contact-location-3.png";
 import contactInfo from "@config/contact";
 import { siteConfig } from "@lib/seo-config";
-import Image from "next/image";
 
 // single location item
 function SingleLocationItem({ title, icon, location, tel }) {

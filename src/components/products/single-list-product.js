@@ -1,6 +1,4 @@
 "use client";
-import useCurrency from "@hooks/use-currency";
-import { CartTwo, Eye, HeartTwo } from "@svg/index";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -9,6 +7,9 @@ import React, { useState } from "react";
 // internal
 
 import { useDispatch } from "react-redux";
+
+import useCurrency from "@hooks/use-currency";
+import { CartTwo, Eye, HeartTwo } from "@svg/index";
 import { initialOrderQuantity } from "src/redux/features/cartSlice";
 import { setProduct } from "src/redux/features/productSlice";
 

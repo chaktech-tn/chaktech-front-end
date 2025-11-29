@@ -1,13 +1,14 @@
+import { notFound } from "next/navigation";
+import React from "react";
+
 import BlockRenderer from "@components/content-blocks/BlockRenderer";
 import Footer from "@layout/footer";
 import Header from "@layout/header";
 import Wrapper from "@layout/wrapper";
-import { notFound } from "next/navigation";
-import React from "react";
 
 import { generateMetadata as generatePageMetadata } from "./metadata";
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:5001";
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "https://api.chaktech.tn";
 
 async function getPage(slug, locale) {
   try {

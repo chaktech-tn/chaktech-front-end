@@ -1,8 +1,9 @@
 'use client';
-import Search from "@svg/search";
 import { useRouter } from "next/navigation";
 import { useTranslations } from 'next-intl';
 import React, { useState } from "react";
+
+import Search from "@svg/search";
 
 const SearchForm = () => {
   const router = useRouter();

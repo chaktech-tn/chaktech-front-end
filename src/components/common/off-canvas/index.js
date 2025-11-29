@@ -1,13 +1,14 @@
 'use client';
+import Image from "next/image";
+import Link from "next/link";
+import { useTranslations } from 'next-intl';
+import React from "react";
+
 import logo from "@assets/img/categories/chaktech-logo.webp";
 import shape from "@assets/img/shape/offcanvas-shape-1.png";
 import LiveSearchForm from "@components/forms/live-search-form";
 import SocialLinks from "@components/social";
 import contactInfo from "@config/contact";
-import Image from "next/image";
-import Link from "next/link";
-import { useTranslations } from 'next-intl';
-import React from "react";
 // internal
 
 import MobileMenus from "./mobile-menus";

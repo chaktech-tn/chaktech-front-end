@@ -1,5 +1,6 @@
-import useCurrency from "@hooks/use-currency";
 import React from "react";
+
+import useCurrency from "@hooks/use-currency";
 
 const OrderSingleCartItem = ({ title, quantity, price }) => {
   const { formatPrice } = useCurrency();

@@ -1,5 +1,6 @@
-import contactInfo from "@config/contact";
 import React from "react";
+
+import contactInfo from "@config/contact";
 
 // Map platform names to icon classes
 const platformIcons = {

@@ -1,6 +1,7 @@
-import { getOrCreateSessionToken } from "@utils/sessionToken";
 import { useCallback, useRef } from "react";
 import { useSelector } from "react-redux";
+
+import { getOrCreateSessionToken } from "@utils/sessionToken";
 import { useSaveCheckoutDataMutation } from "src/redux/features/abandonedCheckout/abandonedCheckoutApi";
 
 // Debounce utility

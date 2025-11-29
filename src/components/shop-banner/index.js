@@ -1,10 +1,11 @@
 'use client';
 // internal
-import electromenager_banner from '@assets/img/banners/electromenager-banner.webp';
-import pc_portable_banner from '@assets/img/banners/pc-portable-banner.jpg';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
+
+import electromenager_banner from '@assets/img/banners/electromenager-banner.webp';
+import pc_portable_banner from '@assets/img/banners/pc-portable-banner.jpg';
 
 const ShopBanner = () => {
   const t = useTranslations('banner');

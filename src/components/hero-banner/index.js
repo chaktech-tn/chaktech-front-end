@@ -1,12 +1,13 @@
 "use client";
 // Original banner images
-import electromenager_banner from "@assets/img/banners/electromenager-banner.webp";
-import pc_portable_banner from "@assets/img/banners/pc-portable-banner.jpg";
-import smartphone_banner from "@assets/img/banners/smartphone-banner.png";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import React, { useMemo } from "react";
+
+import electromenager_banner from "@assets/img/banners/electromenager-banner.webp";
+import pc_portable_banner from "@assets/img/banners/pc-portable-banner.jpg";
+import smartphone_banner from "@assets/img/banners/smartphone-banner.png";
 
 // Original banner images array
 const bannerImages = [

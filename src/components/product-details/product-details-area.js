@@ -1,11 +1,12 @@
 "use client";
-import BuyNowModal from "@components/common/modals/buy-now-modal";
-import { SocialShare } from "@components/social";
-import { HeartTwo, CartTwo } from "@svg/index";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+
+import BuyNowModal from "@components/common/modals/buy-now-modal";
+import { SocialShare } from "@components/social";
+import { HeartTwo, CartTwo } from "@svg/index";
 // internal
 import { add_cart_product } from "src/redux/features/cartSlice";
 import { add_to_wishlist } from "src/redux/features/wishlist-slice";

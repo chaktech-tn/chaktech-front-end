@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:5001";
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "https://api.chaktech.tn";
 
 const CategoryGridBlock = ({ block }) => {
   const { content, settings } = block;

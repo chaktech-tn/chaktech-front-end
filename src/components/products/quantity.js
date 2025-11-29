@@ -1,7 +1,8 @@
-import { Minus, Plus } from "@svg/index";
 import React from "react";
 // internal
 import { useDispatch, useSelector } from "react-redux";
+
+import { Minus, Plus } from "@svg/index";
 import { decrement, increment } from "src/redux/features/cartSlice";
 
 

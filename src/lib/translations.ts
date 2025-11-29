@@ -1,5 +1,5 @@
 // Translation utility functions for frontend
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:5001";
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "https://api.chaktech.tn";
 
 export interface TranslationCache {
   [locale: string]: { [key: string]: string };

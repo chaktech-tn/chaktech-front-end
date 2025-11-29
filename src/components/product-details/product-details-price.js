@@ -1,5 +1,6 @@
-import useCurrency from "@hooks/use-currency";
 import React from "react";
+
+import useCurrency from "@hooks/use-currency";
 
 const ProductDetailsPrice = ({ price, discount }) => {
   const { formatPrice } = useCurrency();
