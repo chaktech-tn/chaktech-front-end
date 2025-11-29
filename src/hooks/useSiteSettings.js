@@ -2,9 +2,6 @@
 import { useState, useEffect } from "react";
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
-if (!API_BASE_URL) {
-  throw new Error("NEXT_PUBLIC_API_BASE_URL environment variable is not set");
-}
 
 let settingsCache = {};
 let cacheTimestamp = {};
@@ -12,9 +9,11 @@ let pendingRequests = {};
 const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes
 const FAILED_CACHE_DURATION = 1 * 60 * 1000; // 1 minute for failed requests (404, 429, etc.)
 // Suppress rate limit errors in development mode
-const SUPPRESS_RATE_LIMIT_ERRORS = process.env.NEXT_PUBLIC_SUPPRESS_RATE_LIMIT_ERRORS === 'true' || process.env.NODE_ENV === 'development';
+const SUPPRESS_RATE_LIMIT_ERRORS =
+  process.env.NEXT_PUBLIC_SUPPRESS_RATE_LIMIT_ERRORS === "true" ||
+  process.env.NODE_ENV === "development";
 
-export const useSiteSettings = (locale = "fr") => {
+function useSiteSettings(locale = "fr") {
   const [settings, setSettings] = useState(
     settingsCache[locale] !== undefined ? settingsCache[locale] : null
   );
@@ -30,7 +29,11 @@ export const useSiteSettings = (locale = "fr") => {
       const timestamp = cacheTimestamp[locale];
       const now = Date.now();
 
-      if (cached !== undefined && timestamp && now - timestamp < CACHE_DURATION) {
+      if (
+        cached !== undefined &&
+        timestamp &&
+        now - timestamp < CACHE_DURATION
+      ) {
         setSettings(cached);
         setIsLoading(false);
         return;
@@ -62,6 +65,14 @@ export const useSiteSettings = (locale = "fr") => {
             setIsLoading(true);
           }
 
+          if (!API_BASE_URL) {
+            // If API_BASE_URL is not set, return empty settings
+            const emptySettings = {};
+            setSettings(emptySettings);
+            setIsLoading(false);
+            return emptySettings;
+          }
+
           const response = await fetch(
             `${API_BASE_URL}/settings/${locale}`
           ).catch(() => {
@@ -76,7 +87,8 @@ export const useSiteSettings = (locale = "fr") => {
               // 404 - endpoint doesn't exist, cache empty settings for shorter duration
               const emptySettings = {};
               settingsCache[locale] = emptySettings;
-              cacheTimestamp[locale] = Date.now() - (CACHE_DURATION - FAILED_CACHE_DURATION);
+              cacheTimestamp[locale] =
+                Date.now() - (CACHE_DURATION - FAILED_CACHE_DURATION);
               setSettings(emptySettings);
               return emptySettings;
             } else if (response?.status === 429) {
@@ -90,7 +102,8 @@ export const useSiteSettings = (locale = "fr") => {
                 setSettings(emptySettings);
                 // Cache for shorter duration to retry sooner
                 settingsCache[locale] = emptySettings;
-                cacheTimestamp[locale] = Date.now() - (CACHE_DURATION - FAILED_CACHE_DURATION);
+                cacheTimestamp[locale] =
+                  Date.now() - (CACHE_DURATION - FAILED_CACHE_DURATION);
                 return emptySettings;
               }
               // Production mode - same behavior but could log if needed
@@ -101,7 +114,8 @@ export const useSiteSettings = (locale = "fr") => {
               setSettings(emptySettings);
               // Cache for shorter duration to retry sooner
               settingsCache[locale] = emptySettings;
-              cacheTimestamp[locale] = Date.now() - (CACHE_DURATION - FAILED_CACHE_DURATION);
+              cacheTimestamp[locale] =
+                Date.now() - (CACHE_DURATION - FAILED_CACHE_DURATION);
               return emptySettings;
             } else {
               // Other errors or CORS/network errors - use cached data or empty settings
@@ -154,7 +168,7 @@ export const useSiteSettings = (locale = "fr") => {
   }, [locale]);
 
   return { settings, isLoading, error };
-};
+}
 
 // Clear settings cache
 export const clearSiteSettingsCache = () => {
@@ -163,5 +177,5 @@ export const clearSiteSettingsCache = () => {
   pendingRequests = {};
 };
 
-// Default export for compatibility
+// Export as default
 export default useSiteSettings;

@@ -12,7 +12,7 @@ import CartSidebar from "@components/common/sidebar/cart-sidebar";
 import LiveSearchForm from "@components/forms/live-search-form";
 import useCartInfo from "@hooks/use-cart-info";
 import useSticky from "@hooks/use-sticky";
-import { useSiteSettings } from "@hooks/useSiteSettings";
+import useSiteSettings from "@hooks/useSiteSettings";
 import { Cart, Heart, Search, User } from "@svg/index";
 
 import Menus from "./menus";
@@ -52,32 +52,38 @@ const Header = ({ style_2 = false }) => {
                 <div className="row align-items-center" style={{ margin: 0 }}>
                   {/* Logo - Responsive sizing */}
                   <div className="col-xxl-1 col-xl-2 col-lg-3 col-md-4 col-sm-5 col-6">
-                    <div className="logo" style={{ 
-                      display: "flex", 
-                      alignItems: "center",
-                      height: "100%",
-                      minHeight: "60px"
-                    }}>
-                      <Link href="/" style={{ display: "flex", alignItems: "center" }}>
+                    <div
+                      className="logo"
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        height: "100%",
+                        minHeight: "60px",
+                      }}
+                    >
+                      <Link
+                        href="/"
+                        style={{ display: "flex", alignItems: "center" }}
+                      >
                         <Image
                           src={logoUrl}
                           alt={logoAlt}
                           width={112}
                           height={42}
                           priority
-                          style={{ 
+                          style={{
                             objectFit: "contain",
                             maxWidth: "100%",
                             height: "auto",
                             width: "auto",
-                            maxHeight: "42px"
+                            maxHeight: "42px",
                           }}
                           unoptimized
                         />
                       </Link>
                     </div>
                   </div>
-                  
+
                   {/* Main Menu - Hidden on mobile/tablet */}
                   <div className="col-xxl-6 col-xl-7 col-lg-6 d-none d-lg-block">
                     <div className="main-menu main-menu-13 pl-45 main-menu-ff-space">
@@ -86,7 +92,7 @@ const Header = ({ style_2 = false }) => {
                       </nav>
                     </div>
                   </div>
-                  
+
                   {/* Right Side Actions - Responsive */}
                   <div className="col-xxl-5 col-xl-3 col-lg-3 col-md-8 col-sm-7 col-6">
                     <div
@@ -114,12 +120,9 @@ const Header = ({ style_2 = false }) => {
                       >
                         <LiveSearchForm />
                       </div>
-                      
+
                       {/* Mobile/Tablet Search Button */}
-                      <div
-                        className="d-lg-none"
-                        style={{ flexShrink: 0 }}
-                      >
+                      <div className="d-lg-none" style={{ flexShrink: 0 }}>
                         <button
                           onClick={() => setIsMobileSearchOpen(true)}
                           type="button"
@@ -138,21 +141,23 @@ const Header = ({ style_2 = false }) => {
                             transition: "background-color 0.2s ease",
                           }}
                           onMouseEnter={(e) => {
-                            e.currentTarget.style.backgroundColor = "rgba(0, 0, 0, 0.05)";
+                            e.currentTarget.style.backgroundColor =
+                              "rgba(0, 0, 0, 0.05)";
                           }}
                           onMouseLeave={(e) => {
-                            e.currentTarget.style.backgroundColor = "transparent";
+                            e.currentTarget.style.backgroundColor =
+                              "transparent";
                           }}
                           aria-label="Search"
                         >
                           <Search />
                         </button>
                       </div>
-                      
+
                       {/* User Actions - Visible on sm and up */}
                       <div
                         className="header__action-13 d-none d-sm-flex"
-                        style={{ 
+                        style={{
                           flexShrink: 0,
                           gap: "4px",
                         }}
@@ -169,7 +174,7 @@ const Header = ({ style_2 = false }) => {
                         >
                           {userInfo?.imageURL ? (
                             <li>
-                              <Link 
+                              <Link
                                 href="/user-dashboard"
                                 style={{
                                   display: "flex",
@@ -193,7 +198,7 @@ const Header = ({ style_2 = false }) => {
                             </li>
                           ) : userInfo?.name ? (
                             <li>
-                              <Link 
+                              <Link
                                 href="/user-dashboard"
                                 style={{
                                   display: "flex",
@@ -203,14 +208,17 @@ const Header = ({ style_2 = false }) => {
                                   minHeight: "44px",
                                 }}
                               >
-                                <h2 className="text-uppercase tp-user-login-avater" style={{ margin: 0 }}>
+                                <h2
+                                  className="text-uppercase tp-user-login-avater"
+                                  style={{ margin: 0 }}
+                                >
                                   {userInfo.name[0]}
                                 </h2>
                               </Link>
                             </li>
                           ) : (
                             <li>
-                              <Link 
+                              <Link
                                 href="/login"
                                 style={{
                                   display: "flex",
@@ -226,7 +234,7 @@ const Header = ({ style_2 = false }) => {
                             </li>
                           )}
                           <li>
-                            <Link 
+                            <Link
                               href="/wishlist"
                               style={{
                                 display: "flex",
@@ -266,13 +274,15 @@ const Header = ({ style_2 = false }) => {
                             >
                               <Cart />
                               {quantity > 0 && (
-                                <span className="tp-item-count">{quantity}</span>
+                                <span className="tp-item-count">
+                                  {quantity}
+                                </span>
                               )}
                             </button>
                           </li>
                         </ul>
                       </div>
-                      
+
                       {/* Mobile Actions - Only cart on very small screens */}
                       <div className="d-sm-none">
                         <button
@@ -299,9 +309,12 @@ const Header = ({ style_2 = false }) => {
                           )}
                         </button>
                       </div>
-                      
+
                       {/* Hamburger Menu - Hidden on desktop */}
-                      <div className="header__hamburger d-lg-none" style={{ flexShrink: 0, marginLeft: "4px" }}>
+                      <div
+                        className="header__hamburger d-lg-none"
+                        style={{ flexShrink: 0, marginLeft: "4px" }}
+                      >
                         <button
                           onClick={() => setIsOffCanvasOpen(true)}
                           type="button"

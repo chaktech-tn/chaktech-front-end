@@ -25,7 +25,10 @@ export default function ShopDetailsMainArea({ id, slug }) {
   const { data: productBySlug, isLoading: isLoadingSlug, isError: isErrorSlug } = useGetProductBySlugQuery(slug, {
     skip: !slug,
   });
-  const { data: productById, isLoading: isLoadingId, isError: isErrorId } = useGetProductQuery(id);
+  // Use id-based query if id is provided, otherwise skip
+  const { data: productById, isLoading: isLoadingId, isError: isErrorId } = useGetProductQuery(id, {
+    skip: !id,
+  });
   
   const product = productBySlug || productById;
   const isLoading = isLoadingSlug || isLoadingId;

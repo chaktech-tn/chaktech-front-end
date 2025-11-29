@@ -1,12 +1,12 @@
-'use client';
+"use client";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { useTranslations } from 'next-intl';
+import { useTranslations } from "next-intl";
 import React from "react";
 
 const SingleCategory = ({ item }) => {
   const router = useRouter();
-  const t = useTranslations('common');
+  const t = useTranslations("common");
   return (
     <div className="product__category-item mb-20 text-center">
       <div className="product__category-thumb w-img">
@@ -23,7 +23,7 @@ const SingleCategory = ({ item }) => {
             )
           }
           onKeyDown={(e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
+            if (e.key === "Enter" || e.key === " ") {
               router.push(
                 `/shop?Category=${item.parent
                   .toLowerCase()
@@ -35,26 +35,28 @@ const SingleCategory = ({ item }) => {
           }}
           style={{ cursor: "pointer" }}
         >
-          {item.img && item.img.trim() !== '' ? (
+          {item.img &&
+          typeof item.img === "string" &&
+          item.img.trim() !== "" ? (
             <Image
-              src={item.img}
-              alt={item.parent || t('images')}
+              src={item.img.trim()}
+              alt={item.parent || t("images")}
               width={272}
               height={181}
               style={{ width: "100%", height: "100%", objectFit: "cover" }}
             />
           ) : (
-            <div 
-              style={{ 
-                width: "100%", 
-                height: "181px", 
+            <div
+              style={{
+                width: "100%",
+                height: "181px",
                 backgroundColor: "#f0f0f0",
                 display: "flex",
                 alignItems: "center",
-                justifyContent: "center"
+                justifyContent: "center",
               }}
             >
-              <span style={{ color: "#999" }}>{t('images')}</span>
+              <span style={{ color: "#999" }}>{t("images")}</span>
             </div>
           )}
         </div>
@@ -74,7 +76,7 @@ const SingleCategory = ({ item }) => {
               )
             }
             onKeyDown={(e) => {
-              if (e.key === 'Enter' || e.key === ' ') {
+              if (e.key === "Enter" || e.key === " ") {
                 router.push(
                   `/shop?Category=${item.parent
                     .toLowerCase()
