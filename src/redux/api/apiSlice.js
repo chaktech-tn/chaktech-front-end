@@ -22,10 +22,15 @@ const baseQueryWithReauth = async (args, api, extraOptions) => {
       if (token) {
         headers.set("Authorization", `Bearer ${token}`);
       }
+      // Add CORS-friendly headers
+      headers.set("Content-Type", "application/json");
+      headers.set("Accept", "application/json");
       return headers;
     },
     // Add timeout
     timeout: 10000, // 10 seconds
+    // Add credentials for CORS if needed
+    credentials: "omit", // Change to "include" if backend requires credentials
   });
 
   const result = await baseQuery(args, api, extraOptions);
@@ -55,12 +60,21 @@ const baseQueryWithReauth = async (args, api, extraOptions) => {
       result.error.status === "FETCH_ERROR" ||
       result.error.status === "PARSING_ERROR"
     ) {
-      // Network error - backend not responding
+      // Check if it's a CORS error
+      const isCorsError = 
+        result.error.error?.message?.includes("CORS") ||
+        result.error.error?.message?.includes("cors") ||
+        result.error.error?.message?.includes("Failed to fetch") ||
+        result.error.error?.name === "TypeError";
+      
+      // Network error - backend not responding or CORS issue
       result.error = {
         ...result.error,
-        message:
-          "Unable to connect to the server. Please check if the backend is running.",
+        message: isCorsError
+          ? "CORS error: The backend server needs to allow requests from this domain. Please configure CORS on the backend."
+          : "Unable to connect to the server. Please check if the backend is running.",
         isNetworkError: true,
+        isCorsError: isCorsError,
       };
     }
   }
