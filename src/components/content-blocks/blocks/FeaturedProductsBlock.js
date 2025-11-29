@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+
 import ProductListBlock from "./ProductListBlock";
 
 // FeaturedProductsBlock is essentially the same as ProductListBlock

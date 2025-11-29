@@ -1,9 +1,9 @@
-import React from "react";
-import Image from "next/image";
-import { useDispatch } from "react-redux";
-import Link from "next/link";
-import { remove_product } from "src/redux/features/cartSlice";
 import useCurrency from "@hooks/use-currency";
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
+import { useDispatch } from "react-redux";
+import { remove_product } from "src/redux/features/cartSlice";
 
 const SingleCartItem = ({ item }) => {
   const { _id, slug, image, originalPrice, title, orderQuantity, discount } =

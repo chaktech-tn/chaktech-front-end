@@ -1,4 +1,5 @@
 import { apiSlice } from "../../api/apiSlice";
+
 import { set_client_secret } from "./orderSlice";
 
 
@@ -7,7 +8,7 @@ export const authApi = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     createPaymentIntent: builder.mutation({
       query: (data) => ({
-        url: "api/order/create-payment-intent",
+        url: "order/create-payment-intent",
         method: "POST",
         body: data,
       }),
@@ -24,12 +25,12 @@ export const authApi = apiSlice.injectEndpoints({
     }),
     addOrder: builder.mutation({
       query: (data) => ({
-        url: "api/order/addOrder",
+        url: "order/addOrder",
         method: "POST",
         body: data,
       }),
 
-      async onQueryStarted(arg, { queryFulfilled, dispatch }) {
+      async onQueryStarted(arg, { queryFulfilled }) {
         try {
           const result = await queryFulfilled;
           if(result){

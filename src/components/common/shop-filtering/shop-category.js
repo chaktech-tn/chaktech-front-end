@@ -1,9 +1,9 @@
-import React from "react";
-import { useRouter } from "next/navigation";
-// internal
 import ErrorMessage from "@components/error-message/error";
-import { useGetCategoriesQuery } from "src/redux/features/categoryApi";
 import ShopCategoryLoader from "@components/loader/shop-category-loader";
+import { useRouter } from "next/navigation";
+import React from "react";
+// internal
+import { useGetCategoriesQuery } from "src/redux/features/categoryApi";
 
 const ShopCategory = () => {
   const router = useRouter();
@@ -54,7 +54,8 @@ const ShopCategory = () => {
               <ul>
                 {category.children.map((item, i) => (
                   <li key={i}>
-                    <a
+                    <button
+                      type="button"
                       onClick={() =>
                         router.push(
                           `/shop?category=${item
@@ -64,10 +65,10 @@ const ShopCategory = () => {
                             .join("-")}`
                         )
                       }
-                      style={{ cursor: "pointer", textTransform: "capitalize" }}
+                      style={{ cursor: "pointer", textTransform: "capitalize", background: "none", border: "none", padding: 0, textAlign: "left" }}
                     >
                       {item}
-                    </a>
+                    </button>
                   </li>
                 ))}
               </ul>

@@ -1,13 +1,14 @@
 'use client';
 
-import React, { useState } from "react";
+import MobileCategoryMenu from "@components/menu/mobile-category-menu";
+import useMenuData from "@layout/menu-data";
 import Link from "next/link";
 import { useTranslations } from 'next-intl';
+import React, { useState } from "react";
 // internal
-import useMenuData from "@layout/menu-data";
-import MobileCategoryMenu from "@components/menu/mobile-category-menu";
 
 const MobileMenus = () => {
+  // Force re-compile
   const menu_data = useMenuData();
   const t = useTranslations('menu');
   const [subMenu, setSubMenu] = useState("");
@@ -53,7 +54,10 @@ const MobileMenus = () => {
                     navTitle === menu.title ? "mean-clicked" : ""
                   }`}
                   href="#"
-                  onClick={() => openMobileMenu(menu.title)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    openMobileMenu(menu.title);
+                  }}
                   style={{ fontSize: "18px" }}
                 >
                   <i className="fal fa-plus"></i>

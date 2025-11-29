@@ -1,19 +1,21 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import Image from "next/image";
-import { useDispatch, useSelector } from "react-redux";
-import { useTranslations } from "next-intl";
-// internal
-import { HeartTwo, CartTwo } from "@svg/index";
-import { SocialShare } from "@components/social";
 import BuyNowModal from "@components/common/modals/buy-now-modal";
-import ProductDetailsPrice from "./product-details-price";
-import ProductQuantity from "./product-quantity";
-import ProductDetailsCategories from "./product-details-categories";
-import ProductDetailsTags from "./product-details-tags";
-import TrustBadges from "./trust-badges";
+import { SocialShare } from "@components/social";
+import { HeartTwo, CartTwo } from "@svg/index";
+import Image from "next/image";
+import { useTranslations } from "next-intl";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+// internal
 import { add_cart_product } from "src/redux/features/cartSlice";
 import { add_to_wishlist } from "src/redux/features/wishlist-slice";
+
+import ProductDetailsCategories from "./product-details-categories";
+import ProductDetailsPrice from "./product-details-price";
+import ProductDetailsTags from "./product-details-tags";
+import ProductQuantity from "./product-quantity";
+import TrustBadges from "./trust-badges";
+
 
 const ProductDetailsArea = ({ product }) => {
   const t = useTranslations("product");

@@ -1,10 +1,10 @@
 'use client';
 
-import React from 'react';
-import Link from 'next/link';
-import { useGetCategoriesQuery } from 'src/redux/features/categoryApi';
 import ShopCategoryLoader from '@components/loader/shop-category-loader';
 import { formatCategoryName } from '@utils/formatCategoryName';
+import Link from 'next/link';
+import React from 'react';
+import { useGetCategoriesQuery } from 'src/redux/features/categoryApi';
 
 const CategoryMenu = () => {
   const { data: categoriesData, isLoading, isError } = useGetCategoriesQuery();

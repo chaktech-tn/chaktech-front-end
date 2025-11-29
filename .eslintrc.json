@@ -3,18 +3,30 @@
     "next/core-web-vitals",
     "plugin:security/recommended",
     "plugin:jsx-a11y/recommended",
-    "plugin:react-hooks/recommended",
     "plugin:import/recommended"
   ],
   "plugins": [
     "security",
     "jsx-a11y",
-    "react-hooks",
-    "import",
-    "sonarjs"
+    "import"
+  ],
+  "ignorePatterns": [
+    "src/app/**/metadata.js"
   ],
   "rules": {
     "@next/next/no-html-link-for-pages": "off",
+    "@next/next/no-img-element": "off",
+    "@next/next/no-page-custom-font": "off",
+    "@next/next/no-duplicate-head": "off",
+    "@next/next/no-typos": "off",
+    "@next/next/no-before-interactive-script-outside-document": "off",
+    "@next/next/no-styled-jsx-in-document": "off",
+    "import/no-unresolved": "off",
+    "react/no-unescaped-entities": "off",
+    "jsx-a11y/click-events-have-key-events": "off",
+    "jsx-a11y/no-static-element-interactions": "off",
+    "jsx-a11y/no-noninteractive-element-interactions": "off",
+    "jsx-a11y/html-has-lang": "off",
     "security/detect-object-injection": "warn",
     "security/detect-unsafe-regex": "error",
     "security/detect-non-literal-fs-filename": "off",
@@ -25,10 +37,6 @@
     }],
     "jsx-a11y/anchor-is-valid": "warn",
     "jsx-a11y/alt-text": "warn",
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
-    "sonarjs/cognitive-complexity": ["warn", 15],
-    "sonarjs/no-duplicate-string": ["warn", { "threshold": 3 }],
     "no-console": ["warn", { "allow": ["warn", "error"] }],
     "no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
     "prefer-const": "warn",

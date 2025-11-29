@@ -1,11 +1,11 @@
 import ShopDetailsMainArea from "@components/product-details/product-details-area-main";
-import { generateProductMetadata, generateProductStructuredData, generateBreadcrumbStructuredData } from "@lib/seo-utils";
 import { siteConfig } from "@lib/seo-config";
+import { generateProductMetadata, generateProductStructuredData, generateBreadcrumbStructuredData } from "@lib/seo-utils";
 
 async function getProduct(id) {
   try {
     const apiUrl = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:5001';
-    const res = await fetch(`${apiUrl}/api/products/${id}`, {
+    const res = await fetch(`${apiUrl}/products/${id}`, {
       cache: 'no-store', // or 'force-cache' for better performance
     });
     

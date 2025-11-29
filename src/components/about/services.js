@@ -1,6 +1,6 @@
+import { Dashboard, Mobile, Website } from "@svg/index";
 import Link from "next/link";
 // internal
-import { Dashboard, Mobile, Website } from "@svg/index";
 
  const service_data = [
   {
@@ -38,7 +38,7 @@ const Services = () => {
                       </span>
                     </div>
                     <div className="services__btn-9">
-                      <Link href="#">
+                      <Link href="/">
                         <i className="fa-light fa-arrow-up-right"></i>
                       </Link>
                     </div>
@@ -48,7 +48,7 @@ const Services = () => {
                       {item.project}
                     </span>
                     <h3 className="services__title-9">
-                      <Link href="#">{item.title}</Link>
+                      <Link href="/">{item.title}</Link>
                     </h3>
                   </div>
                 </div>

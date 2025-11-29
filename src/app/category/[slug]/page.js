@@ -1,11 +1,11 @@
 import ShopMainArea from "@components/shop/shop-main-area";
-import { generateCategoryMetadata } from "@lib/seo-utils";
 import { siteConfig } from "@lib/seo-config";
+import { generateCategoryMetadata } from "@lib/seo-utils";
 
 async function getCategoryBySlug(slug) {
   try {
     const apiUrl = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:5001';
-    const res = await fetch(`${apiUrl}/api/category/show`, {
+    const res = await fetch(`${apiUrl}/category/show`, {
       cache: 'no-store',
     });
     

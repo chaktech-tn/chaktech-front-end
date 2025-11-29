@@ -1,9 +1,9 @@
 'use client';
-import React, { useState } from "react";
-import { useTranslations } from 'next-intl';
 // internal
 import CouponForm from "@components/forms/coupon-form";
 import LoginForm from "@components/forms/login-form";
+import { useTranslations } from 'next-intl';
+import React, { useState } from "react";
 
 const CouponArea = (props) => {
   const t = useTranslations('checkout');

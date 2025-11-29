@@ -1,11 +1,11 @@
 'use client';
-import React, { useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
-// internal
 import { Search } from "@svg/index";
+import { useRouter, useSearchParams } from "next/navigation";
+import React, { useState } from "react";
+// internal
 
 const ShopModel = ({ all_products }) => {
-  let all_brands = [...new Set(all_products.map((prd) => prd.brand?.name))];
+  const all_brands = [...new Set(all_products.map((prd) => prd.brand?.name))];
   const [brands, setBrands] = useState(all_brands);
   const [isChecked, setIsChecked] = useState("");
   const [searchValue, setSearchValue] = useState("");
@@ -34,7 +34,7 @@ const ShopModel = ({ all_products }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (searchValue) {
-      let searchBrands = all_brands.filter((b) =>
+      const searchBrands = all_brands.filter((b) =>
         b.name.toLowerCase().includes(searchValue.toLowerCase())
       );
       setBrands(searchBrands);

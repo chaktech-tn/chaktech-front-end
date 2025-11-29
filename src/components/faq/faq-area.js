@@ -1,5 +1,6 @@
 
 import { DotsTwo, General, Support } from "@svg/index";
+
 import FaqThumb from "./faq-thumb";
 import SingleFaq from "./single-faq";
 

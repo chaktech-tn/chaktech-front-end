@@ -1,10 +1,9 @@
 'use client';
-import React from "react";
-import { useTranslations } from 'next-intl';
 import contactInfo from "@config/contact";
 
+import React from "react";
+
 const RefundReturnArea = () => {
-  const t = useTranslations('refundReturn');
 
   return (
     <section className="policy__area pb-120 pt-120">

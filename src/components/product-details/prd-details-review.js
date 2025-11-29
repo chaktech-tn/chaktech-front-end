@@ -1,9 +1,10 @@
-import React from "react";
 // internal
 import user_1 from "@assets/img/users/user-1.jpg";
 import user_2 from "@assets/img/users/user-2.jpg";
-import ProductReviewItem from "./product-review-item";
 import ReviewForm from "@components/forms/review-form";
+import React from "react";
+
+import ProductReviewItem from "./product-review-item";
 
 // single rating bar
 function SingleRatingBar({ text, progress }) {

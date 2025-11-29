@@ -1,15 +1,15 @@
 'use client';
-import React, {useState } from "react";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as Yup from "yup";
 // internal
 import ErrorMessage from "@components/error-message/error";
-import { notifyError, notifySuccess, ToastContainer } from "@utils/toast";
 import Shapes from "@components/login-register/shapes";
-import Lock from "@svg/lock";
+import { yupResolver } from "@hookform/resolvers/yup";
 import EyeCut from "@svg/eye-cut";
+import Lock from "@svg/lock";
+import { notifyError, notifySuccess, ToastContainer } from "@utils/toast";
+import React, {useState } from "react";
+import { useForm } from "react-hook-form";
 import { useConfirmForgotPasswordMutation } from "src/redux/features/auth/authApi";
+import * as Yup from "yup";
 
 // schema
 const schema = Yup.object().shape({
@@ -35,7 +35,7 @@ const ForgotPasswordArea = ({ token }) => {
   });
   // onSubmit
   const onSubmit = (data) => {
-    console.log(data);
+
     confirmForgotPassword({
       password: data.password,
       token,

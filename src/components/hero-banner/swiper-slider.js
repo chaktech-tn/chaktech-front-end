@@ -1,13 +1,18 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 import { useTranslations } from "next-intl";
+import React, { useEffect, useState } from "react";
+import { Autoplay, EffectFade, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectFade, Autoplay, Navigation, Pagination } from "swiper";
+import "swiper/css";
+import "swiper/css/effect-fade";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 import { RightArrow } from "@svg/index";
 
 const SwiperSlider = ({ sliderData }) => {
+  // Force re-compile
   const [loop, setLoop] = useState(false);
   const t = useTranslations("hero");
 

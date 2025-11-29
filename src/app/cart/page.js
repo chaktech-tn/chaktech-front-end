@@ -1,11 +1,11 @@
 'use client';
-import { useTranslations } from 'next-intl';
-import Wrapper from "@layout/wrapper";
-import Header from "@layout/header";
-import Footer from "@layout/footer";
-import CartBreadcrumb from "@components/cart/cart-breadcrumb";
 import CartArea from "@components/cart/cart-area";
+import CartBreadcrumb from "@components/cart/cart-breadcrumb";
 import ShopCta from "@components/cta";
+import Footer from "@layout/footer";
+import Header from "@layout/header";
+import Wrapper from "@layout/wrapper";
+import { useTranslations } from 'next-intl';
 
 export default function Cart() {
   const t = useTranslations('cart');

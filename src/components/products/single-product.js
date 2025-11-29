@@ -1,32 +1,37 @@
 "use client";
-import React, { useState } from "react";
+import BuyNowModal from "@components/common/modals/buy-now-modal";
+
+import useCurrency from "@hooks/use-currency";
+import { CartTwo, Eye, HeartTwo } from "@svg/index";
+import { trackAddToCart } from "@utils/posthog";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useDispatch, useSelector } from "react-redux";
 import { useTranslations } from "next-intl";
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 // internal
-import { CartTwo, Compare, Eye, HeartTwo } from "@svg/index";
-import { RatingFull, RatingHalf } from "./rating";
-import ProductModal from "@components/common/modals/product-modal";
-import BuyNowModal from "@components/common/modals/buy-now-modal";
-import OldNewPrice from "./old-new-price";
+
 import {
   add_cart_product,
   initialOrderQuantity,
 } from "src/redux/features/cartSlice";
-import { add_to_wishlist } from "src/redux/features/wishlist-slice";
 import { setProduct } from "src/redux/features/productSlice";
-import { trackAddToCart } from "@utils/posthog";
+import { add_to_wishlist } from "src/redux/features/wishlist-slice";
+
+import OldNewPrice from "./old-new-price";
+
+
 
 const SingleProduct = ({ product, discountPrd = false }) => {
   const t = useTranslations("product");
   const tCommon = useTranslations("common");
-  const { _id, slug, image, title, price, discount, originalPrice } =
+  const { _id, slug, image, title, discount, originalPrice } =
     product || {};
   const productUrl = slug ? `/product/${slug}` : `/product-details/${_id}`;
   const router = useRouter();
   const dispatch = useDispatch();
+  const { formatPrice } = useCurrency();
   const { cart_products } = useSelector((state) => state.cart);
   const { wishlist } = useSelector((state) => state.wishlist);
   const isWishlistAdded = wishlist.some((item) => item._id === _id);
@@ -199,14 +204,28 @@ const SingleProduct = ({ product, discountPrd = false }) => {
             style={{
               zIndex: 10,
               position: "absolute",
-              bottom: "15px",
-              left: "15px",
-              right: "15px",
+              bottom: "12px",
+              left: "12px",
+              right: "12px",
               pointerEvents: "auto",
+              gap: "8px",
             }}
           >
             {isAddedToCart ? (
-              <Link href="/cart" className="product-add-cart-btn flex-fill">
+              <Link 
+                href="/cart" 
+                className="product-add-cart-btn flex-fill"
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: "6px",
+                  padding: "8px 12px",
+                  fontSize: "13px",
+                  fontWeight: "500",
+                  textDecoration: "none",
+                }}
+              >
                 <CartTwo />
                 {t("viewCart")}
               </Link>
@@ -220,9 +239,22 @@ const SingleProduct = ({ product, discountPrd = false }) => {
                   }}
                   type="button"
                   className="product-add-cart-btn flex-fill"
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: "6px",
+                    padding: "8px 12px",
+                    fontSize: "13px",
+                    fontWeight: "500",
+                    border: "none",
+                    borderRadius: "6px",
+                    cursor: "pointer",
+                    transition: "all 0.2s ease",
+                  }}
                 >
                   <CartTwo />
-                  {t("addToCart")}
+                  <span>{t("addToCart")}</span>
                 </button>
                 <button
                   onClick={(e) => {
@@ -233,15 +265,28 @@ const SingleProduct = ({ product, discountPrd = false }) => {
                   type="button"
                   className="product-buy-now-btn flex-fill"
                   style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: "6px",
                     backgroundColor: "#22c55e",
                     color: "white",
                     border: "none",
-                    padding: "12px",
-                    borderRadius: "4px",
+                    padding: "8px 12px",
+                    fontSize: "13px",
+                    fontWeight: "500",
+                    borderRadius: "6px",
                     cursor: "pointer",
+                    transition: "all 0.2s ease",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = "#16a34a";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = "#22c55e";
                   }}
                 >
-                  {tCommon("buyNow")}
+                  <span>{tCommon("buyNow")}</span>
                 </button>
               </>
             )}
@@ -260,7 +305,7 @@ const SingleProduct = ({ product, discountPrd = false }) => {
           {discount <= 0 && (
             <div className="product__price">
               <span className="product__ammount">
-                ${originalPrice.toFixed(2)}
+                {formatPrice(originalPrice, 2)}
               </span>
             </div>
           )}

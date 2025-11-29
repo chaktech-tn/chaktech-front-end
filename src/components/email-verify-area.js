@@ -1,10 +1,10 @@
 'use client';
-import { useRouter } from "next/navigation";
-import React, { useEffect } from "react";
 // internal
 import ErrorMessage from "@components/error-message/error";
 import Loader from "@components/loader/loader";
 import { notifySuccess } from "@utils/toast";
+import { useRouter } from "next/navigation";
+import React, { useEffect } from "react";
 import { useConfirmEmailQuery } from "src/redux/features/auth/authApi";
 
 const EmailVerifyArea = ({ token }) => {

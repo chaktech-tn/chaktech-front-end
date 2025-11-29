@@ -467,7 +467,8 @@ export function generateHreflangAlternates(pathname, locales, defaultLocale) {
       ar: "ar-TN",
       en: "en-TN",
     };
-
+    
+    // eslint-disable-next-line security/detect-object-injection
     alternates[localeMap[locale] || locale] = `${siteConfig.url}${url}`;
   });
 

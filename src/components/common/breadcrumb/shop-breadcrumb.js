@@ -1,8 +1,8 @@
 'use client';
-import React from "react";
-import { useTranslations } from 'next-intl';
-import Link from "next/link";
 import { Home } from "@svg/index";
+import Link from "next/link";
+import { useTranslations } from 'next-intl';
+import React from "react";
 
 const ShopBreadcrumb = () => {
   const t = useTranslations('breadcrumb');

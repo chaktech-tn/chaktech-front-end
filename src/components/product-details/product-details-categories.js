@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const ProductDetailsCategories = ({name}) => {
@@ -5,7 +6,7 @@ const ProductDetailsCategories = ({name}) => {
     <div className="product__details-categories product__details-more">
       <p>Category:</p>
       <span>
-        <a href="#">{" "}{name}</a>
+        <Link href="/">{" "}{name}</Link>
       </span>
     </div>
   );

@@ -1,9 +1,10 @@
 'use client';
+import LoginForm from "@components/forms/login-form";
 import Link from "next/link";
 import { useTranslations } from 'next-intl';
+
 // internal
 import Shapes from "./shapes";
-import LoginForm from "@components/forms/login-form";
 
 const LoginArea = () => {
   const t = useTranslations('auth');

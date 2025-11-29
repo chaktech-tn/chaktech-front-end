@@ -1,8 +1,8 @@
+import AboutArea from "@components/about";
+import ShopCta from "@components/cta";
+import Footer from "@layout/footer";
 import Header from "@layout/header";
 import Wrapper from "@layout/wrapper";
-import ShopCta from "@components/cta";
-import AboutArea from "@components/about";
-import Footer from "@layout/footer";
 
 export const metadata = {
   title: "À propos",

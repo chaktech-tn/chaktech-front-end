@@ -1,9 +1,10 @@
-import React from "react";
-import { notFound } from "next/navigation";
+import BlockRenderer from "@components/content-blocks/BlockRenderer";
+import Footer from "@layout/footer";
 import Header from "@layout/header";
 import Wrapper from "@layout/wrapper";
-import Footer from "@layout/footer";
-import BlockRenderer from "@components/content-blocks/BlockRenderer";
+import { notFound } from "next/navigation";
+import React from "react";
+
 import { generateMetadata as generatePageMetadata } from "./metadata";
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:5001";

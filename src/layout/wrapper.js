@@ -1,14 +1,14 @@
 'use client';
+import ProductModal from "@components/common/modals/product-modal";
+import BackToTopCom from "@components/common/scroll-to-top";
+import {ToastContainer} from '@utils/toast';
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 // internal
-import BackToTopCom from "@components/common/scroll-to-top";
-import { get_wishlist_products } from "src/redux/features/wishlist-slice";
 import { get_cart_products } from "src/redux/features/cartSlice";
 import { get_coupons } from "src/redux/features/coupon/couponSlice";
 import { get_shipping } from "src/redux/features/order/orderSlice";
-import ProductModal from "@components/common/modals/product-modal";
-import {ToastContainer} from '@utils/toast';
+import { get_wishlist_products } from "src/redux/features/wishlist-slice";
 
 const Wrapper = ({ children }) => {
   const { product,isShow } = useSelector(state => state.product)

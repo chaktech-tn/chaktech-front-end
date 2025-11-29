@@ -1,14 +1,14 @@
 'use client';
-import React from "react";
+import ErrorMessage from "@components/error-message/error";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { notifyError, notifySuccess } from "@utils/toast";
+import { useTranslations } from 'next-intl';
+import React from "react";
 import { useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
-import * as Yup from "yup";
-import { useTranslations } from 'next-intl';
-// internal
 import { useChangePasswordMutation } from "src/redux/features/auth/authApi";
-import ErrorMessage from "@components/error-message/error";
-import { notifyError, notifySuccess } from "@utils/toast";
+import * as Yup from "yup";
+// internal
 
 const ChangePassword = () => {
   const t = useTranslations('user');
@@ -40,7 +40,7 @@ const ChangePassword = () => {
       password: data.password,
       newPassword: data.newPassword,
     }).then((result) => {
-      console.log(result)
+
       if (result?.error) {
         notifyError(result?.error?.data?.message)
       }

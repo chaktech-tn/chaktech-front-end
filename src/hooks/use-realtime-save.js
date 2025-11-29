@@ -1,7 +1,7 @@
-import { useCallback, useRef } from "react";
-import { useSaveCheckoutDataMutation } from "src/redux/features/abandonedCheckout/abandonedCheckoutApi";
-import { useSelector } from "react-redux";
 import { getOrCreateSessionToken } from "@utils/sessionToken";
+import { useCallback, useRef } from "react";
+import { useSelector } from "react-redux";
+import { useSaveCheckoutDataMutation } from "src/redux/features/abandonedCheckout/abandonedCheckoutApi";
 
 // Debounce utility
 const debounce = (func, wait) => {
@@ -29,18 +29,37 @@ const useRealtimeSave = () => {
         return;
       }
 
+      // Build customer name from firstName and lastName if name is not provided
+      let customerName = formData.name || null;
+      if (!customerName && formData.firstName && formData.lastName) {
+        customerName = `${formData.firstName} ${formData.lastName}`;
+      } else if (!customerName && formData.firstName) {
+        customerName = formData.firstName;
+      }
+
       try {
         await saveCheckoutData({
           sessionToken,
           cartContents: cart_products || [],
-          customerName: formData.name || formData.firstName + " " + formData.lastName || null,
+          customerName: customerName,
           customerAddress: formData.address || null,
           customerPhone: formData.contact || formData.phone || null,
           customerEmail: formData.email || null,
         }).unwrap();
       } catch (error) {
         // Silently handle errors - don't interrupt user experience
-        console.error("Error saving checkout data:", error);
+        // RTK Query errors have a specific structure
+        const errorMessage = error?.data?.message || error?.message || "Unknown error";
+        const errorStatus = error?.status || "N/A";
+        
+        // Only log in development to avoid console noise in production
+        if (process.env.NODE_ENV === 'development') {
+          console.error("Error saving checkout data:", {
+            message: errorMessage,
+            status: errorStatus,
+            error: error
+          });
+        }
       }
     },
     [saveCheckoutData, cart_products]

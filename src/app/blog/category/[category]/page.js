@@ -1,6 +1,6 @@
+import Footer from "@layout/footer";
 import Header from "@layout/header";
 import Wrapper from "@layout/wrapper";
-import Footer from "@layout/footer";
 
 async function getBlogsByCategory(category) {
   try {

@@ -1,24 +1,25 @@
 "use client";
-import Image from "next/image";
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useTranslations } from "next-intl";
 // internal
-import { Compare, CartTwo, Times, HeartTwo } from "@svg/index";
-import SocialLinks from "@components/social";
-import BuyNowModal from "./buy-now-modal";
 import OldNewPrice from "@components/products/old-new-price";
-import Quantity from "@components/products/quantity";
 import ProductCategories from "@components/products/product-categories";
 import ProductTags from "@components/products/product-tags";
+import Quantity from "@components/products/quantity";
+import SocialLinks from "@components/social";
+import { Compare, CartTwo, Times, HeartTwo } from "@svg/index";
+import Image from "next/image";
+import Link from "next/link";
+import { useTranslations } from "next-intl";
+import React, { useState } from "react";
+import { Modal } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
 import {
   add_cart_product,
   initialOrderQuantity,
 } from "src/redux/features/cartSlice";
-import Link from "next/link";
-import { add_to_wishlist } from "src/redux/features/wishlist-slice";
-import { Modal } from "react-bootstrap";
 import { handleModalShow } from "src/redux/features/productSlice";
+import { add_to_wishlist } from "src/redux/features/wishlist-slice";
+
+import BuyNowModal from "./buy-now-modal";
 
 const ProductModal = () => {
   const { product, isShow } = useSelector((state) => state.product);
@@ -63,7 +64,7 @@ const ProductModal = () => {
     dispatch(initialOrderQuantity());
   };
 
-  console.log(relatedImages, "relatedImages");
+
 
   return (
     <Modal

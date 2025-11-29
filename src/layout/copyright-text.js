@@ -1,7 +1,7 @@
 'use client';
-import Link from "next/link";
-import React from "react";
+
 import { useTranslations } from 'next-intl';
+import React from "react";
 
 const CopyrightText = () => {
   const t = useTranslations('common');

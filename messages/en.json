@@ -194,6 +194,8 @@
     "searchPlaceholder": "Search for products...",
     "searching": "Searching...",
     "noResults": "No products found",
+    "result": "result",
+    "results": "results",
     "slider1": {
       "preTitle": "Home Appliances\nTunisia",
       "title": "Discover our\nwide range"
@@ -206,7 +208,8 @@
       "preTitle": "Smartphones\n& Tablets",
       "title": "Best prices\nin Tunisia"
     },
-    "viewMore": "View More"
+    "viewMore": "View More",
+    "viewAllResults": "View all results"
   },
   "about": {
     "subtitle": "About Us",
@@ -354,7 +357,8 @@
     "allProducts": "all"
   },
   "offcanvas": {
-    "followUs": "Follow us:"
+    "followUs": "Follow us:",
+    "search": "Search"
   },
   "category": {
     "noCategoryFound": "No Category found!"

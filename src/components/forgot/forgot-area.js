@@ -1,7 +1,7 @@
+import ForgotForm from "@components/forms/forgot-form";
+import Shapes from "@components/login-register/shapes";
 import Link from "next/link";
 // internal
-import Shapes from "@components/login-register/shapes";
-import ForgotForm from "@components/forms/forgot-form";
 
 const ForgotArea = () => {
   return (

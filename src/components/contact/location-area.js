@@ -1,10 +1,10 @@
-import Image from "next/image";
 // internal
 import location_icon_1 from "@assets/img/contact/contact-location-1.png";
 import location_icon_2 from "@assets/img/contact/contact-location-2.png";
 import location_icon_3 from "@assets/img/contact/contact-location-3.png";
 import contactInfo from "@config/contact";
 import { siteConfig } from "@lib/seo-config";
+import Image from "next/image";
 
 // single location item
 function SingleLocationItem({ title, icon, location, tel }) {
@@ -38,7 +38,7 @@ function SingleLocationItem({ title, icon, location, tel }) {
         <div className="col-lg-3 col-md-4 col-sm-5">
           <div className="contact__location-btn text-sm-end">
             <a
-              rel="noreferrer"
+              rel="noopener noreferrer"
               href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${siteConfig.address.streetAddress}, ${siteConfig.address.addressLocality}, ${siteConfig.address.addressRegion}, Tunisia`)}`}
               target="_blank"
               className="tp-btn-border"

@@ -1,14 +1,15 @@
-import { notifySuccess } from "@utils/toast";
-import { apiSlice } from "src/redux/api/apiSlice";
-import { userLoggedIn } from "./authSlice";
 import { identifyUser } from "@utils/posthog";
+
+import { apiSlice } from "src/redux/api/apiSlice";
+
+import { userLoggedIn } from "./authSlice";
 
 export const authApi = apiSlice.injectEndpoints({
   overrideExisting:true,
   endpoints: (builder) => ({
     registerUser: builder.mutation({
       query: (data) => ({
-        url: "api/user/signup",
+        url: "user/signup",
         method: "POST",
         body: data,
       }),
@@ -17,7 +18,7 @@ export const authApi = apiSlice.injectEndpoints({
     // login
     loginUser: builder.mutation({
       query: (data) => ({
-        url: "api/user/login",
+        url: "user/login",
         method: "POST",
         body: data,
       }),
@@ -52,7 +53,7 @@ export const authApi = apiSlice.injectEndpoints({
 
     // get me
     getUser: builder.query({
-      query: () => "api/user/me",
+      query: () => "user/me",
 
       async onQueryStarted(arg, { queryFulfilled, dispatch }) {
         try {
@@ -74,7 +75,7 @@ export const authApi = apiSlice.injectEndpoints({
     }),
     // confirmEmail
     confirmEmail: builder.query({
-      query: (token) => `api/user/confirmEmail/${token}`,
+      query: (token) => `user/confirmEmail/${token}`,
 
       async onQueryStarted(arg, { queryFulfilled, dispatch }) {
         try {
@@ -107,7 +108,7 @@ export const authApi = apiSlice.injectEndpoints({
     // reset password
     resetPassword: builder.mutation({
       query: (data) => ({
-        url: "api/user/forget-password",
+        url: "user/forget-password",
         method: "PATCH",
         body: data,
       }),
@@ -115,7 +116,7 @@ export const authApi = apiSlice.injectEndpoints({
     // confirmForgotPassword
     confirmForgotPassword: builder.mutation({
       query: (data) => ({
-        url: "api/user/confirm-forget-password",
+        url: "user/confirm-forget-password",
         method: "PATCH",
         body: data,
       }),
@@ -123,7 +124,7 @@ export const authApi = apiSlice.injectEndpoints({
     // change password
     changePassword: builder.mutation({
       query: (data) => ({
-        url: "api/user/change-password",
+        url: "user/change-password",
         method: "PATCH",
         body: data,
       }),
@@ -131,7 +132,7 @@ export const authApi = apiSlice.injectEndpoints({
     // change password
     updateProfile: builder.mutation({
       query: ({id,...data}) => ({
-        url: `api/user/update-user/${id}`,
+        url: `user/update-user/${id}`,
         method: "PUT",
         body: data,
       }),

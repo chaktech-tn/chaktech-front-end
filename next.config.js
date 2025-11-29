@@ -108,7 +108,7 @@ const nextConfig = {
           "style-src 'self' 'unsafe-inline'",
           "img-src 'self' data: https: blob: http:",
           "font-src 'self' data:",
-          "connect-src 'self' http://localhost:5001 http://192.168.10.27:5001 http://192.168.10.36:5001 http://192.168.*:5001 https://us.i.posthog.com https://*.posthog.com https://us-assets.i.posthog.com",
+          "connect-src 'self' http://localhost:5001 http://192.168.10.27:5001 http://192.168.10.36:5001 http://192.168.*:5001 https://us.i.posthog.com https://*.posthog.com https://us-assets.i.posthog.com https://api.chaktech.tn",
           "frame-src 'self'",
           "object-src 'none'",
           "base-uri 'self'",
@@ -160,6 +160,7 @@ const nextConfig = {
   experimental: {
     optimizeCss: true,
   },
+  transpilePackages: ["swiper"],
 };
 
 module.exports = withNextIntl(nextConfig);

@@ -1,5 +1,7 @@
 
 
+import Link from "next/link";
+
 const FaqBreadcrumb = () => {
   return (
     <section className="breadcrumb__area breadcrumb__style-8 p-relative include-bg pt-110 pb-50">
@@ -10,7 +12,7 @@ const FaqBreadcrumb = () => {
               <h3 className="breadcrumb__title">Frequently Asked Questions</h3>
               <div className="breadcrumb__list">
                 <span>
-                  <a href="#">Home</a>
+                  <Link href="/">Home</Link>
                 </span>
                 <span className="dvdr">
                   <i className="fa-solid fa-circle-small"></i>

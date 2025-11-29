@@ -1,10 +1,12 @@
 "use client";
-import React, { useState } from "react";
+import { trackCheckoutStep } from "@utils/posthog";
 import { useTranslations } from "next-intl";
+import React, { useState } from "react";
+
 // internal
 import BillingDetails from "./billing-details";
 import OrderArea from "./order-area";
-import { trackCheckoutStep } from "@utils/posthog";
+
 
 const CheckoutArea = (props) => {
   const {

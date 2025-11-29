@@ -1,16 +1,16 @@
-import React from "react";
 // internal
+import BlockRenderer from "@components/content-blocks/BlockRenderer";
+import ShopCta from "@components/cta";
+import HeroBanner from "@components/hero-banner";
+import OfferPopularProduct from "@components/offer-product";
+import ShopProducts from "@components/products";
+import ShopBanner from "@components/shop-banner";
+import ShopCategoryArea from "@components/shop-category/shop-category";
+import ShopFeature from "@components/shop-feature";
+import Footer from "@layout/footer";
 import Header from "@layout/header";
 import Wrapper from "@layout/wrapper";
-import Footer from "@layout/footer";
-import BlockRenderer from "@components/content-blocks/BlockRenderer";
-import HeroBanner from "@components/hero-banner";
-import ShopCategoryArea from "@components/shop-category/shop-category";
-import ShopProducts from "@components/products";
-import OfferPopularProduct from "@components/offer-product";
-import ShopBanner from "@components/shop-banner";
-import ShopFeature from "@components/shop-feature";
-import ShopCta from "@components/cta";
+import React from "react";
 
 const API_BASE_URL =
   process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:5001";
@@ -18,7 +18,7 @@ const API_BASE_URL =
 async function getHomepageBlocks(locale = "fr") {
   try {
     const response = await fetch(
-      `${API_BASE_URL}/api/content-blocks/homepage/${locale}`,
+      `${API_BASE_URL}/content-blocks/homepage/${locale}`,
       { next: { revalidate: 60 } } // Revalidate every 60 seconds
     );
 
@@ -45,7 +45,7 @@ async function getHomepageBlocks(locale = "fr") {
 async function getHomepageSEO(locale = "fr") {
   try {
     const response = await fetch(
-      `${API_BASE_URL}/api/pages/homepage/${locale}`,
+      `${API_BASE_URL}/pages/homepage/${locale}`,
       { next: { revalidate: 300 } } // Revalidate every 5 minutes
     );
 

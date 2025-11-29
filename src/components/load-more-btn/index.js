@@ -1,7 +1,7 @@
 'use client';
-import React from 'react';
-import { useTranslations } from 'next-intl';
 import LoadMore from '@svg/load-more';
+import { useTranslations } from 'next-intl';
+import React from 'react';
 
 const LoadMoreBtn = ({handleLoadMore}) => {
   const t = useTranslations('search');

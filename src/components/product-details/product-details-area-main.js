@@ -1,28 +1,28 @@
 'use client';
-import { useEffect, useLayoutEffect } from "react";
-import { useDispatch } from "react-redux";
-import { useRouter } from "next/navigation";
-// internal
 import ShopCta from "@components/cta";
-import Footer from "@layout/footer";
-import Header from "@layout/header";
-import Wrapper from "@layout/wrapper";
+import PrdDetailsLoader from "@components/loader/details-loader";
 import ProductDetailsBreadcrumb from "@components/product-details/breadcrumb";
-import { useGetProductQuery, useGetProductBySlugQuery } from "src/redux/features/productApi";
 import ProductDetailsArea from "@components/product-details/product-details-area";
 import ProductDetailsTabArea from "@components/product-details/product-details-tab-area";
 import RelatedProducts from "@components/product-details/related-products";
+import Footer from "@layout/footer";
+import Header from "@layout/header";
+import Wrapper from "@layout/wrapper";
+import { useRouter } from "next/navigation";
+import { useEffect, useLayoutEffect } from "react";
+import { useDispatch } from "react-redux";
+// internal
 import { initialOrderQuantity } from "src/redux/features/cartSlice";
-import PrdDetailsLoader from "@components/loader/details-loader";
+import { useGetProductQuery, useGetProductBySlugQuery } from "src/redux/features/productApi";
 import { handleModalShow } from "src/redux/features/productSlice";
 import { trackProductViewed } from "@utils/posthog";
 // internal
 
 export default function ShopDetailsMainArea({ id, slug }) {
-  // Use slug-based query if slug is provided, otherwise fall back to ID
-  const { data: productBySlug, isLoading: isLoadingSlug, isError: isErrorSlug } = slug 
-    ? useGetProductBySlugQuery(slug) 
-    : { data: null, isLoading: false, isError: false };
+  // Use slug-based query if slug is provided, otherwise skip
+  const { data: productBySlug, isLoading: isLoadingSlug, isError: isErrorSlug } = useGetProductBySlugQuery(slug, {
+    skip: !slug,
+  });
   const { data: productById, isLoading: isLoadingId, isError: isErrorId } = useGetProductQuery(id);
   
   const product = productBySlug || productById;

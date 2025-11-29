@@ -1,12 +1,13 @@
 import {configureStore} from '@reduxjs/toolkit';
+
 import { apiSlice } from './api/apiSlice';
-import authSlice from './features/auth/authSlice';
-import cartSlice from './features/cartSlice';
-import couponSlice from './features/coupon/couponSlice';
-import orderSlice from './features/order/orderSlice';
-import wishlistSlice from './features/wishlist-slice';
-import productSlice from './features/productSlice';
-import abandonedCheckoutSlice from './features/abandonedCheckout/abandonedCheckoutSlice';
+import abandonedCheckoutReducer from './features/abandonedCheckout/abandonedCheckoutSlice';
+import authReducer from './features/auth/authSlice';
+import cartReducer from './features/cartSlice';
+import couponReducer from './features/coupon/couponSlice';
+import orderReducer from './features/order/orderSlice';
+import productReducer from './features/productSlice';
+import wishlistReducer from './features/wishlist-slice';
 // Import all API endpoints to ensure they're registered
 import './features/auth/authApi';
 import './features/productApi';
@@ -21,16 +22,15 @@ import './features/abandonedCheckout/abandonedCheckoutApi';
 export const store = configureStore({
   reducer:{
     [apiSlice.reducerPath]:apiSlice.reducer,
-    auth:authSlice,
-    cart:cartSlice,
-    wishlist:wishlistSlice,
-    coupon:couponSlice,
-    order:orderSlice,
-    product:productSlice,
-    abandonedCheckout:abandonedCheckoutSlice,
+    auth:authReducer,
+    cart:cartReducer,
+    wishlist:wishlistReducer,
+    coupon:couponReducer,
+    order:orderReducer,
+    product:productReducer,
+    abandonedCheckout:abandonedCheckoutReducer,
   },
   middleware:(getDefaultMiddleware) => 
   getDefaultMiddleware().concat(apiSlice.middleware),
   devTools: process.env.NODE_ENV !== "production",
 })
-

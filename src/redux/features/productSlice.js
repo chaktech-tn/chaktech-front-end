@@ -13,7 +13,7 @@ export const productSlice = createSlice({
       state.product = payload;
       state.isShow = true;
     },
-    handleModalShow: (state, { payload }) => {
+    handleModalShow: (state) => {
       state.isShow = false;
     },
   },

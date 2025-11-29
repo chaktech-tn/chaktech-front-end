@@ -6,7 +6,7 @@ export const abandonedCheckoutApi = apiSlice.injectEndpoints({
     // Save checkout data
     saveCheckoutData: builder.mutation({
       query: (data) => ({
-        url: "/api/abandoned-checkout/save",
+        url: "/abandoned-checkout/save",
         method: "POST",
         body: data,
       }),
@@ -14,13 +14,13 @@ export const abandonedCheckoutApi = apiSlice.injectEndpoints({
 
     // Get checkout by token
     getCheckoutByToken: builder.query({
-      query: (token) => `/api/abandoned-checkout/${token}`,
+      query: (token) => `/abandoned-checkout/${token}`,
     }),
 
     // Update checkout status
     updateCheckoutStatus: builder.mutation({
       query: ({ token, recoveryStatus }) => ({
-        url: `/api/abandoned-checkout/${token}/status`,
+        url: `/abandoned-checkout/${token}/status`,
         method: "PATCH",
         body: { recoveryStatus },
       }),

@@ -1,10 +1,14 @@
-@import '~bootstrap/scss/bootstrap';
+// Use @use for SCSS files (with as * to make styles global), @import for CSS files
+// All @use statements must come before any @import statements
+@use '~bootstrap/scss/bootstrap' as *;
+@use 'node_modules/react-modal-video/scss/modal-video.scss' as *;
+@use '@assets/scss/main.scss' as *;
+
+// CSS files use @import
 @import "swiper/css/bundle";
 @import "~slick-carousel/slick/slick.css"; 
-@import 'node_modules/react-modal-video/scss/modal-video.scss';
 @import 'node_modules/react-tooltip/dist/react-tooltip.css';
 @import '@assets/css/nice-select.css';
-@import '@assets/scss/main.scss';
 
 // Ensure numbers stay LTR in RTL layouts (standard practice)
 [dir="rtl"],

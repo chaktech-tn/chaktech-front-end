@@ -1,6 +1,6 @@
 "use client";
-import React from "react";
 import Link from "next/link";
+import React from "react";
 
 const CTABlock = ({ block }) => {
   const { content, settings } = block;

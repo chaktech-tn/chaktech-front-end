@@ -1,7 +1,8 @@
 'use client';
 import React from "react";
+import { Scrollbar } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Scrollbar } from "swiper";
+import "swiper/css/scrollbar";
 
 // Single category placeholder card (skeleton loader)
 const CategoryPlaceholder = () => {

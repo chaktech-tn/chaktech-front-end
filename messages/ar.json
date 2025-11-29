@@ -194,6 +194,8 @@
     "searchPlaceholder": "ابحث عن المنتجات...",
     "searching": "جاري البحث...",
     "noResults": "لم يتم العثور على منتجات",
+    "result": "نتيجة",
+    "results": "نتائج",
     "slider1": {
       "preTitle": "الأجهزة المنزلية\nتونس",
       "title": "اكتشف مجموعتنا\nالواسعة"
@@ -206,7 +208,8 @@
       "preTitle": "الهواتف الذكية\nوالأجهزة اللوحية",
       "title": "أفضل الأسعار\nفي تونس"
     },
-    "viewMore": "عرض المزيد"
+    "viewMore": "عرض المزيد",
+    "viewAllResults": "عرض جميع النتائج"
   },
   "about": {
     "subtitle": "من نحن",
@@ -354,7 +357,8 @@
     "allProducts": "جميع المنتجات"
   },
   "offcanvas": {
-    "followUs": "تابعنا:"
+    "followUs": "تابعنا:",
+    "search": "بحث"
   },
   "category": {
     "noCategoryFound": "لم يتم العثور على فئة!"

@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-// internal
 import { Minus, Plus } from "@svg/index";
+import React from "react";
+// internal
 import { useDispatch, useSelector } from "react-redux";
 import { decrement, increment } from "src/redux/features/cartSlice";
 
@@ -8,7 +8,7 @@ import { decrement, increment } from "src/redux/features/cartSlice";
 const Quantity = () => {
   const dispatch = useDispatch();
   const {orderQuantity} = useSelector(state => state.cart);
-  const [quantity,setQuantity] = useState(1);
+
   // handleIncrease
   const handleIncrease = () => {
     dispatch(increment())

@@ -1,8 +1,8 @@
 'use client';
-import React from 'react';
-import { useTranslations } from 'next-intl';
-// internal
 import {Payment, Refund, ShippingCar, Support} from "@svg/index";
+import { useTranslations } from 'next-intl';
+import React from 'react';
+// internal
 
 // SingleFeature
 function SingleFeature({ icon, title, subtitle }) {

@@ -1,10 +1,12 @@
 'use client';
-import React, { useState, useMemo } from "react";
-import { useTranslations } from 'next-intl';
-// internal
 import products from "@data/products";
-import SingleProduct from "./single-product";
 import SectionWrapper from "@elements/section-wrapper";
+import { useTranslations } from 'next-intl';
+import React, { useState, useMemo } from "react";
+// internal
+
+import SingleProduct from "./single-product";
+
 // internal
 
 const ShopProducts = ({ element_style = false }) => {

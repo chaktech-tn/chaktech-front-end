@@ -1,6 +1,7 @@
+import { useTranslations } from 'next-intl';
 import React from "react";
 import { useSelector } from "react-redux";
-import { useTranslations } from 'next-intl';
+
 // internal
 import OrderDetails from "./order-details";
 import OrderSingleCartItem from "./order-single-cart-item";

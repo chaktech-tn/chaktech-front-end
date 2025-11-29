@@ -1,5 +1,5 @@
-import Link from "next/link";
 import contactInfo from "@config/contact";
+
 
 const CookiesArea = () => {
   return (
@@ -136,7 +136,7 @@ const CookiesArea = () => {
                 <div className="policy__address">
                   <p>
                     <a
-                      rel="noreferrer"
+                      rel="noopener noreferrer"
                       href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(contactInfo.location.country)}`}
                       target="_blank"
                     >

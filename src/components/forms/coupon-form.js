@@ -1,7 +1,7 @@
 'use client';
-import React, { useRef } from "react";
-import { useSelector } from "react-redux";
 import { useTranslations } from 'next-intl';
+import React from "react";
+import { useSelector } from "react-redux";
 
 const CouponForm = ({handleCouponCode,couponRef}) => {
   const t = useTranslations('checkout');

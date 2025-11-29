@@ -7,7 +7,7 @@
  * @module utils/posthog
  */
 
-import posthog from 'posthog-js';
+import posthogJs from 'posthog-js';
 
 let posthogInitialized = false;
 
@@ -38,11 +38,11 @@ export const initPostHog = () => {
   }
 
   try {
-    posthog.init(posthogKey, {
+    posthogJs.init(posthogKey, {
       api_host: posthogHost,
-      loaded: (posthog) => {
+      loaded: () => {
         if (process.env.NODE_ENV === 'development') {
-          console.log('PostHog initialized successfully');
+          // console.log('PostHog initialized successfully');
         }
       },
       // Enable Session Replay
@@ -86,7 +86,7 @@ export const identifyUser = (userData) => {
       return;
     }
 
-    posthog.identify(_id || email, {
+    posthogJs.identify(_id || email, {
       email,
       name,
       userId: _id,
@@ -108,7 +108,7 @@ export const resetUser = () => {
   }
 
   try {
-    posthog.reset();
+    posthogJs.reset();
   } catch (error) {
     console.error('PostHog reset error:', error);
   }
@@ -134,7 +134,7 @@ export const trackProductViewed = (product) => {
     const categoryName = product.category?.name || product.category || null;
     const currency = 'TND'; // Default, can be updated based on settings
 
-    posthog.capture('product_viewed', {
+    posthogJs.capture('product_viewed', {
       product_id: product._id,
       product_name: product.title,
       price: product.originalPrice || product.price || 0,
@@ -171,7 +171,7 @@ export const trackAddToCart = (product, quantity = 1) => {
     const currency = 'TND'; // Default, can be updated based on settings
     const price = product.originalPrice || product.price || 0;
 
-    posthog.capture('add_to_cart', {
+    posthogJs.capture('add_to_cart', {
       product_id: product._id,
       product_name: product.title,
       price: price,
@@ -210,7 +210,7 @@ export const trackViewCart = (cartItems = [], cartTotal = 0) => {
       category: item.category?.name || item.category || null,
     }));
 
-    posthog.capture('view_cart', {
+    posthogJs.capture('view_cart', {
       items: items,
       total_value: cartTotal,
       currency: currency,
@@ -246,7 +246,7 @@ export const trackBeginCheckout = (cartItems = [], cartTotal = 0, source = 'stan
       category: item.category?.name || item.category || null,
     }));
 
-    posthog.capture('begin_checkout', {
+    posthogJs.capture('begin_checkout', {
       items: items,
       total_value: cartTotal,
       currency: currency,
@@ -315,7 +315,7 @@ export const trackOrderCompleted = (orderData, source = 'standard_page') => {
       eventProperties.event_id = orderData.event_id;
     }
 
-    posthog.capture('order_completed', eventProperties);
+    posthogJs.capture('order_completed', eventProperties);
   } catch (error) {
     console.error('PostHog trackOrderCompleted error:', error);
   }
@@ -336,7 +336,7 @@ export const trackCheckoutStep = (stepName, source = 'standard_page', additional
   }
 
   try {
-    posthog.capture('checkout_step_completed', {
+    posthogJs.capture('checkout_step_completed', {
       step_name: stepName,
       checkout_flow: source,
       ...additionalData,
@@ -362,7 +362,7 @@ export const trackFormError = (errorMessage, fieldName, source = 'standard_page'
   }
 
   try {
-    posthog.capture('checkout_form_error', {
+    posthogJs.capture('checkout_form_error', {
       error_message: errorMessage,
       field_name: fieldName || 'unknown',
       checkout_flow: source,
@@ -382,6 +382,6 @@ export const getPostHog = () => {
   if (typeof window === 'undefined' || !posthogInitialized) {
     return null;
   }
-  return posthog;
+  return posthogJs;
 };
 

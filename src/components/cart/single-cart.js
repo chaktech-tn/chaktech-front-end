@@ -1,11 +1,11 @@
-import React from "react";
+import useCurrency from "@hooks/use-currency";
+import {Minus,Plus} from "@svg/index";
 import Image from "next/image";
 import Link from "next/link";
+import React from "react";
 import { useDispatch } from "react-redux";
 // internal
-import {Minus,Plus} from "@svg/index";
 import { add_cart_product, quantityDecrement, remove_product } from "src/redux/features/cartSlice";
-import useCurrency from "@hooks/use-currency";
 
 const SingleCartItem = ({item}) => {
   const {_id, slug, image,title,originalPrice,orderQuantity=0} = item || {};

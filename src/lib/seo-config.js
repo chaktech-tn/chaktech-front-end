@@ -3,6 +3,11 @@ export const defaultMetadata = {
   title: "ChakTech - E-commerce Tunisie",
   description: "Découvrez un large choix de PC Portables, Smartphones, Electroménager et Produits High-tech aux meilleurs prix en Tunisie. Livraison rapide à domicile sur tout le territoire Tunisien.",
   keywords: "ChakTech, e-commerce Tunisie, smartphones, PC portable, électroménager, high-tech, Tunisie",
+  icons: {
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
+  },
   openGraph: {
     title: "ChakTech - E-commerce Tunisie",
     description: "Découvrez un large choix de PC Portables, Smartphones, Electroménager et Produits High-tech aux meilleurs prix en Tunisie",

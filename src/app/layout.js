@@ -1,5 +1,7 @@
 import MainProvider from "@components/provider/main-provider";
 import "./globals.scss";
+import StructuredData from '@components/seo/structured-data';
+import FacebookPixel from '@components/tracking/FacebookPixel';
 import {
   Poppins,
   Inter,
@@ -46,15 +48,13 @@ const syne = Syne({
   variable: "--tp-ff-syne",
 });
 
-import { NextIntlClientProvider } from 'next-intl';
-import { getMessages, getLocale } from 'next-intl/server';
-import { setRequestLocale } from 'next-intl/server';
 import { headers } from 'next/headers';
+import { NextIntlClientProvider } from 'next-intl';
+import { getMessages, getLocale , setRequestLocale } from 'next-intl/server';
+
 import { locales, defaultLocale } from '../../i18n';
 import { defaultMetadata, siteConfig } from '../lib/seo-config';
 import { generateHreflangAlternates } from '../lib/seo-utils';
-import StructuredData from '@components/seo/structured-data';
-import FacebookPixel from '@components/tracking/FacebookPixel';
 
 export async function generateMetadata() {
   const headersList = await headers();

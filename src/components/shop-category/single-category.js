@@ -1,9 +1,8 @@
 'use client';
 import Image from "next/image";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
-import React from "react";
 import { useTranslations } from 'next-intl';
+import React from "react";
 
 const SingleCategory = ({ item }) => {
   const router = useRouter();
@@ -11,7 +10,9 @@ const SingleCategory = ({ item }) => {
   return (
     <div className="product__category-item mb-20 text-center">
       <div className="product__category-thumb w-img">
-        <a
+        <div
+          role="button"
+          tabIndex={0}
           onClick={() =>
             router.push(
               `/shop?Category=${item.parent
@@ -21,6 +22,17 @@ const SingleCategory = ({ item }) => {
                 .join("-")}`
             )
           }
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              router.push(
+                `/shop?Category=${item.parent
+                  .toLowerCase()
+                  .replace("&", "")
+                  .split(" ")
+                  .join("-")}`
+              );
+            }
+          }}
           style={{ cursor: "pointer" }}
         >
           <Image
@@ -30,11 +42,13 @@ const SingleCategory = ({ item }) => {
             height={181}
             style={{ width: "100%", height: "100%", objectFit: "cover" }}
           />
-        </a>
+        </div>
       </div>
       <div className="product__category-content">
         <h3 className="product__category-title">
-          <a
+          <div
+            role="button"
+            tabIndex={0}
             onClick={() =>
               router.push(
                 `/shop?Category=${item.parent
@@ -44,10 +58,21 @@ const SingleCategory = ({ item }) => {
                   .join("-")}`
               )
             }
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                router.push(
+                  `/shop?Category=${item.parent
+                    .toLowerCase()
+                    .replace("&", "")
+                    .split(" ")
+                    .join("-")}`
+                );
+              }
+            }}
             style={{ cursor: "pointer" }}
           >
             {item.parent}
-          </a>
+          </div>
         </h3>
       </div>
     </div>

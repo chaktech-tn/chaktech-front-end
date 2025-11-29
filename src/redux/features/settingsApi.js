@@ -5,7 +5,7 @@ export const settingsApi = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     // Get settings
     getSettings: builder.query({
-      query: () => `/api/settings`,
+      query: () => `/settings`,
       providesTags: ["Settings"],
       keepUnusedDataFor: 600,
     }),

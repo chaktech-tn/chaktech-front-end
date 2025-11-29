@@ -1,8 +1,8 @@
+import CookiesArea from "@components/terms-policy/cookies-area";
+import SectionTop from "@components/terms-policy/section-top-bar";
 import Footer from "@layout/footer";
 import Header from "@layout/header";
 import Wrapper from "@layout/wrapper";
-import SectionTop from "@components/terms-policy/section-top-bar";
-import CookiesArea from "@components/terms-policy/cookies-area";
 
 export const metadata = {
   title: "Cookies Policy - ChakTech",

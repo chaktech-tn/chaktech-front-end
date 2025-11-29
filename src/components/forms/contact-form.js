@@ -1,11 +1,11 @@
 'use client';
-import React from "react";
-import * as Yup from "yup";
-import { useForm } from "react-hook-form";
+import ErrorMessage from "@components/error-message/error";
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useTranslations } from 'next-intl';
+import React from "react";
+import { useForm } from "react-hook-form";
+import * as Yup from "yup";
 // internal
-import ErrorMessage from "@components/error-message/error";
 
 const ContactForm = () => {
   const t = useTranslations('contact');
@@ -23,8 +23,8 @@ const ContactForm = () => {
     resolver: yupResolver(schema)
   });
 
-  const onSubmit = (data) => {
-    console.log(data)
+  const onSubmit = (formData) => {
+
     reset();
   };
 

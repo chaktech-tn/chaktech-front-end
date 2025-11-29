@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const ProductCategories = () => {
@@ -5,13 +6,13 @@ const ProductCategories = () => {
     <div className="product__details-categories product__details-more">
       <p>Categories:</p>
       <span>
-        <a href="#">iPhone Cases,</a>
+        <Link href="/">iPhone Cases,</Link>
       </span>
       <span>
-        <a href="#">Android Cases,</a>
+        <Link href="/">Android Cases,</Link>
       </span>
       <span>
-        <a href="#">Accessories</a>
+        <Link href="/">Accessories</Link>
       </span>
     </div>
   );

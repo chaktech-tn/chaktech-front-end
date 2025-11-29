@@ -1,12 +1,13 @@
-import React, { useEffect, useRef } from "react";
-import { useSelector } from "react-redux";
-import Link from "next/link";
-// internal
-import SingleCartItem from "./single-cart-item";
 import useCartInfo from "@hooks/use-cart-info";
 import useCurrency from "@hooks/use-currency";
-import EmptyCart from "./empty-cart";
 import { trackViewCart } from "@utils/posthog";
+import Link from "next/link";
+import React, { useEffect, useRef } from "react";
+import { useSelector } from "react-redux";
+
+// internal
+import EmptyCart from "./empty-cart";
+import SingleCartItem from "./single-cart-item";
 
 
 const CartSidebar = ({ isCartOpen, setIsCartOpen }) => {

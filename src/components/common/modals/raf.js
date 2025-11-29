@@ -1,21 +1,21 @@
 'use client';
-import Image from "next/image";
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useTranslations } from 'next-intl';
 // internal
-import { Compare, CartTwo, Times, HeartTwo } from "@svg/index";
-import SocialLinks from "@components/social";
 import OldNewPrice from "@components/products/old-new-price";
-import Quantity from "@components/products/quantity";
 import ProductCategories from "@components/products/product-categories";
 import ProductTags from "@components/products/product-tags";
+import Quantity from "@components/products/quantity";
 import { RatingFull, RatingHalf } from "@components/products/rating";
+import SocialLinks from "@components/social";
+import { Compare, CartTwo, Times, HeartTwo } from "@svg/index";
+import Image from "next/image";
+import Link from "next/link";
+import { useTranslations } from 'next-intl';
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import {
   add_cart_product,
   initialOrderQuantity,
 } from "src/redux/features/cartSlice";
-import Link from "next/link";
 import { add_to_wishlist } from "src/redux/features/wishlist-slice";
 
 const ProductModal = ({ product, list_modal = false }) => {

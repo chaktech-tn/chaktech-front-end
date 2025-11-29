@@ -1,7 +1,7 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
+import React, { useEffect, useState } from "react";
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:5001";
 
@@ -17,7 +17,7 @@ const CategoryGridBlock = ({ block }) => {
     const fetchCategories = async () => {
       try {
         setIsLoading(true);
-        const response = await fetch(`${API_BASE_URL}/api/category/all`);
+        const response = await fetch(`${API_BASE_URL}/category/all`);
         const data = await response.json();
 
         if (data.success && data.data) {

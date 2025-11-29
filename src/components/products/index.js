@@ -1,10 +1,12 @@
 "use client";
-import React, { useState, useMemo, useEffect } from "react";
 import { useTranslations } from "next-intl";
+import React, { useState, useMemo, useEffect } from "react";
+
 // internal
-import SingleProduct from "./single-product";
-import ProductPlaceholderGrid from "./product-placeholder";
 import { useGetShowingProductsQuery } from "src/redux/features/productApi";
+
+import ProductPlaceholderGrid from "./product-placeholder";
+import SingleProduct from "./single-product";
 // internal
 
 const ShopProducts = () => {
@@ -17,39 +19,11 @@ const ShopProducts = () => {
     error,
   } = useGetShowingProductsQuery();
 
-  // Debug: Log the data structure (remove in production)
   useEffect(() => {
-    if (products) {
-      console.log("Products data structure:", {
-        hasProducts: !!products.products,
-        productsCount: products?.products?.length || 0,
-        success: products?.success,
-        keys: Object.keys(products || {}),
-        rawData: products,
-      });
+    if (isError) {
+      console.error("Error fetching products:", JSON.stringify(error, null, 2));
     }
-    if (error) {
-      // Suppress rate limit errors in development mode
-      const suppressRateLimit =
-        process.env.NEXT_PUBLIC_SUPPRESS_RATE_LIMIT_ERRORS === "true" ||
-        process.env.NODE_ENV === "development";
-
-      // Check if error is empty or should be suppressed
-      const errorKeys = Object.keys(error || {});
-      const isEmptyError = errorKeys.length === 0;
-      const isRateLimit = error?.status === 429 || error?.isRateLimitError;
-      const shouldSuppress =
-        error?.suppressLog || (isRateLimit && suppressRateLimit);
-
-      // Skip logging if error is empty, suppressed, or rate limit in dev mode
-      if (isEmptyError || shouldSuppress) {
-        return;
-      }
-
-      // Only log meaningful errors
-      console.error("Products error:", error);
-    }
-  }, [products, error]);
+  }, [isError, error]);
 
   // Normalize products data - handle different response structures
   const normalizedProducts = useMemo(() => {

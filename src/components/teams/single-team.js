@@ -8,7 +8,7 @@ const SingleTeam = ({item}) => {
     <div className={`team__item`}>
       <div className="team__thumb w-img fix transition-3">
         <div className="tp-thumb-overlay wow"></div>
-        <Link href="#">
+        <Link href="/">
           <Image
             src={img}
             alt="team-img"
@@ -23,9 +23,9 @@ const SingleTeam = ({item}) => {
               </a>
             </li>
             <li>
-              <a href="#">
+              <Link href="/">
                 <i className="far fa-share-alt"></i>
-              </a>
+              </Link>
               <div className="team__social">
                 <ul>
                   {social_links.map((l, i) => (
@@ -43,7 +43,7 @@ const SingleTeam = ({item}) => {
       </div>
       <div className="team__content">
         <h3 className="team__title">
-          <Link href="#">{name}</Link>
+          <Link href="/">{name}</Link>
         </h3>
         <span className="team__designation">{title}</span>
       </div>

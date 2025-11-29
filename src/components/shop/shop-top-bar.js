@@ -1,9 +1,9 @@
 'use client';
-import React from "react";
-import { useTranslations } from 'next-intl';
 // internal
 import { Dots, Lists } from "@svg/index";
 import NiceSelect from "@ui/NiceSelect";
+import { useTranslations } from 'next-intl';
+import React from "react";
 
 export function ShowingResult({ show, total }) {
   const t = useTranslations('shop');

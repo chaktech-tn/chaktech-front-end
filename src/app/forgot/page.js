@@ -1,7 +1,7 @@
+import ForgotArea from "@components/forgot/forgot-area";
 import Footer from "@layout/footer";
 import Header from "@layout/header";
 import Wrapper from "@layout/wrapper";
-import ForgotArea from "@components/forgot/forgot-area";
 
 export const metadata = {
   title: "Forgot - ChakTech",

@@ -1,13 +1,15 @@
 'use client';
-import React from 'react';
-import { useTranslations } from 'next-intl';
-// internal
-import TextArea from "./text-area";
-import Services from "./services";
-import AboutGallery from "./about-gallery";
-import AboutFaqs from "./about-faqs";
 import Brands from "@components/brands";
 import BreadcrumbTwo from "@components/common/breadcrumb/breadcrumb-2";
+import { useTranslations } from 'next-intl';
+import React from 'react';
+
+// internal
+import AboutFaqs from "./about-faqs";
+import AboutGallery from "./about-gallery";
+import Services from "./services";
+import TextArea from "./text-area";
+
 
 const About = () => {
   const t = useTranslations('about');

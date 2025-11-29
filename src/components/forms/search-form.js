@@ -1,12 +1,11 @@
 'use client';
-import React, { useState } from "react";
 import Search from "@svg/search";
 import { useRouter } from "next/navigation";
-import { useLocale, useTranslations } from 'next-intl';
+import { useTranslations } from 'next-intl';
+import React, { useState } from "react";
 
 const SearchForm = () => {
   const router = useRouter();
-  const locale = useLocale();
   const t = useTranslations('hero');
   const [searchText, setSearchText] = useState("");
   

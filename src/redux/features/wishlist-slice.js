@@ -27,7 +27,7 @@ export const wishlistSlice = createSlice({
       notifyError(`${payload.title} removed from wishlist`);
       setLocalStorage("wishlist_items", state.wishlist);
     },
-    get_wishlist_products: (state, { payload }) => {
+    get_wishlist_products: (state) => {
       state.wishlist = getLocalStorage("wishlist_items");
     },
   },

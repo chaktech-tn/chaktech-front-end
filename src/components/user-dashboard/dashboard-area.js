@@ -1,11 +1,12 @@
-import Link from "next/link";
+
 import React from "react";
+
 // internal
-import OrderInfo from "./order-info";
-import ProfileShapes from "./profile-shapes";
-import ProfileNav from './profile-nav';
-import MyOrders from './my-orders';
 import ChangePassword from './change-password';
+import MyOrders from './my-orders';
+import OrderInfo from "./order-info";
+import ProfileNav from './profile-nav';
+import ProfileShapes from "./profile-shapes";
 import UpdateUser from './update-user';
 
 const DashboardArea = ({orderData}) => {

@@ -1,14 +1,17 @@
 'use client';
-import React from "react";
+import logo from "@assets/img/categories/chaktech-logo.webp";
+import shape from "@assets/img/shape/offcanvas-shape-1.png";
+import LiveSearchForm from "@components/forms/live-search-form";
+import SocialLinks from "@components/social";
+import contactInfo from "@config/contact";
 import Image from "next/image";
 import Link from "next/link";
 import { useTranslations } from 'next-intl';
+import React from "react";
 // internal
-import shape from "@assets/img/shape/offcanvas-shape-1.png";
-import logo from "@assets/img/categories/chaktech-logo.jpg";
+
 import MobileMenus from "./mobile-menus";
-import SocialLinks from "@components/social";
-import contactInfo from "@config/contact";
+
 // import LanguageSwitcher from "@components/language-switcher"; // Removed - keeping FR as default language
 
 const OffCanvas = ({ isOffCanvasOpen, setIsOffCanvasOpen }) => {
@@ -41,6 +44,25 @@ const OffCanvas = ({ isOffCanvasOpen, setIsOffCanvasOpen }) => {
                 </Link>
               </div>
             </div>
+            {/* Mobile Search in Off-Canvas */}
+            <div style={{ marginBottom: "30px", padding: "0 10px" }}>
+              <div style={{ marginBottom: "12px" }}>
+                <h3
+                  style={{
+                    fontSize: "16px",
+                    fontWeight: "600",
+                    margin: 0,
+                    marginBottom: "8px",
+                    color: "#111",
+                  }}
+                >
+                  {t('search') || "Rechercher"}
+                </h3>
+              </div>
+              <div style={{ position: "relative", zIndex: 10 }}>
+                <LiveSearchForm isMobile={true} />
+              </div>
+            </div>
             <div className="mobile-menu-3 fix mb-40 menu-counter mean-container d-lg-none">
               <div className="mean-bar">
                 {/* MobileMenus start*/}
@@ -49,9 +71,11 @@ const OffCanvas = ({ isOffCanvasOpen, setIsOffCanvasOpen }) => {
               </div>
             </div>
             {/* Language switcher removed - keeping FR as default language */}
-            <div className="offcanvas__social">
-              <h3 className="offcanvas__social-title">{t('followUs')}</h3>
-              <SocialLinks />
+            <div className="offcanvas__social" style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+              <h3 className="offcanvas__social-title" style={{ marginBottom: "12px" }}>{t('followUs')}</h3>
+              <div style={{ display: "flex", gap: "5px", flexWrap: "wrap" }}>
+                <SocialLinks />
+              </div>
             </div>
             <div className="offcanvas__contact">
               <p className="offcanvas__contact-call">

@@ -1,9 +1,10 @@
 'use client';
+import RegisterForm from "@components/forms/register-form";
 import Link from "next/link";
 import { useTranslations } from 'next-intl';
+
 // internal
 import Shapes from "./shapes";
-import RegisterForm from "@components/forms/register-form";
 
 const RegisterArea = () => {
   const t = useTranslations('auth');

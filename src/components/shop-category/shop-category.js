@@ -1,16 +1,16 @@
 'use client';
 import React, { useEffect, useState } from "react";
+import { Scrollbar } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Scrollbar } from "swiper";
-import { useTranslations } from 'next-intl';
+import "swiper/css/scrollbar";
+
 // internal
-import SingleCategory from "./single-category";
 import CategoryPlaceholderSlider from "./category-placeholder";
+import SingleCategory from "./single-category";
+
 import { useGetCategoriesQuery } from "src/redux/features/categoryApi";
 
 const ShopCategoryArea = () => {
-  const t = useTranslations('common');
-  const tCategory = useTranslations('category');
   const [loop, setLoop] = useState(false);
   useEffect(() => setLoop(true), []);
   const { data: categories, isLoading, isError } = useGetCategoriesQuery();

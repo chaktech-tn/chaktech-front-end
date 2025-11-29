@@ -1,6 +1,6 @@
 'use client';
-import React, { useState, useRef, useEffect } from 'react';
 import { allCities } from '@data/tunisian-cities';
+import React, { useState, useRef, useEffect } from 'react';
 
 const CitySelector = ({ value, onChange, onBlur, error, placeholder, required }) => {
   const [searchTerm, setSearchTerm] = useState(value || '');
@@ -79,7 +79,7 @@ const CitySelector = ({ value, onChange, onBlur, error, placeholder, required })
   };
 
   return (
-    <div ref={wrapperRef} className="city-selector-wrapper" style={{ position: 'relative' }}>
+    <div ref={wrapperRef} className="city-selector-wrapper">
       <input
         type="text"
         value={searchTerm}
@@ -93,79 +93,44 @@ const CitySelector = ({ value, onChange, onBlur, error, placeholder, required })
           }, 200);
         }}
         placeholder={placeholder || "Search or enter city name"}
-        className={`input w-full ${error ? 'border-red-500' : ''}`}
+        className={`city-selector-input ${error ? 'has-error' : ''}`}
         required={required}
         autoComplete="off"
-        style={{
-          width: '100%',
-          padding: '10px 15px',
-          border: error ? '1px solid #ef4444' : '1px solid #ddd',
-          borderRadius: '4px',
-          fontSize: '14px'
-        }}
       />
-      
+
       {showDropdown && searchTerm.length > 0 && (
-        <div 
-          className="city-dropdown"
-          style={{
-            position: 'absolute',
-            top: '100%',
-            left: 0,
-            right: 0,
-            backgroundColor: 'white',
-            border: '1px solid #ddd',
-            borderRadius: '4px',
-            maxHeight: '200px',
-            overflowY: 'auto',
-            zIndex: 1000,
-            boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
-            marginTop: '4px'
-          }}
-        >
+        <div className="city-dropdown">
           {filteredCities.length > 0 && filteredCities.map((city, index) => (
-            <div
+            <button
               key={index}
+              type="button"
+              className="city-dropdown__item"
               onClick={(e) => handleCitySelect(city, e)}
               onMouseDown={(e) => e.preventDefault()}
-              style={{
-                padding: '10px 15px',
-                cursor: 'pointer',
-                borderBottom: index < filteredCities.length - 1 ? '1px solid #f0f0f0' : 'none'
-              }}
-              onMouseEnter={(e) => e.target.style.backgroundColor = '#f5f5f5'}
-              onMouseLeave={(e) => e.target.style.backgroundColor = 'white'}
             >
               {city}
-            </div>
+            </button>
           ))}
           {filteredCities.length === 0 && searchTerm.length > 0 && (
-            <div style={{ padding: '10px 15px', color: '#666', fontSize: '14px' }}>
+            <div className="city-dropdown__empty">
               No matching city found
             </div>
           )}
-          <div
+          <button
+            type="button"
+            className="city-dropdown__custom"
             onClick={(e) => handleAddCustom(e)}
             onMouseDown={(e) => e.preventDefault()}
-            style={{
-              padding: '10px 15px',
-              cursor: 'pointer',
-              backgroundColor: '#f9f9f9',
-              borderTop: filteredCities.length > 0 ? '1px solid #ddd' : 'none',
-              fontWeight: '500',
-              color: '#22c55e'
-            }}
-            onMouseEnter={(e) => e.target.style.backgroundColor = '#f0f0f0'}
-            onMouseLeave={(e) => e.target.style.backgroundColor = '#f9f9f9'}
           >
-            + Add "{searchTerm}" as custom city
-          </div>
+            {`+ Add "${searchTerm}" as custom city`}
+          </button>
         </div>
       )}
 
       {isCustomCity && searchTerm && (
-        <div style={{ marginTop: '4px', fontSize: '12px', color: '#666' }}>
-          ✓ Custom city: {searchTerm}
+        <div className="city-selector-custom-pill">
+          <span className="city-selector-custom-pill__check">✓</span>
+          <span>{`Custom city: ${searchTerm}`}</span>
         </div>
       )}
     </div>

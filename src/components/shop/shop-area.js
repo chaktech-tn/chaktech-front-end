@@ -1,9 +1,10 @@
-import React, { useState } from "react";
 // internal
-import { ShopShortSelect, ShopShortTab, ShowingResult } from "./shop-top-bar";
 import ShopSidebar from "@components/common/sidebar/shop-sidebar";
+import React, { useState } from "react";
+
 import ProductGridItems from "./prd-grid-items";
 import ProductListItems from "./prd-list-items";
+import { ShopShortSelect, ShopShortTab, ShowingResult } from "./shop-top-bar";
 
 const ShopArea = ({ products,all_products,shortHandler }) => {
   const [showingGridItems, setShowingGridItems] = useState(0);

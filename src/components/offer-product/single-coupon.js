@@ -1,9 +1,11 @@
 'use client';
-import React, { useState } from "react";
 import dayjs from "dayjs";
 import Image from "next/image";
-import CopyToClipboard from "react-copy-to-clipboard";
+import Link from "next/link";
 import { useTranslations } from 'next-intl';
+import React from "react";
+import CopyToClipboard from "react-copy-to-clipboard";
+
 // internal
 import OfferTimer from "./offer-timer";
 
@@ -17,9 +19,9 @@ const SingleCoupon = ({ coupon,handleCopied,copiedCode,copied }) => {
           <span className="product__coupon-border"></span>
           <div className="product__coupon-item-left d-sm-flex align-items-center">
             <div className="product__coupon-thumb">
-              <a href="#">
+              <Link href="/">
                 <Image src={coupon.logo} alt="logo" width={120} height={120} />
-              </a>
+              </Link>
             </div>
             <div className="product__coupon-content">
               <h3 className="product__coupon-title">{coupon.title}</h3>

@@ -1,14 +1,14 @@
 'use client';
+import ErrorMessage from "@components/error-message/error";
+import { yupResolver } from "@hookform/resolvers/yup";
+import Email from "@svg/email";
+import { notifyError, notifySuccess } from "@utils/toast";
+import { useTranslations } from 'next-intl';
 import React from "react";
 import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as Yup from "yup";
-import { useTranslations } from 'next-intl';
-// internal
-import Email from "@svg/email";
 import { useResetPasswordMutation } from "src/redux/features/auth/authApi";
-import ErrorMessage from "@components/error-message/error";
-import { notifyError, notifySuccess } from "@utils/toast";
+import * as Yup from "yup";
+// internal
 
 const ForgotForm = () => {
   const t = useTranslations('auth');
@@ -32,7 +32,7 @@ const ForgotForm = () => {
     resetPassword({
       verifyEmail: data.email,
     }).then((result) => {
-      console.log(result);
+
       if(result?.error){
         notifyError(result?.error?.data?.message)
       }

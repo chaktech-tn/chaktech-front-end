@@ -1,8 +1,8 @@
+import SectionTop from "@components/terms-policy/section-top-bar";
+import TermsArea from "@components/terms-policy/terms-area";
+import Footer from "@layout/footer";
 import Header from "@layout/header";
 import Wrapper from "@layout/wrapper";
-import SectionTop from "@components/terms-policy/section-top-bar";
-import Footer from "@layout/footer";
-import TermsArea from "@components/terms-policy/terms-area";
 
 export const metadata = {
   title: "Conditions générales",

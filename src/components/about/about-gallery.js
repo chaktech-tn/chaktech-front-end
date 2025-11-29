@@ -1,12 +1,12 @@
 'use client';
-import React, { useRef } from "react";
-import Image from "next/image";
-import Slider from "react-slick";
 // internal
 import img_1 from "@assets/img/slider/about/about-gallery-slider-1.jpg";
 import img_2 from "@assets/img/slider/about/about-gallery-slider-2.jpg";
-import img_3 from "@assets/img/slider/about/about-gallery-slider-3.jpg";
 import img_4 from "@assets/img/slider/about/about-gallery-slider-2.jpg";
+import img_3 from "@assets/img/slider/about/about-gallery-slider-3.jpg";
+import Image from "next/image";
+import React, { useRef } from "react";
+import Slider from "react-slick";
 
 // data
 const images = [img_1, img_2, img_3, img_4];

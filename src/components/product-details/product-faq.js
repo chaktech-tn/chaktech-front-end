@@ -1,9 +1,8 @@
 'use client';
-import React, { useState } from "react";
 import { useTranslations } from 'next-intl';
+import React, { useState } from "react";
 
 const ProductFAQ = () => {
-  const t = useTranslations('product');
   const [openIndex, setOpenIndex] = useState(null);
 
   const faqs = [

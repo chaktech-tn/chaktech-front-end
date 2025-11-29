@@ -5,13 +5,21 @@ import { useGetSettingsQuery } from "src/redux/features/settingsApi";
  * @returns {Object} Currency settings and formatting functions
  */
 export default function useCurrency() {
-  const { data, isLoading, isError } = useGetSettingsQuery();
+  const { data, isLoading } = useGetSettingsQuery();
   
-  // Fallback to default TND if API fails or is loading
-  const settings = data?.data || {
+  // Default currency settings
+  const defaultSettings = {
     currency: "TND",
     currencySymbol: "TND",
     currencyPosition: "after",
+  };
+  
+  // Merge API data with defaults, ensuring all required fields exist
+  const apiSettings = data?.data || {};
+  const settings = {
+    currency: apiSettings.currency || defaultSettings.currency,
+    currencySymbol: apiSettings.currencySymbol || defaultSettings.currencySymbol,
+    currencyPosition: apiSettings.currencyPosition || defaultSettings.currencyPosition,
   };
 
   /**
@@ -22,11 +30,12 @@ export default function useCurrency() {
    */
   const formatPrice = (amount, decimals = 2) => {
     const formattedAmount = parseFloat(amount || 0).toFixed(decimals);
+    const symbol = settings.currencySymbol || defaultSettings.currencySymbol;
     
     if (settings.currencyPosition === "before") {
-      return `${settings.currencySymbol} ${formattedAmount}`;
+      return `${symbol} ${formattedAmount}`;
     } else {
-      return `${formattedAmount} ${settings.currencySymbol}`;
+      return `${formattedAmount} ${symbol}`;
     }
   };
 

@@ -2,10 +2,12 @@
 // external
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
+import { Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper";
+import "swiper/css/pagination";
 // internal
 import { Line, ShapeLine } from "@svg/index";
+
 import SingleTeam from "./single-team";
 import team_data from "./team-data";
 
@@ -34,7 +36,7 @@ const Teams = () => {
               </div>
               <div className="col-xxl-7 col-xl-7 col-lg-6 col-md-6 col-sm-5">
                 <div className="team__join mb-70 text-sm-end">
-                  <Link href="#" className="tp-link-btn-2">
+                  <Link href="/" className="tp-link-btn-2">
                     Join Our Team
                     <span>
                       <Line />

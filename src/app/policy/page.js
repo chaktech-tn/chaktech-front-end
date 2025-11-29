@@ -1,8 +1,8 @@
+import PolicyArea from "@components/terms-policy/policy-area";
+import SectionTop from "@components/terms-policy/section-top-bar";
 import Footer from "@layout/footer";
 import Header from "@layout/header";
 import Wrapper from "@layout/wrapper";
-import SectionTop from "@components/terms-policy/section-top-bar";
-import PolicyArea from "@components/terms-policy/policy-area";
 
 export const metadata = {
   title: "Politique de confidentialité",

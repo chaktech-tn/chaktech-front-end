@@ -1,23 +1,25 @@
 "use client";
-import * as dayjs from "dayjs";
-import { useEffect, useRef, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useForm } from "react-hook-form";
-import { useRouter } from "next/navigation";
-//internal import
-import { notifyError, notifySuccess } from "@utils/toast";
-import { useGetOfferCouponsQuery } from "src/redux/features/coupon/couponApi";
 import Loader from "@components/loader/loader";
+import { trackMetaPixelEvent } from "@components/tracking/FacebookPixel";
+import { trackOrderCompleted, trackFormError } from "@utils/posthog";
+import { getOrCreateSessionToken } from "@utils/sessionToken";
+import { notifyError, notifySuccess } from "@utils/toast";
+import { generateEventId, getMetaCookies } from "@utils/trackingUtils";
+import * as dayjs from "dayjs";
+import { useRouter } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
+import { useForm } from "react-hook-form";
+import { useDispatch, useSelector } from "react-redux";
+//internal import
+import { useGetOfferCouponsQuery } from "src/redux/features/coupon/couponApi";
 import { set_coupon } from "src/redux/features/coupon/couponSlice";
-import useCartInfo from "./use-cart-info";
-import { set_shipping } from "src/redux/features/order/orderSlice";
 import {
   useAddOrderMutation,
 } from "src/redux/features/order/orderApi";
-import { getOrCreateSessionToken } from "@utils/sessionToken";
-import { trackOrderCompleted, trackFormError } from "@utils/posthog";
-import { generateEventId, getMetaCookies } from "@utils/trackingUtils";
-import { trackMetaPixelEvent } from "@components/tracking/FacebookPixel";
+import { set_shipping } from "src/redux/features/order/orderSlice";
+
+import useCartInfo from "./use-cart-info";
+
 
 const useCheckoutSubmit = () => {
   const { data: offerCoupons, isError, isLoading } = useGetOfferCouponsQuery();
@@ -26,7 +28,7 @@ const useCheckoutSubmit = () => {
   const { user } = useSelector((state) => state.auth);
   const { shipping_info } = useSelector((state) => state.order);
   const { total, setTotal } = useCartInfo();
-  const [couponInfo, setCouponInfo] = useState({});
+  const [setCouponInfo] = useState({});
   const [cartTotal, setCartTotal] = useState("");
   const [minimumAmount, setMinimumAmount] = useState(0);
   const [shippingCost, setShippingCost] = useState(0);
@@ -34,7 +36,7 @@ const useCheckoutSubmit = () => {
   const [discountPercentage, setDiscountPercentage] = useState(0);
   const [discountProductType, setDiscountProductType] = useState("");
   const [isCheckoutSubmit, setIsCheckoutSubmit] = useState(false);
-  const [cardError, setCardError] = useState("");
+  const [cardError] = useState("");
 
   const dispatch = useDispatch();
   const router = useRouter();
@@ -57,7 +59,7 @@ const useCheckoutSubmit = () => {
       setMinimumAmount(coupon.minimumAmount);
       setDiscountProductType(coupon.productType);
     }
-  }, []);
+  }, [setCouponInfo]);
 
   useEffect(() => {
     if (minimumAmount - discountAmount > total || cart_products.length === 0) {
@@ -75,8 +77,8 @@ const useCheckoutSubmit = () => {
       0
     );
     let totalValue = "";
-    let subTotal = Number((total + shippingCost).toFixed(2));
-    let discountTotal = Number(
+    const subTotal = Number((total + shippingCost).toFixed(2));
+    const discountTotal = Number(
       discountProductTotal * (discountPercentage / 100)
     );
     totalValue = Number(subTotal - discountTotal);
@@ -168,7 +170,7 @@ const useCheckoutSubmit = () => {
     // Get account creation preference (from form data or default false)
     const createAccount = data.createAccount === true || data.createAccount === "true";
 
-    let orderInfo = {
+    const orderInfo = {
       name: `${data.firstName} ${data.lastName}`,
       address: data.address,
       contact: data.contact,

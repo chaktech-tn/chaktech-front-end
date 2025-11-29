@@ -1,18 +1,18 @@
 'use client';
-import { useState } from "react";
-import { useTranslations } from 'next-intl';
-// internal
-import Wrapper from "@layout/wrapper";
-import Header from "@layout/header";
-import ShopCta from "@components/cta";
-import Footer from "@layout/footer";
-import NiceSelect from "@ui/NiceSelect";
-import SingleProduct from "@components/products/single-product";
-import ProductPlaceholderGrid from "@components/products/product-placeholder";
-import EmptyCart from "@components/common/sidebar/cart-sidebar/empty-cart";
-import { useGetShowingProductsQuery } from "src/redux/features/productApi";
-import LoadMoreBtn from "@components/load-more-btn";
 import BreadcrumbTwo from "@components/common/breadcrumb/breadcrumb-2";
+import EmptyCart from "@components/common/sidebar/cart-sidebar/empty-cart";
+import ShopCta from "@components/cta";
+import LoadMoreBtn from "@components/load-more-btn";
+import ProductPlaceholderGrid from "@components/products/product-placeholder";
+import SingleProduct from "@components/products/single-product";
+import Footer from "@layout/footer";
+import Header from "@layout/header";
+import Wrapper from "@layout/wrapper";
+import { useTranslations } from 'next-intl';
+import { useState } from "react";
+// internal
+import NiceSelect from "@ui/NiceSelect";
+import { useGetShowingProductsQuery } from "src/redux/features/productApi";
 
 export default function SearchAreaMain({ searchText }) {
   const t = useTranslations('search');
@@ -45,7 +45,7 @@ export default function SearchAreaMain({ searchText }) {
   }
 
   if (!isLoading && !isError && products?.products?.length > 0) {
-    let all_products = products.products;
+    const all_products = products.products;
     let product_items = searchText 
       ? all_products.filter((prd) =>
           prd.title?.toLowerCase().includes(searchText?.toLowerCase()) ||

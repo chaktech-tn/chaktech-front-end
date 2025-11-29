@@ -1,5 +1,5 @@
-import React, { useState } from "react";
 import { CardElement } from "@stripe/react-stripe-js";
+import React from "react";
 
 const PaymentCardElement = ({ stripe, cardError, cart_products,isCheckoutSubmit }) => {
   return (

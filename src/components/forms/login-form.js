@@ -1,16 +1,16 @@
 'use client';
-import React, { useState } from "react";
-import Link from "next/link";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as Yup from "yup";
-import { useTranslations } from 'next-intl';
-// internal
-import { EyeCut, Lock, UserTwo } from "@svg/index";
 import ErrorMessage from "@components/error-message/error";
-import { useLoginUserMutation } from "src/redux/features/auth/authApi";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { EyeCut, Lock, UserTwo } from "@svg/index";
 import { notifyError, notifySuccess } from "@utils/toast";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useTranslations } from 'next-intl';
+import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+import { useLoginUserMutation } from "src/redux/features/auth/authApi";
+import * as Yup from "yup";
+// internal
 
 const LoginForm = () => {
   const t = useTranslations('auth');
@@ -41,14 +41,12 @@ const LoginForm = () => {
       .then((data) => {
         if(data?.error){
           notifyError(data?.error?.data?.error);
-          console.log(data?.error?.data?.error,'error message');
         }
         else {
           notifySuccess(t('loginSuccessfully'));
           setTimeout(() => {
             router.push("/");
           },500)
-          console.log(data?.data?.message,'success message');
         }
       })
     reset();

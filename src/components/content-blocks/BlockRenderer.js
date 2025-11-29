@@ -1,16 +1,17 @@
 "use client";
 import React from "react";
-import HeroBlock from "./blocks/HeroBlock";
-import TextBlock from "./blocks/TextBlock";
-import ImageBlock from "./blocks/ImageBlock";
-import ProductListBlock from "./blocks/ProductListBlock";
+
+import BannerBlock from "./blocks/BannerBlock";
 import CategoryGridBlock from "./blocks/CategoryGridBlock";
+import CTABlock from "./blocks/CTABlock";
 import CustomHTMLBlock from "./blocks/CustomHTMLBlock";
 import FeaturedProductsBlock from "./blocks/FeaturedProductsBlock";
-import TestimonialsBlock from "./blocks/TestimonialsBlock";
+import HeroBlock from "./blocks/HeroBlock";
+import ImageBlock from "./blocks/ImageBlock";
 import NewsletterSignupBlock from "./blocks/NewsletterSignupBlock";
-import BannerBlock from "./blocks/BannerBlock";
-import CTABlock from "./blocks/CTABlock";
+import ProductListBlock from "./blocks/ProductListBlock";
+import TestimonialsBlock from "./blocks/TestimonialsBlock";
+import TextBlock from "./blocks/TextBlock";
 
 const BlockRenderer = ({ blocks }) => {
   if (!blocks || blocks.length === 0) {

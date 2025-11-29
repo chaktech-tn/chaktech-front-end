@@ -1,15 +1,15 @@
 'use client';
-import React from "react";
-import { Tooltip as ReactTooltip } from 'react-tooltip';
-import Image from "next/image";
-import dynamic from 'next/dynamic';
-import Link from "next/link";
 // internal
 import award_img_1 from "@assets/img/award/award-1.jpg";
 import award_img_2 from "@assets/img/award/award-2.jpg";
 import award_img_3 from "@assets/img/award/award-3.jpg";
 import award_img_4 from "@assets/img/award/award-4.jpg";
 import {RightArrowTwo} from "@svg/index";
+import dynamic from 'next/dynamic';
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
+import { Tooltip as ReactTooltip } from 'react-tooltip';
 
 // data
 const award_data = [
@@ -82,7 +82,7 @@ const Awards = () => {
                               <h3 className="award__title-9">
                                 <Link
                                   id={id}
-                                  href="#"
+                                  href="/"
                                   className="tp-img-reveal tp-img-reveal-item"
                                 >
                                   {title}
@@ -94,7 +94,7 @@ const Awards = () => {
                           <div className="col-xl-2 col-lg-2 col-md-2">
                             <div className="award__btn-9 text-md-end">
                               <Link
-                                href="#"
+                                href="/"
                                 className="career-link-btn"
                               >
                                 <RightArrowTwo/>

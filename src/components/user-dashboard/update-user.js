@@ -1,15 +1,15 @@
 'use client';
-import React, { useState } from "react";
+import ErrorMessage from "@components/error-message/error";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { EmailTwo, Location, MobileTwo, UserTwo } from "@svg/index";
+import { notifyError, notifySuccess } from "@utils/toast";
+import { useTranslations } from 'next-intl';
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
-import * as Yup from "yup";
-import { useTranslations } from 'next-intl';
-// internal
-import { EmailTwo, Location, MobileTwo, UserTwo } from "@svg/index";
 import { useUpdateProfileMutation } from "src/redux/features/auth/authApi";
-import { notifyError, notifySuccess } from "@utils/toast";
-import ErrorMessage from "@components/error-message/error";
+import * as Yup from "yup";
+// internal
 
 const UpdateUser = () => {
   const t = useTranslations('user');
@@ -44,7 +44,7 @@ const UpdateUser = () => {
       address:data.address,
       bio:data.bio,
     }).then((result) => {
-      console.log(result);
+
       if(result?.error){
         notifyError(result?.error?.data?.message);
       }

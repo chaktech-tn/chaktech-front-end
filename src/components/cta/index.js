@@ -1,8 +1,8 @@
 'use client';
-import React from 'react';
-import { useTranslations } from 'next-intl';
-// internal
 import bg from "@assets/img/cta/13/cta-bg-1.jpg";
+import { useTranslations } from 'next-intl';
+import React from 'react';
+// internal
 
 const ShopCta = () => {
   const t = useTranslations('cta');

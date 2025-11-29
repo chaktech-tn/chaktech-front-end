@@ -1,8 +1,8 @@
 'use client';
 import { useRouter } from "next/navigation";
+import { useTranslations } from 'next-intl';
 import React from "react";
 import { useDispatch } from "react-redux";
-import { useTranslations } from 'next-intl';
 import { userLoggedOut } from "src/redux/features/auth/authSlice";
 
 const ProfileNav = () => {

@@ -20,8 +20,8 @@ export const fetchTranslations = async (
     }
 
     const url = category
-      ? `${API_BASE_URL}/api/translations/${locale}/${category}`
-      : `${API_BASE_URL}/api/translations/${locale}`;
+      ? `${API_BASE_URL}/translations/${locale}/${category}`
+      : `${API_BASE_URL}/translations/${locale}`;
 
     const response = await fetch(url);
     if (!response.ok) {

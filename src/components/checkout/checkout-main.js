@@ -1,23 +1,23 @@
 "use client";
+import CartBreadcrumb from "@components/cart/cart-breadcrumb";
+import CheckoutArea from "@components/checkout/checkout-area";
+import CouponArea from "@components/checkout/coupon-area";
+import ShopCta from "@components/cta";
+import useCartInfo from "@hooks/use-cart-info";
+import useCheckoutSubmit from "@hooks/use-checkout-submit";
+import Footer from "@layout/footer";
+import Header from "@layout/header";
+import Wrapper from "@layout/wrapper";
+import { getOrCreateSessionToken } from "@utils/sessionToken";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useDispatch, useSelector } from "react-redux";
 import { useTranslations } from "next-intl";
 // internal
-import Header from "@layout/header";
-import CartBreadcrumb from "@components/cart/cart-breadcrumb";
-import Wrapper from "@layout/wrapper";
-import CouponArea from "@components/checkout/coupon-area";
-import CheckoutArea from "@components/checkout/checkout-area";
-import Footer from "@layout/footer";
-import ShopCta from "@components/cta";
-import useCheckoutSubmit from "@hooks/use-checkout-submit";
 import { useGetCheckoutByTokenQuery } from "src/redux/features/abandonedCheckout/abandonedCheckoutApi";
-import { add_cart_product } from "src/redux/features/cartSlice";
-import { getOrCreateSessionToken } from "@utils/sessionToken";
 import { setSessionToken } from "src/redux/features/abandonedCheckout/abandonedCheckoutSlice";
-import useCartInfo from "@hooks/use-cart-info";
+import { add_cart_product } from "src/redux/features/cartSlice";
 import { trackBeginCheckout } from "@utils/posthog";
 
 export default function CheckoutMainArea() {

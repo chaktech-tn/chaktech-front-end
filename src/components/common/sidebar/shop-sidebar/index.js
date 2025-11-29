@@ -1,9 +1,10 @@
-import React from "react";
 import { useRouter } from "next/navigation";
+import React from "react";
+
 // internal
 import ShopCategory from "../../shop-filtering/shop-category";
-import ShopModel from "../../shop-filtering/shop-model";
 import ShopColor from "../../shop-filtering/shop-color";
+import ShopModel from "../../shop-filtering/shop-model";
 import ShopPrice from "../../shop-filtering/shop-price";
 
 const ShopSidebar = ({ all_products }) => {

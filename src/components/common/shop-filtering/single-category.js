@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const SingleCategory = ({ category, index }) => {
@@ -27,13 +28,13 @@ const SingleCategory = ({ category, index }) => {
           <div className="categories__list">
             <ul>
               <li>
-                <a href="#">Catagories 1</a>
+                <Link href="/">Catagories 1</Link>
               </li>
               <li>
-                <a href="#">Catagories 2</a>
+                <Link href="/">Catagories 2</Link>
               </li>
               <li>
-                <a href="#">Catagories 3</a>
+                <Link href="/">Catagories 3</Link>
               </li>
             </ul>
           </div>

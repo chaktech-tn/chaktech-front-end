@@ -1,10 +1,10 @@
 'use client';
-import Link from "next/link";
-import React from "react";
-import { useTranslations } from 'next-intl';
-// internal
 import useCartInfo from "@hooks/use-cart-info";
 import useCurrency from "@hooks/use-currency";
+import Link from "next/link";
+import { useTranslations } from 'next-intl';
+import React from "react";
+// internal
 
 const CartTotal = () => {
   const { total } = useCartInfo();

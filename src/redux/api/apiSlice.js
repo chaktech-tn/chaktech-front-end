@@ -2,24 +2,29 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 // Get API base URL - detect from current host, override env if needed
 const getApiBaseUrl = () => {
-  // In browser, detect current host and use same IP for backend
-  // This ensures network IP access works correctly
+  // 1. Priority: Environment Variable (Production/Staging)
+  if (process.env.NEXT_PUBLIC_API_BASE_URL) {
+    return process.env.NEXT_PUBLIC_API_BASE_URL;
+  }
+
+  // 2. Browser-side dynamic detection for local network development
   if (typeof window !== "undefined") {
     const hostname = window.location.hostname;
-    // If accessing via network IP, use network IP for backend (override env)
-    if (hostname !== "localhost" && hostname !== "127.0.0.1") {
+    
+    // Check if it's a local IP address (192.168.x.x, 10.x.x.x, 172.16-31.x.x)
+    const isLocalNetwork = 
+      /^192\.168\.\d{1,3}\.\d{1,3}$/.test(hostname) ||
+      /^10\.\d{1,3}\.\d{1,3}\.\d{1,3}$/.test(hostname) ||
+      /^172\.(1[6-9]|2\d|3[0-1])\.\d{1,3}\.\d{1,3}$/.test(hostname);
+
+    if (isLocalNetwork) {
       const networkUrl = `http://${hostname}:5001`;
-      console.log("Using network API URL:", networkUrl);
       return networkUrl;
-    }
-    // If localhost, use env or default
-    if (hostname === "localhost" || hostname === "127.0.0.1") {
-      return process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:5001";
     }
   }
 
-  // Server-side or fallback
-  return process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:5001";
+  // 3. Fallback default
+  return "http://localhost:5001";
 };
 
 // Suppress rate limit errors in development mode
@@ -31,7 +36,7 @@ const SUPPRESS_RATE_LIMIT_ERRORS =
 const baseQueryWithReauth = async (args, api, extraOptions) => {
   const baseQuery = fetchBaseQuery({
     baseUrl: getApiBaseUrl(),
-    prepareHeaders: async (headers, { getState, endpoint }) => {
+    prepareHeaders: async (headers, { getState }) => {
       const token = getState()?.auth?.accessToken;
       if (token) {
         headers.set("Authorization", `Bearer ${token}`);
@@ -42,7 +47,7 @@ const baseQueryWithReauth = async (args, api, extraOptions) => {
     timeout: 10000, // 10 seconds
   });
 
-  let result = await baseQuery(args, api, extraOptions);
+  const result = await baseQuery(args, api, extraOptions);
 
   // Handle errors
   if (result.error) {
@@ -94,5 +99,5 @@ export const apiSlice = createApi({
     "RelatedProducts",
     "Settings",
   ],
-  endpoints: (builder) => ({}),
+  endpoints: () => ({}),
 });

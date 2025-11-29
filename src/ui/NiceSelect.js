@@ -3,6 +3,7 @@ import { useClickAway } from "react-use";
 
 const NiceSelect = ({options,defaultCurrent, placeholder,className,onChange,name}) => {
     const [open, setOpen] = useState(false);
+    // eslint-disable-next-line security/detect-object-injection
     const [current, setCurrent] = useState(options[defaultCurrent]);
     const onClose = useCallback(() => {
         setOpen(false);

@@ -1,6 +1,7 @@
 import React from "react";
-import { NextArrow, PrevArrow } from "@svg/index";
 import ReactPaginate from "react-paginate";
+
+import { NextArrow, PrevArrow } from "../svg/index";
 
 const Pagination = ({ handlePageClick, pageCount, focusPage }) => {
   return (

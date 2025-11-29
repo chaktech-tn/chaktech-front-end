@@ -1,4 +1,5 @@
 import React from "react";
+
 import PrdDetailsDescription from "./prd-details-description";
 import PrdDetailsTabNav from "./prd-details-tab-nav";
 import ProductFAQ from "./product-faq";

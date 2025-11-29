@@ -1,14 +1,15 @@
+import useCurrency from "@hooks/use-currency";
+import { Minus, Plus } from "@svg/index";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 // internal
-import { Minus, Plus } from "@svg/index";
-import { remove_wishlist_product } from "src/redux/features/wishlist-slice";
 import {
   add_cart_product,
   quantityDecrement,
 } from "src/redux/features/cartSlice";
+import { remove_wishlist_product } from "src/redux/features/wishlist-slice";
 
 const SingleWishlist = ({ item }) => {
   const { _id, slug, image, title, originalPrice } = item || {};
@@ -16,6 +17,7 @@ const SingleWishlist = ({ item }) => {
   const { cart_products } = useSelector((state) => state.cart);
   const isAddToCart = cart_products.find((item) => item._id === _id);
   const dispatch = useDispatch();
+  const { formatPrice } = useCurrency();
 
   // handle add product
   const handleAddProduct = (prd) => {
@@ -33,7 +35,7 @@ const SingleWishlist = ({ item }) => {
   };
 
   // handleChange
-  const handleChange = (e) => {};
+  const handleChange = () => {};
   return (
     <tr>
       <td className="product-thumbnail">
@@ -45,7 +47,7 @@ const SingleWishlist = ({ item }) => {
         <Link href={productUrl}>{title}</Link>
       </td>
       <td className="product-price">
-        <span className="amount">${originalPrice}</span>
+        <span className="amount">{formatPrice(originalPrice, 2)}</span>
       </td>
       <td className="product-quantity">
         <div className="tp-product-quantity mt-10 mb-10">
@@ -65,10 +67,12 @@ const SingleWishlist = ({ item }) => {
       </td>
       <td className="product-subtotal">
         <span className="amount">
-          $
-          {isAddToCart?.orderQuantity
-            ? (originalPrice * isAddToCart?.orderQuantity).toFixed(2)
-            : (originalPrice * 0).toFixed(2)}
+          {formatPrice(
+            isAddToCart?.orderQuantity
+              ? originalPrice * isAddToCart?.orderQuantity
+              : originalPrice * 0,
+            2
+          )}
         </span>
       </td>
       <td className="product-remove">

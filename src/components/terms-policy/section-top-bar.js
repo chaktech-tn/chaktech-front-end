@@ -1,6 +1,6 @@
+import bg from "@assets/img/contact/contact-bg.png";
 import React from "react";
 // internal
-import bg from "@assets/img/contact/contact-bg.png";
 
 const SectionTop = ({ title, subtitle }) => {
   return (

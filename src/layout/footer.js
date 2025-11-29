@@ -1,18 +1,31 @@
 "use client";
-import Link from "next/link";
-import Image from "next/image";
-import { useTranslations, useLocale } from "next-intl";
-// internal
-import logo from "@assets/img/categories/chaktech-logo.jpg";
-import SocialLinks from "@components/social";
-import CopyrightText from "./copyright-text";
-import contactInfo from "@config/contact";
-import { siteConfig } from "@lib/seo-config";
-import { useSiteSettings } from "@hooks/useSiteSettings";
-import { useMenu } from "@hooks/useMenu";
+import logo from "@assets/img/categories/chaktech-logo.webp";
 import LanguageSwitcher from "@components/language-switcher";
+import SocialLinks from "@components/social";
+import contactInfo from "@config/contact";
+import { useMenu } from "@hooks/useMenu";
+import { useSiteSettings } from "@hooks/useSiteSettings";
+import { siteConfig } from "@lib/seo-config";
+import Image from "next/image";
+import Link from "next/link";
+import { useTranslations, useLocale } from "next-intl";
+
+import CopyrightText from "./copyright-text";
+
 
 // single widget
+const resolveUrl = (url = "/") => {
+  if (!url) return "/";
+  if (url.startsWith("http://") || url.startsWith("https://")) {
+    return url;
+  }
+
+  // Normalize accidental double slashes like "//about" that can happen when CMS data
+  // includes a leading slash already. Using a regex here avoids hydration mismatches.
+  const normalized = url.replace(/^\/+/, "");
+  return `/${normalized}`;
+};
+
 function SingleWidget({ col, col_2, col_3, title, contents }) {
   return (
     <div
@@ -24,7 +37,7 @@ function SingleWidget({ col, col_2, col_3, title, contents }) {
           <ul>
             {contents.map((l, i) => (
               <li key={i}>
-                <Link href={`/${l.url}`}>{l.title}</Link>
+                <Link href={resolveUrl(l.url)}>{l.title}</Link>
               </li>
             ))}
           </ul>
@@ -60,7 +73,7 @@ function FooterMenuWidget({ menu, col, col_2, col_3 }) {
             {menuItems.map((item, i) => (
               <li key={i}>
                 <Link
-                  href={item.url}
+                  href={resolveUrl(item.url)}
                   target={item.openInNewTab ? "_blank" : undefined}
                   rel={item.openInNewTab ? "noopener noreferrer" : undefined}
                 >

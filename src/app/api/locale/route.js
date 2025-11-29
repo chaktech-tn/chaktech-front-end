@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+
 import { locales } from '../../../../i18n';
 
 export async function POST(request) {

@@ -1,15 +1,18 @@
 "use client";
-import React, { useState } from "react";
+import useCurrency from "@hooks/use-currency";
+import { CartTwo, Eye, HeartTwo } from "@svg/index";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
+import React, { useState } from "react";
 // internal
-import { CartTwo, Compare, Eye, HeartTwo } from "@svg/index";
-import { RatingFull, RatingHalf } from "./rating";
+
 import { useDispatch } from "react-redux";
 import { initialOrderQuantity } from "src/redux/features/cartSlice";
 import { setProduct } from "src/redux/features/productSlice";
+
+import { RatingFull, RatingHalf } from "./rating";
 
 const SingleListProduct = ({ product }) => {
   const t = useTranslations("product");
@@ -18,6 +21,7 @@ const SingleListProduct = ({ product }) => {
   const router = useRouter();
   // handle dispatch
   const dispatch = useDispatch();
+  const { formatPrice } = useCurrency();
   const [imgError, setImgError] = useState(false);
   const [imgSrc, setImgSrc] = useState(
     image || "/assets/img/placeholder/product-placeholder.svg"
@@ -120,7 +124,7 @@ const SingleListProduct = ({ product }) => {
                 </Link>
               </h3>
               <div className="product__list-price">
-                <span className="product__list-ammount">${price}</span>
+                <span className="product__list-ammount">{formatPrice(price, 2)}</span>
               </div>
               <p>{t("promoText")}</p>
 

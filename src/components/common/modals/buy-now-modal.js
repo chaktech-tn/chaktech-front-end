@@ -1,24 +1,24 @@
 'use client';
+import CitySelector from "@components/common/city-selector";
+import ErrorMessage from "@components/error-message/error";
+import { trackMetaPixelEvent } from "@components/tracking/FacebookPixel";
+import useCartInfo from "@hooks/use-cart-info";
+import useRealtimeSave from "@hooks/use-realtime-save";
+import { Times } from "@svg/index";
+import { trackOrderCompleted, trackCheckoutStep, trackFormError, trackBeginCheckout } from "@utils/posthog";
+import { getOrCreateSessionToken } from "@utils/sessionToken";
+import { notifyError, notifySuccess } from "@utils/toast";
+import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useRouter } from "next/navigation";
 import { useForm, Controller } from "react-hook-form";
 import { Modal } from "react-bootstrap";
 import { useTranslations } from 'next-intl';
 // internal
-import { Times } from "@svg/index";
-import ErrorMessage from "@components/error-message/error";
-import { add_cart_product } from "src/redux/features/cartSlice";
-import { getOrCreateSessionToken } from "@utils/sessionToken";
-import useRealtimeSave from "@hooks/use-realtime-save";
 import { setSessionToken } from "src/redux/features/abandonedCheckout/abandonedCheckoutSlice";
-import { notifyError, notifySuccess } from "@utils/toast";
+import { add_cart_product } from "src/redux/features/cartSlice";
 import { useAddOrderMutation } from "src/redux/features/order/orderApi";
-import useCartInfo from "@hooks/use-cart-info";
-import CitySelector from "@components/common/city-selector";
-import { trackOrderCompleted, trackCheckoutStep, trackFormError, trackBeginCheckout } from "@utils/posthog";
 import { generateEventId, getMetaCookies } from "@utils/trackingUtils";
-import { trackMetaPixelEvent } from "@components/tracking/FacebookPixel";
 
 const BuyNowModal = ({ show, onHide, product }) => {
   const dispatch = useDispatch();

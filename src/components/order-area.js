@@ -1,13 +1,14 @@
 "use client";
+import ErrorMessage from "@components/error-message/error";
+import Loader from "@components/loader/loader";
+import Footer from "@layout/footer";
+import Header from "@layout/header";
+import Wrapper from "@layout/wrapper";
 import React, { useRef } from "react";
 import { useReactToPrint } from "react-to-print";
 // internal
-import Loader from "@components/loader/loader";
-import Wrapper from "@layout/wrapper";
-import Header from "@layout/header";
-import Footer from "@layout/footer";
 import { useGetUserOrderByIdQuery } from "src/redux/features/orderApi";
-import ErrorMessage from "@components/error-message/error";
+
 import InvoiceArea from "./invoice-area";
 
 const SingleOrderArea = ({ orderId }) => {
@@ -42,7 +43,7 @@ const SingleOrderArea = ({ orderId }) => {
       discount,
       totalAmount,
     } = order.order;
-    console.log("order.order", order.order);
+
     content = (
       <section className="invoice__area pt-120 pb-120">
         <div className="container">

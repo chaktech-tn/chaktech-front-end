@@ -1,15 +1,15 @@
 "use client";
-import { useState, useEffect } from "react";
-import React from "react";
-// internal
-import Wrapper from "@layout/wrapper";
-import Header from "@layout/header";
-import ShopCta from "@components/cta";
-import Footer from "@layout/footer";
 import ShopBreadcrumb from "@components/common/breadcrumb/shop-breadcrumb";
-import ShopArea from "@components/shop/shop-area";
-import { useGetShowingProductsQuery } from "src/redux/features/productApi";
+import ShopCta from "@components/cta";
 import ProductPlaceholderGrid from "@components/products/product-placeholder";
+import ShopArea from "@components/shop/shop-area";
+import Footer from "@layout/footer";
+import Header from "@layout/header";
+import Wrapper from "@layout/wrapper";
+import React, { useState } from "react";
+
+// internal
+import { useGetShowingProductsQuery } from "src/redux/features/productApi";
 
 export default function ShopMainArea({
   Category,
@@ -24,41 +24,11 @@ export default function ShopMainArea({
     data: products,
     isError,
     isLoading,
-    error,
+
   } = useGetShowingProductsQuery();
 
   // Debug: Log the data structure (remove in production)
-  React.useEffect(() => {
-    if (products) {
-      console.log("Shop Products data structure:", {
-        hasProducts: !!products.products,
-        productsCount: products?.products?.length || 0,
-        success: products?.success,
-        keys: Object.keys(products || {}),
-      });
-    }
-    if (error) {
-      // Suppress rate limit errors in development mode
-      const suppressRateLimit =
-        process.env.NEXT_PUBLIC_SUPPRESS_RATE_LIMIT_ERRORS === "true" ||
-        process.env.NODE_ENV === "development";
 
-      // Check if error is empty or should be suppressed
-      const errorKeys = Object.keys(error || {});
-      const isEmptyError = errorKeys.length === 0;
-      const isRateLimit = error?.status === 429 || error?.isRateLimitError;
-      const shouldSuppress =
-        error?.suppressLog || (isRateLimit && suppressRateLimit);
-
-      // Skip logging if error is empty, suppressed, or rate limit in dev mode
-      if (isEmptyError || shouldSuppress) {
-        return;
-      }
-
-      // Only log meaningful errors
-      console.error("Shop Products error:", error);
-    }
-  }, [products, error]);
   const [shortValue, setShortValue] = useState("");
 
   // selectShortHandler
@@ -81,7 +51,7 @@ export default function ShopMainArea({
   }
 
   if (!isLoading && !isError && products?.products?.length > 0) {
-    let all_products = products.products;
+    const all_products = products.products;
     let product_items = all_products;
 
     if (Category) {

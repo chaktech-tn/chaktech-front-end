@@ -48,7 +48,7 @@ export const useMenu = (
   const cacheKey = `${position}-${locale}`;
   const [menu, setMenu] = useState<Menu | null>(menuCache[cacheKey] || null);
   const [isLoading, setIsLoading] = useState(!menuCache[cacheKey]);
-  const [error, setError] = useState<Error | null>(null);
+  const [error] = useState<Error | null>(null);
 
   useEffect(() => {
     const loadMenu = async () => {
@@ -90,10 +90,10 @@ export const useMenu = (
           if (!cached) {
             setIsLoading(true);
           }
-          
+
           const response = await fetch(
-            `${API_BASE_URL}/api/menus/${position}/${locale}`
-          ).catch((fetchError) => {
+            `${API_BASE_URL}/menus/${position}/${locale}`
+          ).catch(() => {
             // CORS or network errors - silently handle
             // Use cached data if available, otherwise return null to use empty menu
             return null;
@@ -216,7 +216,7 @@ export const useMenu = (
     };
 
     loadMenu();
-  }, [position, locale]);
+  }, [position, locale, cacheKey]);
 
   return { menu, isLoading, error };
 };

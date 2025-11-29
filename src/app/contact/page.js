@@ -1,7 +1,7 @@
+import ContactArea from "@components/contact/contact-area";
 import Footer from "@layout/footer";
 import Header from "@layout/header";
 import Wrapper from "@layout/wrapper";
-import ContactArea from "@components/contact/contact-area";
 
 export const metadata = {
   title: "Contact",

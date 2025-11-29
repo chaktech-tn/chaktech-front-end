@@ -1,25 +1,27 @@
 "use client";
-import React, { useState } from "react";
+// internal
+import logo from "@assets/img/categories/chaktech-logo.webp";
+import OffCanvas from "@components/common/off-canvas";
+import CartSidebar from "@components/common/sidebar/cart-sidebar";
+import LiveSearchForm from "@components/forms/live-search-form";
+import useCartInfo from "@hooks/use-cart-info";
+import useSticky from "@hooks/use-sticky";
+import { useSiteSettings } from "@hooks/useSiteSettings";
+import { Cart, Heart, Search, User } from "@svg/index";
 import Image from "next/image";
 import Link from "next/link";
-import { useSelector } from "react-redux";
-// internal
-import Menus from "./menus";
-import logo from "@assets/img/categories/chaktech-logo.jpg";
-import { Cart, Heart, Search, User } from "@svg/index";
-import useSticky from "@hooks/use-sticky";
-import CartSidebar from "@components/common/sidebar/cart-sidebar";
-import OffCanvas from "@components/common/off-canvas";
-import useCartInfo from "@hooks/use-cart-info";
-import LiveSearchForm from "@components/forms/live-search-form";
 import { useLocale } from "next-intl";
-import { useSiteSettings } from "@hooks/useSiteSettings";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
+
+import Menus from "./menus";
 
 const Header = ({ style_2 = false }) => {
   const locale = useLocale();
   const { sticky } = useSticky();
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isOffCanvasOpen, setIsOffCanvasOpen] = useState(false);
+  const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
   const { quantity } = useCartInfo();
   const { wishlist } = useSelector((state) => state.wishlist);
   const { user: userInfo } = useSelector((state) => state.auth);
@@ -44,41 +46,59 @@ const Header = ({ style_2 = false }) => {
               backdropFilter: sticky ? "blur(10px)" : "none",
             }}
           >
-            <div className="container-fluid" style={{ overflowX: "hidden" }}>
+            <div className="container-fluid">
               <div className="mega-menu-wrapper p-relative">
                 <div className="row align-items-center" style={{ margin: 0 }}>
-                  <div className="col-xxl-1 col-xl-2 col-lg-4 col-md-4 col-sm-5 col-8">
-                    <div className="logo">
-                      <Link href="/">
+                  {/* Logo - Responsive sizing */}
+                  <div className="col-xxl-1 col-xl-2 col-lg-3 col-md-4 col-sm-5 col-6">
+                    <div className="logo" style={{ 
+                      display: "flex", 
+                      alignItems: "center",
+                      height: "100%",
+                      minHeight: "60px"
+                    }}>
+                      <Link href="/" style={{ display: "flex", alignItems: "center" }}>
                         <Image
                           src={logoUrl}
                           alt={logoAlt}
                           width={112}
                           height={42}
                           priority
-                          style={{ objectFit: "contain" }}
+                          style={{ 
+                            objectFit: "contain",
+                            maxWidth: "100%",
+                            height: "auto",
+                            width: "auto",
+                            maxHeight: "42px"
+                          }}
                           unoptimized
                         />
                       </Link>
                     </div>
                   </div>
-                  <div className="col-xxl-6 col-xl-7 d-none d-xl-block">
+                  
+                  {/* Main Menu - Hidden on mobile/tablet */}
+                  <div className="col-xxl-6 col-xl-7 col-lg-6 d-none d-lg-block">
                     <div className="main-menu main-menu-13 pl-45 main-menu-ff-space">
                       <nav id="mobile-menu-3">
                         <Menus />
                       </nav>
                     </div>
                   </div>
-                  <div className="col-xxl-5 col-xl-3 col-lg-8 col-md-8 col-sm-7 col-4">
+                  
+                  {/* Right Side Actions - Responsive */}
+                  <div className="col-xxl-5 col-xl-3 col-lg-3 col-md-8 col-sm-7 col-6">
                     <div
-                      className="header__bottom-right-13 d-flex justify-content-end align-items-center pl-30"
+                      className="header__bottom-right-13 d-flex justify-content-end align-items-center"
                       style={{
-                        flexWrap: "wrap",
-                        gap: "8px",
-                        visibility: "visible",
-                        opacity: 1,
+                        flexWrap: "nowrap",
+                        gap: "6px",
+                        width: "100%",
+                        justifyContent: "flex-end",
+                        paddingLeft: "0",
                       }}
                     >
+                      {/* Desktop Search */}
                       <div
                         className="header__search-13 d-none d-lg-block"
                         style={{
@@ -86,13 +106,55 @@ const Header = ({ style_2 = false }) => {
                           minWidth: "200px",
                           maxWidth: "280px",
                           width: "100%",
+                          position: "relative",
+                          zIndex: 9999,
+                          marginRight: "8px",
                         }}
                       >
                         <LiveSearchForm />
                       </div>
+                      
+                      {/* Mobile/Tablet Search Button */}
                       <div
-                        className="header__action-13 d-none d-md-block"
+                        className="d-lg-none"
                         style={{ flexShrink: 0 }}
+                      >
+                        <button
+                          onClick={() => setIsMobileSearchOpen(true)}
+                          type="button"
+                          style={{
+                            background: "transparent",
+                            border: "none",
+                            padding: "10px",
+                            cursor: "pointer",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            color: style_2 ? "#fff" : "#111",
+                            minWidth: "44px",
+                            minHeight: "44px",
+                            borderRadius: "4px",
+                            transition: "background-color 0.2s ease",
+                          }}
+                          onMouseEnter={(e) => {
+                            e.currentTarget.style.backgroundColor = "rgba(0, 0, 0, 0.05)";
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.backgroundColor = "transparent";
+                          }}
+                          aria-label="Search"
+                        >
+                          <Search />
+                        </button>
+                      </div>
+                      
+                      {/* User Actions - Visible on sm and up */}
+                      <div
+                        className="header__action-13 d-none d-sm-flex"
+                        style={{ 
+                          flexShrink: 0,
+                          gap: "4px",
+                        }}
                       >
                         <ul
                           style={{
@@ -100,17 +162,22 @@ const Header = ({ style_2 = false }) => {
                             margin: 0,
                             padding: 0,
                             listStyle: "none",
-                            gap: "8px",
+                            gap: "6px",
+                            alignItems: "center",
                           }}
                         >
-                          <li className="d-xxl-none">
-                            <a href="#">
-                              <Search />
-                            </a>
-                          </li>
                           {userInfo?.imageURL ? (
                             <li>
-                              <Link href="/user-dashboard">
+                              <Link 
+                                href="/user-dashboard"
+                                style={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                  justifyContent: "center",
+                                  minWidth: "44px",
+                                  minHeight: "44px",
+                                }}
+                              >
                                 <Image
                                   src={userInfo.imageURL}
                                   alt="user img"
@@ -125,25 +192,57 @@ const Header = ({ style_2 = false }) => {
                             </li>
                           ) : userInfo?.name ? (
                             <li>
-                              <Link href="/user-dashboard">
-                                <h2 className="text-uppercase tp-user-login-avater">
+                              <Link 
+                                href="/user-dashboard"
+                                style={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                  justifyContent: "center",
+                                  minWidth: "44px",
+                                  minHeight: "44px",
+                                }}
+                              >
+                                <h2 className="text-uppercase tp-user-login-avater" style={{ margin: 0 }}>
                                   {userInfo.name[0]}
                                 </h2>
                               </Link>
                             </li>
                           ) : (
                             <li>
-                              <Link href="/login">
+                              <Link 
+                                href="/login"
+                                style={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                  justifyContent: "center",
+                                  minWidth: "44px",
+                                  minHeight: "44px",
+                                  padding: "8px",
+                                }}
+                              >
                                 <User />
                               </Link>
                             </li>
                           )}
                           <li>
-                            <Link href="/wishlist">
+                            <Link 
+                              href="/wishlist"
+                              style={{
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                                minWidth: "44px",
+                                minHeight: "44px",
+                                padding: "8px",
+                                position: "relative",
+                              }}
+                            >
                               <Heart />
-                              <span className="tp-item-count">
-                                {wishlist.length}
-                              </span>
+                              {wishlist.length > 0 && (
+                                <span className="tp-item-count">
+                                  {wishlist.length}
+                                </span>
+                              )}
                             </Link>
                           </li>
                           <li>
@@ -151,19 +250,70 @@ const Header = ({ style_2 = false }) => {
                               className="cartmini-open-btn"
                               onClick={() => setIsCartOpen(!isCartOpen)}
                               type="button"
+                              style={{
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                                minWidth: "44px",
+                                minHeight: "44px",
+                                padding: "8px",
+                                background: "transparent",
+                                border: "none",
+                                cursor: "pointer",
+                                position: "relative",
+                              }}
                             >
                               <Cart />
-                              <span className="tp-item-count">{quantity}</span>
+                              {quantity > 0 && (
+                                <span className="tp-item-count">{quantity}</span>
+                              )}
                             </button>
                           </li>
                         </ul>
                       </div>
-                      {/* Language switcher removed - keeping FR as default language */}
-                      <div className="header__hamburger ml-20 ml-lg-30 d-xl-none">
+                      
+                      {/* Mobile Actions - Only cart on very small screens */}
+                      <div className="d-sm-none">
+                        <button
+                          className="cartmini-open-btn"
+                          onClick={() => setIsCartOpen(!isCartOpen)}
+                          type="button"
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            minWidth: "44px",
+                            minHeight: "44px",
+                            padding: "8px",
+                            background: "transparent",
+                            border: "none",
+                            cursor: "pointer",
+                            position: "relative",
+                            color: style_2 ? "#fff" : "#111",
+                          }}
+                        >
+                          <Cart />
+                          {quantity > 0 && (
+                            <span className="tp-item-count">{quantity}</span>
+                          )}
+                        </button>
+                      </div>
+                      
+                      {/* Hamburger Menu - Hidden on desktop */}
+                      <div className="header__hamburger d-lg-none" style={{ flexShrink: 0, marginLeft: "4px" }}>
                         <button
                           onClick={() => setIsOffCanvasOpen(true)}
                           type="button"
                           className="hamburger-btn hamburger-btn-black offcanvas-open-btn"
+                          style={{
+                            minWidth: "44px",
+                            minHeight: "44px",
+                            padding: "8px",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                          }}
+                          aria-label="Menu"
                         >
                           <span></span>
                           <span></span>
@@ -189,6 +339,103 @@ const Header = ({ style_2 = false }) => {
         setIsOffCanvasOpen={setIsOffCanvasOpen}
       />
       {/* off canvas end */}
+
+      {/* Mobile Search Overlay */}
+      {isMobileSearchOpen && (
+        <div
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: "rgba(0, 0, 0, 0.6)",
+            zIndex: 10000,
+            display: "flex",
+            alignItems: "flex-start",
+            justifyContent: "center",
+            paddingTop: "60px",
+            padding: "16px",
+            overflowY: "auto",
+          }}
+          onClick={() => setIsMobileSearchOpen(false)}
+        >
+          <div
+            style={{
+              backgroundColor: "#fff",
+              borderRadius: "16px",
+              width: "100%",
+              maxWidth: "600px",
+              padding: "24px",
+              paddingTop: "50px",
+              boxShadow: "0 20px 40px rgba(0,0,0,0.3)",
+              position: "relative",
+              maxHeight: "calc(100vh - 120px)",
+              overflowY: "auto",
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setIsMobileSearchOpen(false)}
+              type="button"
+              style={{
+                position: "absolute",
+                top: "16px",
+                right: "16px",
+                background: "#f3f4f6",
+                border: "none",
+                fontSize: "20px",
+                cursor: "pointer",
+                color: "#666",
+                width: "36px",
+                height: "36px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                borderRadius: "50%",
+                transition: "all 0.2s ease",
+                fontWeight: "bold",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = "#e5e7eb";
+                e.currentTarget.style.color = "#111";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = "#f3f4f6";
+                e.currentTarget.style.color = "#666";
+              }}
+              aria-label="Close search"
+            >
+              ×
+            </button>
+            <div style={{ marginBottom: "20px" }}>
+              <h3
+                style={{
+                  fontSize: "22px",
+                  fontWeight: "700",
+                  margin: 0,
+                  marginBottom: "8px",
+                  color: "#111",
+                }}
+              >
+                Rechercher des produits
+              </h3>
+              <p
+                style={{
+                  fontSize: "14px",
+                  color: "#666",
+                  margin: 0,
+                }}
+              >
+                Tapez pour rechercher des produits
+              </p>
+            </div>
+            <div style={{ position: "relative", zIndex: 10001 }}>
+              <LiveSearchForm isMobile={true} />
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 };

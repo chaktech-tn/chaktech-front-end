@@ -55,7 +55,7 @@ export const useSiteSettings = (locale: string = "fr"): {
   const [isLoading, setIsLoading] = useState(
     settingsCache[locale] === undefined
   );
-  const [error, setError] = useState<Error | null>(null);
+  const [error,] = useState<Error | null>(null);
 
   useEffect(() => {
     const loadSettings = async () => {
@@ -95,10 +95,10 @@ export const useSiteSettings = (locale: string = "fr"): {
           if (cached === undefined) {
             setIsLoading(true);
           }
-          
+
           const response = await fetch(
-            `${API_BASE_URL}/api/site-settings/${locale}`
-          ).catch((fetchError) => {
+            `${API_BASE_URL}/site-settings/${locale}`
+          ).catch(() => {
             // CORS or network errors - silently handle
             // Use cached data if available, otherwise return null
             return null;

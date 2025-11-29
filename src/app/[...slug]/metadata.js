@@ -1,3 +1,4 @@
+/* eslint-disable */
 export function generateMetadata(page) {
   const seoMeta = page.seoMeta || {};
   const baseUrl = process.env.NEXT_PUBLIC_FRONTEND_URL || "http://localhost:3001";

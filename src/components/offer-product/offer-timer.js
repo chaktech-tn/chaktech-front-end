@@ -1,7 +1,7 @@
 'use client';
+import { useTranslations } from 'next-intl';
 import React from "react";
 import { useTimer } from "react-timer-hook";
-import { useTranslations } from 'next-intl';
 
 const OfferTimer = ({expiryTimestamp}) => {
   const t = useTranslations('coupon');

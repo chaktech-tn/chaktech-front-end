@@ -1,11 +1,11 @@
 'use client';
-import React from "react";
 // internal
-import { Play } from "@svg/index";
 import faq_bg from "@assets/img/faq/faq-img.jpg";
-import SingleFaq from "@components/faq/single-faq";
 import VideoModal from "@components/common/modals/modal-video";
+import SingleFaq from "@components/faq/single-faq";
 import useModal from "@hooks/use-modal";
+import { Play } from "@svg/index";
+import React from "react";
 
 const faq_items = [
   {

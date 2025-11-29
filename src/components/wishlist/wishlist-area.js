@@ -1,9 +1,10 @@
 'use client';
-import React from "react";
+import EmptyCart from "@components/common/sidebar/cart-sidebar/empty-cart";
 import Link from "next/link";
+import React from "react";
 import { useSelector } from "react-redux";
 // internal
-import EmptyCart from "@components/common/sidebar/cart-sidebar/empty-cart";
+
 import SingleWishlist from "./single-wishlist";
 
 const WishlistArea = () => {

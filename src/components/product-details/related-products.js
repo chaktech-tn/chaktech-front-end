@@ -1,9 +1,7 @@
-import React from "react";
-// internal
-import Loader from "@components/loader/loader";
 import ProductPlaceholderGrid from "@components/products/product-placeholder";
-import { useGetRelatedProductsQuery } from "src/redux/features/productApi";
 import SingleProduct from "@components/products/single-product";
+import React from "react";
+import { useGetRelatedProductsQuery } from "src/redux/features/productApi";
 
 
 const RelatedProducts = ({id,tags}) => {

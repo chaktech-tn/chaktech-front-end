@@ -194,6 +194,8 @@
     "searchPlaceholder": "Rechercher des produits...",
     "searching": "Recherche en cours...",
     "noResults": "Aucun produit trouvé",
+    "result": "résultat",
+    "results": "résultats",
     "slider1": {
       "preTitle": "Électroménager\nTunisie",
       "title": "Découvrez nos\ngrandes gammes"
@@ -206,7 +208,8 @@
       "preTitle": "Smartphones\n& Tablettes",
       "title": "Les meilleurs prix\nen Tunisie"
     },
-    "viewMore": "Voir Plus"
+    "viewMore": "Voir Plus",
+    "viewAllResults": "Voir tous les résultats"
   },
   "about": {
     "subtitle": "À propos de nous",
@@ -354,7 +357,8 @@
     "allProducts": "tous les produits"
   },
   "offcanvas": {
-    "followUs": "Suivez-nous :"
+    "followUs": "Suivez-nous :",
+    "search": "Rechercher"
   },
   "category": {
     "noCategoryFound": "Aucune catégorie trouvée !"

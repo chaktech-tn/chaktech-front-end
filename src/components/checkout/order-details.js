@@ -1,12 +1,12 @@
 'use client';
-import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { useTranslations } from 'next-intl';
-// internal
+import ErrorMessage from "@components/error-message/error";
 import useCartInfo from "@hooks/use-cart-info";
 import useCurrency from "@hooks/use-currency";
-import ErrorMessage from "@components/error-message/error";
 import { trackCheckoutStep, trackFormError } from "@utils/posthog";
+import { useTranslations } from 'next-intl';
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+// internal
 
 const OrderDetails = ({
   register,

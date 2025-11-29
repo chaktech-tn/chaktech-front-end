@@ -1,6 +1,6 @@
+import Footer from "@layout/footer";
 import Header from "@layout/header";
 import Wrapper from "@layout/wrapper";
-import Footer from "@layout/footer";
 import { siteConfig } from "@lib/seo-config";
 
 // Force dynamic rendering for blog page
@@ -9,7 +9,7 @@ export const dynamic = 'force-dynamic';
 async function getAllBlogs() {
   try {
     const apiUrl = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:5001';
-    const res = await fetch(`${apiUrl}/api/blog/all?limit=12&page=1`, {
+    const res = await fetch(`${apiUrl}/blog/all?limit=12&page=1`, {
       cache: 'no-store',
     });
     

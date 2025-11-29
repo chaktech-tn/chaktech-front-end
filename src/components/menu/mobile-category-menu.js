@@ -1,10 +1,10 @@
 'use client';
 
-import React, { useState } from 'react';
+import { formatCategoryName } from '@utils/formatCategoryName';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
+import React, { useState } from 'react';
 import { useGetCategoriesQuery } from 'src/redux/features/categoryApi';
-import { formatCategoryName } from '@utils/formatCategoryName';
 
 const MobileCategoryMenu = () => {
   const { data: categoriesData, isLoading, isError } = useGetCategoriesQuery();
@@ -61,7 +61,7 @@ const MobileCategoryMenu = () => {
                 </ul>
                 <a
                   className={`mean-expand ${isExpanded ? 'mean-clicked' : ''}`}
-                  href="#"
+                  href="/"
                   onClick={(e) => {
                     e.preventDefault();
                     toggleCategory(category.parent);

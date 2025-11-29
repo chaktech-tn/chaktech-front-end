@@ -39,10 +39,10 @@ export const cartSlice = createSlice({
       }
       setLocalStorage("cart_products", state.cart_products);
     },
-    increment: (state, { payload }) => {
+    increment: (state) => {
       state.orderQuantity = state.orderQuantity + 1;
     },
-    decrement: (state, { payload }) => {
+    decrement: (state) => {
       state.orderQuantity =
         state.orderQuantity > 1
           ? state.orderQuantity - 1
@@ -65,10 +65,10 @@ export const cartSlice = createSlice({
       );
       setLocalStorage("cart_products", state.cart_products);
     },
-    get_cart_products: (state, action) => {
+    get_cart_products: (state) => {
       state.cart_products = getLocalStorage("cart_products");
     },
-    initialOrderQuantity: (state, { payload }) => {
+    initialOrderQuantity: (state) => {
       state.orderQuantity = 1;
     },
   },

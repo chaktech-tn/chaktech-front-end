@@ -1,5 +1,5 @@
-import React from "react";
 import bg from '@assets/img/about/about-breadcrumb.jpg';
+import React from "react";
 
 const AboutTopBar = () => {
   return (

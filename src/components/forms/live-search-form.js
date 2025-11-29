@@ -1,15 +1,14 @@
 "use client";
-import React, { useState, useEffect, useRef, useCallback } from "react";
-import { useRouter } from "next/navigation";
-import { useLocale, useTranslations } from "next-intl";
+import Search from "@svg/search";
 import Image from "next/image";
 import Link from "next/link";
-import Search from "@svg/search";
+import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import { useLazySearchProductsQuery } from "src/redux/features/productApi";
 
-const LiveSearchForm = () => {
+const LiveSearchForm = ({ isMobile = false }) => {
   const router = useRouter();
-  const locale = useLocale();
   const t = useTranslations("hero");
   const [searchText, setSearchText] = useState("");
   const [showResults, setShowResults] = useState(false);
@@ -120,6 +119,14 @@ const LiveSearchForm = () => {
       .live-search-dropdown::-webkit-scrollbar-thumb:hover {
         background: #9ca3af;
       }
+      /* Ensure header containers don't clip search dropdown */
+      header,
+      .header__area,
+      .header__bottom-13,
+      .container-fluid,
+      .mega-menu-wrapper {
+        overflow: visible !important;
+      }
     `;
     document.head.appendChild(style);
     return () => {
@@ -127,23 +134,41 @@ const LiveSearchForm = () => {
     };
   }, []);
 
+  // RTK Query returns response directly in data property
+  // Backend returns: { success: true, products: [...] }
+  // So searchData will be: { success: true, products: [...] }
   const products = searchData?.products || [];
+  
+  // Debug: Log search data in development
+
 
   return (
-    <div style={{ position: "relative", width: "100%" }} ref={searchRef}>
-      <form onSubmit={handleSubmit}>
+    <div style={{ position: "relative", width: "100%", zIndex: 9999 }} ref={searchRef}>
+      <form onSubmit={handleSubmit} style={{ position: "relative", width: "100%" }}>
         <div
-          className="header__search-input-13 d-none d-xxl-block"
-          style={{ position: "relative" }}
+          className={isMobile ? "" : "header__search-input-13 d-none d-lg-block"}
+          style={{ 
+            position: "relative", 
+            width: "100%",
+            display: isMobile ? "block" : undefined
+          }}
         >
           <input
             onChange={handleInputChange}
             value={searchText}
             type="text"
             placeholder={t("searchPlaceholder")}
-            onFocus={() => {
+            onFocus={(e) => {
+              if (isMobile && e.target.style) {
+                e.target.style.borderColor = "#3b82f6";
+              }
               if (searchText.trim().length > 0 && products.length > 0) {
                 setShowResults(true);
+              }
+            }}
+            onBlur={(e) => {
+              if (isMobile && e.target.style) {
+                e.target.style.borderColor = "#e5e7eb";
               }
             }}
             onKeyDown={(e) => {
@@ -154,8 +179,35 @@ const LiveSearchForm = () => {
               }
             }}
             autoComplete="off"
+            style={isMobile ? {
+              width: "100%",
+              height: "48px",
+              padding: "12px 50px 12px 16px",
+              border: "2px solid #e5e7eb",
+              borderRadius: "8px",
+              fontSize: "16px",
+              outline: "none",
+              transition: "all 0.2s ease",
+            } : {}}
           />
-          <button type="submit" onClick={handleSubmit}>
+          <button 
+            type="submit" 
+            onClick={handleSubmit}
+            style={isMobile ? {
+              position: "absolute",
+              right: "8px",
+              top: "50%",
+              transform: "translateY(-50%)",
+              background: "transparent",
+              border: "none",
+              cursor: "pointer",
+              padding: "8px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              color: "#6b7280",
+            } : {}}
+          >
             <Search />
           </button>
         </div>
@@ -167,20 +219,21 @@ const LiveSearchForm = () => {
           ref={resultsRef}
           className="live-search-dropdown"
           style={{
-            position: "absolute",
-            top: "100%",
+            position: isMobile ? "relative" : "absolute",
+            top: isMobile ? "0" : "calc(100% + 8px)",
             left: 0,
             right: 0,
+            width: "100%",
             backgroundColor: "#fff",
-            border: "1px solid #e5e7eb",
-            borderRadius: "12px",
-            boxShadow:
-              "0 10px 25px rgba(0,0,0,0.1), 0 4px 6px rgba(0,0,0,0.05)",
-            zIndex: 1000,
-            maxHeight: "500px",
-            overflowY: "auto",
-            marginTop: "8px",
-            overflowX: "hidden",
+            border: isMobile ? "none" : "1px solid #e5e7eb",
+            borderRadius: isMobile ? "0" : "12px",
+            boxShadow: isMobile ? "none" : "0 10px 25px rgba(0,0,0,0.1), 0 4px 6px rgba(0,0,0,0.05)",
+            zIndex: isMobile ? 1 : 9999,
+            maxHeight: isMobile ? "none" : "500px",
+            display: "flex",
+            flexDirection: "column",
+            overflow: "hidden",
+            marginTop: isMobile ? "12px" : "0",
           }}
         >
           {isSearching ? (
@@ -209,7 +262,7 @@ const LiveSearchForm = () => {
               {t("searching") || "Searching..."}
             </div>
           ) : products.length > 0 ? (
-            <>
+            <div style={{ display: "flex", flexDirection: "column", height: "100%", minHeight: 0 }}>
               <div
                 style={{
                   padding: "14px 18px",
@@ -220,6 +273,7 @@ const LiveSearchForm = () => {
                   color: "#374151",
                   letterSpacing: "0.025em",
                   textTransform: "uppercase",
+                  flexShrink: 0,
                 }}
               >
                 {products.length}{" "}
@@ -227,8 +281,17 @@ const LiveSearchForm = () => {
                   ? t("result") || "result"
                   : t("results") || "results"}
               </div>
-              <div style={{ padding: "8px 0" }}>
-                {products.map((product, index) => (
+              <div 
+                style={{ 
+                  padding: isMobile ? "12px 0" : "8px 0", 
+                  flex: "1 1 0%", 
+                  overflowY: isMobile ? "visible" : "auto", 
+                  minHeight: 0, 
+                  overflowX: "hidden",
+                  maxHeight: isMobile ? "none" : undefined,
+                }}
+              >
+                {products.slice(0, 8).map((product, index) => (
                   <Link
                     key={product._id}
                     href={`/product/${product.slug || product._id}`}
@@ -237,13 +300,14 @@ const LiveSearchForm = () => {
                     style={{
                       display: "flex",
                       alignItems: "center",
-                      padding: "14px 18px",
+                      padding: "18px 18px",
+                      marginBottom: index < Math.min(products.length, 8) - 1 ? "12px" : "0",
                       textDecoration: "none",
                       color: "#111827",
                       transition: "all 0.2s ease",
                       backgroundColor: "#fff",
                       borderBottom:
-                        index < products.length - 1
+                        index < Math.min(products.length, 8) - 1
                           ? "1px solid #f3f4f6"
                           : "none",
                     }}
@@ -383,24 +447,36 @@ const LiveSearchForm = () => {
               {products.length >= 8 && (
                 <div
                   style={{
-                    padding: "14px 18px",
-                    borderTop: "1px solid #e5e7eb",
+                    padding: "12px 18px",
                     backgroundColor: "#f9fafb",
-                    textAlign: "center",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    width: "100%",
+                    flexShrink: 0,
+                    flexGrow: 0,
+                    borderTop: "1px solid #e5e7eb",
+                    marginTop: "auto",
                   }}
                 >
                   <button
                     onClick={handleSubmit}
+                    type="button"
                     style={{
-                      background: "none",
+                      background: "transparent",
                       border: "none",
                       color: "#3b82f6",
                       cursor: "pointer",
-                      fontSize: "14px",
+                      fontSize: "13px",
                       fontWeight: "600",
                       padding: "8px 16px",
                       borderRadius: "6px",
-                      transition: "all 0.2s",
+                      transition: "all 0.2s ease",
+                      display: "inline-flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      gap: "6px",
+                      whiteSpace: "nowrap",
                     }}
                     onMouseEnter={(e) => {
                       e.currentTarget.style.backgroundColor = "#eff6ff";
@@ -411,11 +487,12 @@ const LiveSearchForm = () => {
                       e.currentTarget.style.color = "#3b82f6";
                     }}
                   >
-                    {t("viewAllResults") || "View all results"} →
+                    <span>{t("viewAllResults") || "View all results"}</span>
+                    <span style={{ fontSize: "14px", lineHeight: "1" }}>→</span>
                   </button>
                 </div>
               )}
-            </>
+            </div>
           ) : (
             <div
               style={{

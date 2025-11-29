@@ -1,6 +1,6 @@
 'use client';
-import React from "react";
 import { useTranslations } from 'next-intl';
+import React from "react";
 
 const ErrorMessage = ({ message, onRetry, isNetworkError = false }) => {
   const t = useTranslations('common');

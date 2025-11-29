@@ -1,9 +1,11 @@
 "use client";
 
-import { useLocale } from "next-intl";
 import { usePathname, useRouter } from "next/navigation";
-import { locales, localeNames, defaultLocale } from "../../i18n";
+import { useLocale } from "next-intl";
 import { useState, useRef, useEffect } from "react";
+
+import { locales, localeNames, defaultLocale } from "../../i18n";
+
 
 const localeFlags = {
   fr: "🇫🇷",

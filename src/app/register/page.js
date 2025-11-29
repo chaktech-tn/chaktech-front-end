@@ -1,7 +1,7 @@
-import Header from "@layout/header";
-import Footer from "@layout/footer";
-import Wrapper from "@layout/wrapper";
 import RegisterArea from "@components/login-register/register-area";
+import Footer from "@layout/footer";
+import Header from "@layout/header";
+import Wrapper from "@layout/wrapper";
 
 export const metadata = {
   title: "Register - ChakTech",

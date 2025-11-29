@@ -1,7 +1,7 @@
+import LoginArea from "@components/login-register/login-area";
 import Footer from "@layout/footer";
 import Header from "@layout/header";
 import Wrapper from "@layout/wrapper";
-import LoginArea from "@components/login-register/login-area";
 
 export const metadata = {
   title: "Login - ChakTech",

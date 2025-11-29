@@ -1,13 +1,13 @@
+import Footer from "@layout/footer";
 import Header from "@layout/header";
 import Wrapper from "@layout/wrapper";
-import Footer from "@layout/footer";
-import { generateBreadcrumbStructuredData } from "@lib/seo-utils";
 import { siteConfig } from "@lib/seo-config";
+import { generateBreadcrumbStructuredData } from "@lib/seo-utils";
 
 async function getBlogBySlug(slug) {
   try {
     const apiUrl = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:5001';
-    const res = await fetch(`${apiUrl}/api/blog/slug/${slug}`, {
+    const res = await fetch(`${apiUrl}/blog/slug/${slug}`, {
       cache: 'no-store',
     });
     

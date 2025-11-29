@@ -1,7 +1,7 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
+import React, { useEffect, useState } from "react";
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:5001";
 
@@ -18,7 +18,7 @@ const ProductListBlock = ({ block }) => {
     const fetchProducts = async () => {
       try {
         setIsLoading(true);
-        let url = `${API_BASE_URL}/api/products/show?limit=${limit}`;
+        let url = `${API_BASE_URL}/products/show?limit=${limit}`;
         
         if (category) {
           url += `&category=${encodeURIComponent(category)}`;
@@ -28,7 +28,7 @@ const ProductListBlock = ({ block }) => {
         const data = await response.json();
 
         if (data.success && data.data) {
-          let productsData = Array.isArray(data.data) ? data.data : [];
+          const productsData = Array.isArray(data.data) ? data.data : [];
           
           // Sort products
           if (sortBy === "popular") {

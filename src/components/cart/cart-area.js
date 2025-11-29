@@ -1,14 +1,16 @@
 'use client';
-import React, { useEffect } from "react";
-import Link from "next/link";
-import { useSelector } from "react-redux";
-import { useTranslations } from 'next-intl';
-// internal
-import CartTotal from "./cart-total";
-import SingleCartItem from "./single-cart";
 import EmptyCart from "@components/common/sidebar/cart-sidebar/empty-cart";
 import useCartInfo from "@hooks/use-cart-info";
 import { trackViewCart } from "@utils/posthog";
+import Link from "next/link";
+import { useTranslations } from 'next-intl';
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
+
+// internal
+import CartTotal from "./cart-total";
+import SingleCartItem from "./single-cart";
+
 
 // cart items
 

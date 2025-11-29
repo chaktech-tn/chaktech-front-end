@@ -1,5 +1,5 @@
-import React from "react";
 import contactInfo from "@config/contact";
+import React from "react";
 
 // Map platform names to icon classes
 const platformIcons = {
@@ -52,7 +52,14 @@ const SocialLinks = ({ socialLinks }) => {
   return (
     <>
       {linksToRender.map((l, i) => (
-        <a key={i} href={l.link} target={l.target} rel="noopener noreferrer">
+        <a 
+          key={i} 
+          href={l.link} 
+          target={l.target} 
+          rel="noopener noreferrer"
+          aria-label={l.name}
+          title={l.name}
+        >
           <i className={l.icon}></i>
         </a>
       ))}

@@ -1,11 +1,13 @@
 'use client';
-import React, { useState } from "react";
 import Link from "next/link";
 import { useTranslations } from 'next-intl';
+import React, { useState } from "react";
+
 // internal
-import SingleCoupon from "./single-coupon";
-import CouponPlaceholderGrid from "./coupon-placeholder";
 import { useGetOfferCouponsQuery } from "src/redux/features/coupon/couponApi";
+
+import CouponPlaceholderGrid from "./coupon-placeholder";
+import SingleCoupon from "./single-coupon";
 
 const OfferPopularProduct = () => {
   const t = useTranslations('offer');

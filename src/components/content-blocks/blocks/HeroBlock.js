@@ -1,7 +1,7 @@
 "use client";
-import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import React from "react";
 
 const HeroBlock = ({ block }) => {
   const { content, settings } = block;

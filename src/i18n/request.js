@@ -1,6 +1,6 @@
-import { getRequestConfig } from 'next-intl/server';
-import { setRequestLocale } from 'next-intl/server';
 import { cookies } from 'next/headers';
+import { getRequestConfig, setRequestLocale } from 'next-intl/server';
+
 import { locales, defaultLocale } from '../../i18n';
 
 export default getRequestConfig(async ({ requestLocale }) => {

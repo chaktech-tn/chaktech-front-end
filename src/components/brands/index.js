@@ -1,8 +1,5 @@
 'use client';
 // external
-import React, { useEffect, useRef } from "react";
-import Slider from "react-slick";
-import Image from "next/image";
 // internal
 import brand_1 from "@assets/img/brand/brand-1.png";
 import brand_2 from "@assets/img/brand/brand-2.png";
@@ -12,6 +9,9 @@ import brand_5 from "@assets/img/brand/brand-5.png";
 import brand_6 from "@assets/img/brand/brand-6.png";
 import brand_7 from "@assets/img/brand/brand-7.png";
 import brand_8 from "@assets/img/brand/brand-8.png";
+import Image from "next/image";
+import React, { useEffect, useRef } from "react";
+import Slider from "react-slick";
 
 // slider setting 1
 const settings_1 = {
@@ -65,8 +65,8 @@ const brand_2_data = [
 
 const Brands = () => {
   const sliderRef = useRef();
-  let autoplayOn = true;
-  let autoplaySpeed = 0;
+  const autoplayOn = true;
+  const autoplaySpeed = 0;
   useEffect(() => {
     setInterval(function () {
       if (!autoplayOn) return;

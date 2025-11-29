@@ -1,10 +1,10 @@
+import FaqArea from "@components/faq/faq-area";
+import FaqBreadcrumb from "@components/faq/faq-breadcrumb";
 import Footer from "@layout/footer";
 import Header from "@layout/header";
 import Wrapper from "@layout/wrapper";
-import FaqBreadcrumb from "@components/faq/faq-breadcrumb";
-import FaqArea from "@components/faq/faq-area";
-import { generateFAQPageStructuredData } from "@lib/seo-utils";
 import { siteConfig } from "@lib/seo-config";
+import { generateFAQPageStructuredData } from "@lib/seo-utils";
 
 // FAQ data extracted from faq-area component
 const faqData = [

@@ -2697,6 +2697,109 @@ p.checkout-coupon button {
     }
 }
 
+.city-selector-wrapper{
+    position: relative;
+}
+
+.city-selector-input{
+    width: 100%;
+    height: 60px;
+    border: 1px solid var(--tp-grey-15);
+    background-color: var(--tp-grey-15);
+    color: var(--tp-common-black);
+    padding: 0 25px;
+    outline: none;
+    border-radius: 0;
+    font-size: 16px;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+
+    @include tp-placeholder{
+        color: #85858B;
+    }
+
+    &:focus{
+        border-color: var(--tp-theme-1);
+        background-color: var(--tp-common-white);
+    }
+
+    &.has-error{
+        border-color: #ef4444;
+        background-color: rgba(239, 68, 68, 0.05);
+    }
+}
+
+.city-dropdown{
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    background-color: var(--tp-common-white);
+    border: 1px solid var(--tp-grey-13);
+    border-radius: 14px;
+    box-shadow: 0 18px 40px rgba(3, 4, 28, 0.08);
+    max-height: 240px;
+    overflow-y: auto;
+    z-index: 1080;
+    padding: 4px 0;
+}
+
+.city-dropdown__item{
+    width: 100%;
+    border: 0;
+    background-color: transparent;
+    text-align: left;
+    padding: 12px 20px;
+    font-size: 15px;
+    color: var(--tp-text-1);
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+
+    &:hover{
+        background-color: var(--tp-grey-15);
+    }
+}
+
+.city-dropdown__empty{
+    padding: 12px 20px;
+    color: var(--tp-text-3);
+    font-size: 14px;
+}
+
+.city-dropdown__custom{
+    width: 100%;
+    border: 0;
+    border-top: 1px solid var(--tp-grey-13);
+    background-color: var(--tp-grey-14);
+    color: var(--tp-theme-1);
+    font-weight: 600;
+    padding: 12px 20px;
+    text-align: left;
+    cursor: pointer;
+    border-radius: 0 0 14px 14px;
+    transition: background-color 0.15s ease, color 0.15s ease;
+
+    &:hover{
+        background-color: rgba(245, 9, 99, 0.08);
+        color: var(--tp-theme-1);
+    }
+}
+
+.city-selector-custom-pill{
+    margin-top: 6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: var(--tp-theme-1);
+    background-color: rgba(245, 9, 99, 0.08);
+    padding: 6px 12px;
+    border-radius: 999px;
+
+    &__check{
+        font-weight: 600;
+    }
+}
+
 
 
 

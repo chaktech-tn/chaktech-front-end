@@ -16,7 +16,7 @@ export const orderSlice = createSlice({
         JSON.stringify(payload)
       );
     },
-    get_shipping: (state, { payload }) => {
+    get_shipping: (state) => {
       const data = localStorage.getItem('shipping_info');
       if (data) {
         state.shipping_info = JSON.parse(data);
