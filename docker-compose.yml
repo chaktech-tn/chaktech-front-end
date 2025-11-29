@@ -10,7 +10,7 @@ services:
     environment:
       - NODE_ENV=production
       - PORT=3001
-      - NEXT_PUBLIC_API_BASE_URL=${NEXT_PUBLIC_API_BASE_URL}
+      - NEXT_PUBLIC_API_BASE_URL=${NEXT_PUBLIC_API_BASE_URL:-https://api.chaktech.tn}
       - NEXT_PUBLIC_CURRENCY=${NEXT_PUBLIC_CURRENCY:-TND}
       - NEXT_PUBLIC_APP_NAME=${NEXT_PUBLIC_APP_NAME:-ChakTech Store}
       - NEXT_PUBLIC_DEFAULT_LOCALE=${NEXT_PUBLIC_DEFAULT_LOCALE:-fr}
@@ -18,7 +18,7 @@ services:
     networks:
       - chaktech-network
     healthcheck:
-      test: ["CMD", "node", "-e", "require('http').get('http://localhost:3001/', (r) => {process.exit(r.statusCode === 200 ? 0 : 1)})"]
+      test: ["CMD", "sh", "-c", "node -e \"require('http').get('http://127.0.0.1:' + process.env.PORT + '/', (r) => {process.exit(r.statusCode === 200 ? 0 : 1)})\""]
       interval: 30s
       timeout: 3s
       retries: 3
