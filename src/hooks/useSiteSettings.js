@@ -162,4 +162,3 @@ export const clearSiteSettingsCache = () => {
 
 // Default export for compatibility
 export default useSiteSettings;
-
