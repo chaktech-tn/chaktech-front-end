@@ -64,7 +64,7 @@ export const useMenu = (
       }
 
       // Check if there's already a pending request for this key
-      if (pendingRequests[cacheKey]) {
+      if (cacheKey in pendingRequests) {
         try {
           const result = await pendingRequests[cacheKey];
           if (result) {

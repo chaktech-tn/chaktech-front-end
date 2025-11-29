@@ -35,13 +35,28 @@ const SingleCategory = ({ item }) => {
           }}
           style={{ cursor: "pointer" }}
         >
-          <Image
-            src={item.img}
-            alt={item.parent || t('images')}
-            width={272}
-            height={181}
-            style={{ width: "100%", height: "100%", objectFit: "cover" }}
-          />
+          {item.img && item.img.trim() !== '' ? (
+            <Image
+              src={item.img}
+              alt={item.parent || t('images')}
+              width={272}
+              height={181}
+              style={{ width: "100%", height: "100%", objectFit: "cover" }}
+            />
+          ) : (
+            <div 
+              style={{ 
+                width: "100%", 
+                height: "181px", 
+                backgroundColor: "#f0f0f0",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center"
+              }}
+            >
+              <span style={{ color: "#999" }}>{t('images')}</span>
+            </div>
+          )}
         </div>
       </div>
       <div className="product__category-content">

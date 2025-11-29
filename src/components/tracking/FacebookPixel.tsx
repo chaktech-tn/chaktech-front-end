@@ -26,7 +26,7 @@ export default function FacebookPixel() {
     }
 
     // Initialize Meta Pixel
-    (function (f: any, b: any, e: string, v: string, n?: string, t?: any, s?: any) {
+    (function (f: any, b: any, e: string, v: string, n?: any, t?: any, s?: any) {
       if (f.fbq) return;
       n = f.fbq = function () {
         n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
