@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect, useContext, createContext } from "react";
-import { fetchTranslations, getTranslation, TranslationCache } from "@/lib/translations";
+
+import { fetchTranslations, getTranslation } from "../lib/translations";
 
 interface TranslationContextType {
   translations: { [key: string]: string };

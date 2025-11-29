@@ -1,0 +1,7 @@
+node_modules
+.next
+.netlify
+coverage
+src/app/[...slug]/metadata.js
+src/app/[...slug]/page.js
+

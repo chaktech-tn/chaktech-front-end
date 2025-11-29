@@ -1,0 +1,1262 @@
+
+> chaktech-frontend@0.1.0 lint
+> next lint
+
+`next lint` is deprecated and will be removed in Next.js 16.
+For new projects, use create-next-app to choose your preferred linter.
+For existing projects, migrate to the ESLint CLI:
+npx @next/codemod@canary next-lint-to-eslint-cli .
+
+
+./src/app/[...slug]/page.js
+2:1  Warning: `next/navigation` import should occur before import of `react`  import/order
+3:1  Warning: `@layout/header` import should occur before import of `react`  import/order
+4:1  Warning: `@layout/wrapper` import should occur before import of `react`  import/order
+5:1  Warning: `@layout/footer` import should occur before import of `react`  import/order
+6:1  Warning: There should be at least one empty line between import groups  import/order
+6:1  Warning: `@components/content-blocks/BlockRenderer` import should occur before import of `react`  import/order
+
+./src/app/about/page.js
+3:1  Warning: `@components/cta` import should occur before import of `@layout/header`  import/order
+4:1  Warning: `@components/about` import should occur before import of `@layout/header`  import/order
+5:1  Warning: `@layout/footer` import should occur before import of `@layout/header`  import/order
+
+./src/app/api/locale/route.js
+1:1  Warning: There should be at least one empty line between import groups  import/order
+
+./src/app/blog/[slug]/page.js
+3:1  Warning: `@layout/footer` import should occur before import of `@layout/header`  import/order
+5:1  Warning: `@lib/seo-config` import should occur before import of `@lib/seo-utils`  import/order
+89:21  Error: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  react/no-unescaped-entities
+89:51  Error: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  react/no-unescaped-entities
+
+./src/app/blog/category/[category]/page.js
+3:1  Warning: `@layout/footer` import should occur before import of `@layout/header`  import/order
+
+./src/app/blog/page.js
+3:1  Warning: `@layout/footer` import should occur before import of `@layout/header`  import/order
+4:10  Warning: 'siteConfig' is defined but never used.  no-unused-vars
+50:56  Error: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  react/no-unescaped-entities
+
+./src/app/cart/page.js
+2:1  Warning: `next-intl` import should occur after import of `@components/cta`  import/order
+3:1  Warning: `@layout/wrapper` import should occur after import of `@components/cta`  import/order
+4:1  Warning: `@layout/header` import should occur after import of `@components/cta`  import/order
+5:1  Warning: `@layout/footer` import should occur after import of `@components/cta`  import/order
+6:1  Warning: `@components/cart/cart-breadcrumb` import should occur after import of `@components/cart/cart-area`  import/order
+
+./src/app/category/[slug]/page.js
+3:1  Warning: `@lib/seo-config` import should occur before import of `@lib/seo-utils`  import/order
+
+./src/app/contact/page.js
+4:1  Warning: `@components/contact/contact-area` import should occur before import of `@layout/footer`  import/order
+
+./src/app/cookies-policy/page.js
+4:1  Warning: `@components/terms-policy/section-top-bar` import should occur before import of `@layout/footer`  import/order
+5:1  Warning: `@components/terms-policy/cookies-area` import should occur before import of `@layout/footer`  import/order
+
+./src/app/faq/page.js
+4:1  Warning: `@components/faq/faq-breadcrumb` import should occur before import of `@layout/footer`  import/order
+5:1  Warning: `@components/faq/faq-area` import should occur before import of `@layout/footer`  import/order
+7:1  Warning: `@lib/seo-config` import should occur before import of `@lib/seo-utils`  import/order
+7:10  Warning: 'siteConfig' is defined but never used.  no-unused-vars
+
+./src/app/forgot/page.js
+4:1  Warning: `@components/forgot/forgot-area` import should occur before import of `@layout/footer`  import/order
+
+./src/app/global-error.js
+3:39  Warning: 'error' is defined but never used. Allowed unused args must match /^_/u.  no-unused-vars
+5:5  Error: <html> elements must have the lang prop.  jsx-a11y/html-has-lang
+
+./src/app/layout.js
+3:1  Warning: There should be no empty line within import group  import/order
+50:40  Warning: '/Users/salmenkhelifi/Documents/chaktech-ecommerce-react-next-js-admin-panel/chaktech-front-end/node_modules/.pnpm/next-intl@3.26.5_next@15.5.6_@babel+core@7.28.5_react-dom@19.2.0_react@19.2.0__react@19.2.0_sass@1.94.2__react@19.2.0/node_modules/next-intl/server.d.ts' imported multiple times.  import/no-duplicates
+51:34  Warning: '/Users/salmenkhelifi/Documents/chaktech-ecommerce-react-next-js-admin-panel/chaktech-front-end/node_modules/.pnpm/next-intl@3.26.5_next@15.5.6_@babel+core@7.28.5_react-dom@19.2.0_react@19.2.0__react@19.2.0_sass@1.94.2__react@19.2.0/node_modules/next-intl/server.d.ts' imported multiple times.  import/no-duplicates
+52:1  Warning: There should be at least one empty line between import groups  import/order
+52:1  Warning: `next/headers` import should occur before import of `next-intl`  import/order
+54:27  Warning: 'siteConfig' is defined but never used.  no-unused-vars
+55:1  Warning: There should be at least one empty line between import groups  import/order
+56:1  Warning: `@components/seo/structured-data` import should occur before import of `next/font/google`  import/order
+57:1  Warning: `@components/tracking/FacebookPixel` import should occur before import of `next/font/google`  import/order
+
+./src/app/login/page.js
+4:1  Warning: `@components/login-register/login-area` import should occur before import of `@layout/footer`  import/order
+
+./src/app/not-found.js
+3:1  Warning: `next/link` import should occur after import of `@layout/footer`  import/order
+5:1  Warning: `@layout/wrapper` import should occur after import of `@layout/footer`  import/order
+6:1  Warning: `@layout/header` import should occur after import of `@layout/footer`  import/order
+7:1  Warning: `@svg/index` import should occur after import of `@layout/footer`  import/order
+
+./src/app/page.js
+1:1  Warning: `react` import should occur after import of `@components/cta`  import/order
+3:1  Warning: `@layout/header` import should occur after import of `@components/cta`  import/order
+4:1  Warning: `@layout/wrapper` import should occur after import of `@components/cta`  import/order
+5:1  Warning: `@layout/footer` import should occur after import of `@components/cta`  import/order
+7:1  Warning: `@components/hero-banner` import should occur after import of `@components/cta`  import/order
+8:1  Warning: `@components/shop-category/shop-category` import should occur after import of `@components/cta`  import/order
+9:1  Warning: `@components/products` import should occur after import of `@components/cta`  import/order
+10:1  Warning: `@components/offer-product` import should occur after import of `@components/cta`  import/order
+11:1  Warning: `@components/shop-banner` import should occur after import of `@components/cta`  import/order
+12:1  Warning: `@components/shop-feature` import should occur after import of `@components/cta`  import/order
+
+./src/app/policy/page.js
+4:1  Warning: `@components/terms-policy/section-top-bar` import should occur before import of `@layout/footer`  import/order
+5:1  Warning: `@components/terms-policy/policy-area` import should occur before import of `@layout/footer`  import/order
+20:60  Error: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  react/no-unescaped-entities
+
+./src/app/product/[slug]/page.js
+3:1  Warning: `@lib/seo-config` import should occur before import of `@lib/seo-utils`  import/order
+
+./src/app/product-details/[id]/page.js
+3:1  Warning: `@lib/seo-config` import should occur before import of `@lib/seo-utils`  import/order
+
+./src/app/refund-return/page.js
+4:1  Warning: `@components/terms-policy/section-top-bar` import should occur before import of `@layout/footer`  import/order
+5:1  Warning: `@components/terms-policy/refund-return-area` import should occur before import of `@layout/footer`  import/order
+
+./src/app/register/page.js
+2:1  Warning: `@layout/footer` import should occur before import of `@layout/header`  import/order
+4:1  Warning: `@components/login-register/register-area` import should occur before import of `@layout/header`  import/order
+
+./src/app/terms/page.js
+3:1  Warning: `@components/terms-policy/section-top-bar` import should occur before import of `@layout/header`  import/order
+4:1  Warning: `@layout/footer` import should occur before import of `@layout/header`  import/order
+5:1  Warning: `@components/terms-policy/terms-area` import should occur before import of `@layout/header`  import/order
+
+./src/app/wishlist/page.js
+4:1  Warning: `@components/cart/cart-breadcrumb` import should occur before import of `@layout/footer`  import/order
+5:1  Warning: `@components/cta` import should occur before import of `@layout/footer`  import/order
+6:1  Warning: `@components/wishlist/wishlist-area` import should occur before import of `@layout/footer`  import/order
+
+./src/components/about/about-faqs.js
+2:1  Warning: `react` import should occur after import of `@hooks/use-modal`  import/order
+4:1  Warning: `@svg/index` import should occur after import of `@hooks/use-modal`  import/order
+6:1  Warning: `@components/faq/single-faq` import should occur after import of `@components/common/modals/modal-video`  import/order
+42:13  Warning: Anchor used as a button. Anchors are primarily expected to navigate. Use the button element instead. Learn more: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/HEAD/docs/rules/anchor-is-valid.md  jsx-a11y/anchor-is-valid
+42:13  Error: Visible, non-interactive elements with click handlers must have at least one keyboard listener.  jsx-a11y/click-events-have-key-events
+42:13  Error: Avoid non-native interactive elements. If using native HTML is not possible, add an appropriate role and support for tabbing, mouse, keyboard, and touch inputs to an interactive content element.  jsx-a11y/no-static-element-interactions
+
+./src/components/about/about-gallery.js
+2:1  Warning: `react` import should occur after import of `@assets/img/slider/about/about-gallery-slider-2.jpg`  import/order
+3:1  Warning: `next/image` import should occur after import of `@assets/img/slider/about/about-gallery-slider-2.jpg`  import/order
+4:1  Warning: `react-slick` import should occur after import of `@assets/img/slider/about/about-gallery-slider-2.jpg`  import/order
+7:19  Warning: '@assets/img/slider/about/about-gallery-slider-2.jpg' imported multiple times.  import/no-duplicates
+8:1  Warning: `@assets/img/slider/about/about-gallery-slider-3.jpg` import should occur after import of `@assets/img/slider/about/about-gallery-slider-2.jpg`  import/order
+9:19  Warning: '@assets/img/slider/about/about-gallery-slider-2.jpg' imported multiple times.  import/no-duplicates
+
+./src/components/about/about-top-bar.js
+2:1  Warning: `@assets/img/about/about-breadcrumb.jpg` import should occur before import of `react`  import/order
+
+./src/components/about/index.js
+3:1  Warning: There should be at least one empty line between import groups  import/order
+3:1  Warning: `next-intl` import should occur before import of `react`  import/order
+6:1  Warning: `./services` import should occur before import of `./text-area`  import/order
+7:1  Warning: `./about-gallery` import should occur before import of `./text-area`  import/order
+8:1  Warning: There should be at least one empty line between import groups  import/order
+8:1  Warning: `./about-faqs` import should occur before import of `./text-area`  import/order
+9:1  Warning: `@components/brands` import should occur before import of `react`  import/order
+10:1  Warning: `@components/common/breadcrumb/breadcrumb-2` import should occur before import of `react`  import/order
+
+./src/components/about/services.js
+3:1  Warning: `@svg/index` import should occur before import of `next/link`  import/order
+
+./src/components/awards/index.js
+2:1  Warning: `react` import should occur after import of `@svg/index`  import/order
+3:1  Warning: `react-tooltip` import should occur after import of `@svg/index`  import/order
+4:1  Warning: `next/image` import should occur after import of `@svg/index`  import/order
+5:1  Warning: `next/dynamic` import should occur after import of `@svg/index`  import/order
+6:1  Warning: `next/link` import should occur after import of `@svg/index`  import/order
+
+./src/components/brands/index.js
+3:1  Warning: `react` import should occur after import of `@assets/img/brand/brand-8.png`  import/order
+4:1  Warning: `react-slick` import should occur after import of `@assets/img/brand/brand-8.png`  import/order
+5:1  Warning: `next/image` import should occur after import of `@assets/img/brand/brand-8.png`  import/order
+68:7  Warning: 'autoplayOn' is never reassigned. Use 'const' instead.  prefer-const
+69:7  Warning: 'autoplaySpeed' is never reassigned. Use 'const' instead.  prefer-const
+
+./src/components/cart/cart-area.js
+3:1  Warning: `next/link` import should occur before import of `react`  import/order
+5:1  Warning: There should be at least one empty line between import groups  import/order
+5:1  Warning: `next-intl` import should occur before import of `react`  import/order
+8:1  Warning: There should be at least one empty line between import groups  import/order
+9:1  Warning: `@components/common/sidebar/cart-sidebar/empty-cart` import should occur before import of `react`  import/order
+10:1  Warning: `@hooks/use-cart-info` import should occur before import of `react`  import/order
+11:1  Warning: `@utils/posthog` import should occur before import of `react`  import/order
+26:6  Warning: React Hook useEffect has missing dependencies: 'cart_products' and 'total'. Either include them or remove the dependency array.  react-hooks/exhaustive-deps
+
+./src/components/cart/cart-total.js
+4:1  Warning: `next-intl` import should occur before import of `react`  import/order
+6:1  Warning: `@hooks/use-cart-info` import should occur before import of `next/link`  import/order
+7:1  Warning: `@hooks/use-currency` import should occur before import of `next/link`  import/order
+13:9  Warning: 'tCommon' is assigned a value but never used.  no-unused-vars
+
+./src/components/cart/single-cart.js
+2:1  Warning: `next/image` import should occur before import of `react`  import/order
+3:1  Warning: `next/link` import should occur before import of `react`  import/order
+6:1  Warning: `@svg/index` import should occur before import of `react`  import/order
+8:1  Warning: `@hooks/use-currency` import should occur before import of `react`  import/order
+32:25  Warning: 'e' is defined but never used. Allowed unused args must match /^_/u.  no-unused-vars
+48:11  Error: Visible, non-interactive elements with click handlers must have at least one keyboard listener.  jsx-a11y/click-events-have-key-events
+48:11  Error: Avoid non-native interactive elements. If using native HTML is not possible, add an appropriate role and support for tabbing, mouse, keyboard, and touch inputs to an interactive content element.  jsx-a11y/no-static-element-interactions
+52:11  Error: Visible, non-interactive elements with click handlers must have at least one keyboard listener.  jsx-a11y/click-events-have-key-events
+52:11  Error: Avoid non-native interactive elements. If using native HTML is not possible, add an appropriate role and support for tabbing, mouse, keyboard, and touch inputs to an interactive content element.  jsx-a11y/no-static-element-interactions
+
+./src/components/checkout/billing-details.js
+5:1  Warning: `next-intl` import should occur before import of `react`  import/order
+7:1  Warning: `@hooks/use-realtime-save` import should occur before import of `react`  import/order
+8:1  Warning: `@utils/sessionToken` import should occur before import of `react`  import/order
+10:1  Warning: `@utils/posthog` import should occur before import of `react`  import/order
+44:9  Warning: The 'watchedFields' conditional could make the dependencies of useEffect Hook (at line 69) change on every render. Move it inside the useEffect callback. Alternatively, wrap the initialization of 'watchedFields' in its own useMemo() Hook.  react-hooks/exhaustive-deps
+74:21  Warning: Variable Assigned to Object Injection Sink  security/detect-object-injection
+75:30  Warning: Generic Object Injection Sink  security/detect-object-injection
+
+./src/components/checkout/checkout-area.js
+2:17  Warning: 'useState' is defined but never used.  no-unused-vars
+3:1  Warning: There should be at least one empty line between import groups  import/order
+3:1  Warning: `next-intl` import should occur before import of `react`  import/order
+6:1  Warning: There should be at least one empty line between import groups  import/order
+7:1  Warning: `@utils/posthog` import should occur before import of `react`  import/order
+
+./src/components/checkout/checkout-main.js
+3:21  Warning: 'useState' is defined but never used.  no-unused-vars
+4:1  Warning: `next/navigation` import should occur before import of `react`  import/order
+6:1  Warning: `next-intl` import should occur before import of `react`  import/order
+8:1  Warning: `@layout/header` import should occur before import of `next/link`  import/order
+9:1  Warning: `@components/cart/cart-breadcrumb` import should occur before import of `next/link`  import/order
+10:1  Warning: `@layout/wrapper` import should occur before import of `next/link`  import/order
+11:1  Warning: `@components/checkout/coupon-area` import should occur before import of `next/link`  import/order
+12:1  Warning: `@components/checkout/checkout-area` import should occur before import of `next/link`  import/order
+13:1  Warning: `@layout/footer` import should occur before import of `next/link`  import/order
+14:1  Warning: `@components/cta` import should occur before import of `next/link`  import/order
+15:1  Warning: `@hooks/use-checkout-submit` import should occur before import of `next/link`  import/order
+18:1  Warning: `@utils/sessionToken` import should occur before import of `next/link`  import/order
+19:1  Warning: `src/redux/features/abandonedCheckout/abandonedCheckoutSlice` import should occur before import of `src/redux/features/cartSlice`  import/order
+20:1  Warning: `@hooks/use-cart-info` import should occur before import of `next/link`  import/order
+21:1  Warning: `@utils/posthog` import should occur before import of `next/link`  import/order
+40:9  Warning: 'router' is assigned a value but never used.  no-unused-vars
+47:42  Warning: 'isLoadingRecovery' is assigned a value but never used.  no-unused-vars
+79:6  Warning: React Hook useEffect has missing dependencies: 'cartTotal', 'cart_products', 'checkout_data.cartTotal', and 'checkout_data.total'. Either include them or remove the dependency array.  react-hooks/exhaustive-deps
+
+./src/components/checkout/coupon-area.js
+2:1  Warning: `react` import should occur after import of `@components/forms/login-form`  import/order
+3:1  Warning: `next-intl` import should occur after import of `@components/forms/login-form`  import/order
+20:17  Error: Visible, non-interactive elements with click handlers must have at least one keyboard listener.  jsx-a11y/click-events-have-key-events
+20:17  Error: Avoid non-native interactive elements. If using native HTML is not possible, add an appropriate role and support for tabbing, mouse, keyboard, and touch inputs to an interactive content element.  jsx-a11y/no-static-element-interactions
+46:17  Error: Visible, non-interactive elements with click handlers must have at least one keyboard listener.  jsx-a11y/click-events-have-key-events
+46:17  Error: Avoid non-native interactive elements. If using native HTML is not possible, add an appropriate role and support for tabbing, mouse, keyboard, and touch inputs to an interactive content element.  jsx-a11y/no-static-element-interactions
+
+./src/components/checkout/order-area.js
+3:1  Warning: There should be at least one empty line between import groups  import/order
+3:1  Warning: `next-intl` import should occur before import of `react`  import/order
+
+./src/components/checkout/order-details.js
+3:10  Warning: 'useSelector' is defined but never used.  no-unused-vars
+4:1  Warning: `next-intl` import should occur before import of `react`  import/order
+6:1  Warning: `@hooks/use-cart-info` import should occur before import of `react`  import/order
+7:1  Warning: `@hooks/use-currency` import should occur before import of `react`  import/order
+8:1  Warning: `@components/error-message/error` import should occur before import of `react`  import/order
+9:1  Warning: `@utils/posthog` import should occur before import of `react`  import/order
+71:15  Error: Visible, non-interactive elements with click handlers must have at least one keyboard listener.  jsx-a11y/click-events-have-key-events
+71:15  Error: Non-interactive elements should not be assigned mouse or keyboard event listeners.  jsx-a11y/no-noninteractive-element-interactions
+89:15  Error: Visible, non-interactive elements with click handlers must have at least one keyboard listener.  jsx-a11y/click-events-have-key-events
+89:15  Error: Non-interactive elements should not be assigned mouse or keyboard event listeners.  jsx-a11y/no-noninteractive-element-interactions
+
+./src/components/checkout/order-single-cart-item.js
+2:1  Warning: `@hooks/use-currency` import should occur before import of `react`  import/order
+
+./src/components/common/breadcrumb/shop-breadcrumb.js
+3:1  Warning: `next-intl` import should occur before import of `react`  import/order
+4:1  Warning: `next/link` import should occur before import of `react`  import/order
+5:1  Warning: `@svg/index` import should occur before import of `react`  import/order
+9:9  Warning: 'tCommon' is assigned a value but never used.  no-unused-vars
+
+./src/components/common/city-selector.js
+3:1  Warning: `@data/tunisian-cities` import should occur before import of `react`  import/order
+
+./src/components/common/modals/buy-now-modal.js
+4:1  Warning: `next/navigation` import should occur before import of `react`  import/order
+5:1  Warning: `react-hook-form` import should occur before import of `react-redux`  import/order
+6:1  Warning: `react-bootstrap` import should occur before import of `react-redux`  import/order
+7:1  Warning: `next-intl` import should occur before import of `react`  import/order
+9:1  Warning: `@svg/index` import should occur before import of `react`  import/order
+10:1  Warning: `@components/error-message/error` import should occur before import of `react`  import/order
+12:1  Warning: `@utils/sessionToken` import should occur before import of `react`  import/order
+13:1  Warning: `@hooks/use-realtime-save` import should occur before import of `react`  import/order
+14:1  Warning: `src/redux/features/abandonedCheckout/abandonedCheckoutSlice` import should occur before import of `src/redux/features/cartSlice`  import/order
+15:1  Warning: `@utils/toast` import should occur before import of `react`  import/order
+17:1  Warning: `@hooks/use-cart-info` import should occur before import of `react`  import/order
+18:1  Warning: `@components/common/city-selector` import should occur before import of `react`  import/order
+19:1  Warning: `@utils/posthog` import should occur before import of `react`  import/order
+20:1  Warning: `@utils/trackingUtils` import should occur before import of `react`  import/order
+21:1  Warning: `@components/tracking/FacebookPixel` import should occur before import of `react`  import/order
+31:11  Warning: 'total' is assigned a value but never used.  no-unused-vars
+40:5  Warning: 'setValue' is assigned a value but never used.  no-unused-vars
+
+./src/components/common/modals/product-modal.js
+2:1  Warning: `next/image` import should occur after import of `@components/products/product-tags`  import/order
+3:1  Warning: `react` import should occur after import of `next/link`  import/order
+4:1  Warning: `react-redux` import should occur after import of `react-bootstrap`  import/order
+5:1  Warning: `next-intl` import should occur after import of `next/link`  import/order
+7:1  Warning: `@svg/index` import should occur after import of `@components/products/product-tags`  import/order
+7:10  Warning: 'Compare' is defined but never used.  no-unused-vars
+8:1  Warning: There should be at least one empty line between import groups  import/order
+8:1  Warning: `@components/social` import should occur after import of `@components/products/product-tags`  import/order
+9:1  Warning: There should be at least one empty line between import groups  import/order
+9:1  Warning: `./buy-now-modal` import should occur after import of `src/redux/features/productSlice`  import/order
+11:1  Warning: `@components/products/quantity` import should occur after import of `@components/products/product-tags`  import/order
+14:1  Warning: `src/redux/features/cartSlice` import should occur after import of `react-bootstrap`  import/order
+19:1  Warning: `src/redux/features/wishlist-slice` import should occur after import of `src/redux/features/productSlice`  import/order
+35:5  Warning: 'SKU' is assigned a value but never used.  no-unused-vars
+36:5  Warning: 'price' is assigned a value but never used.  no-unused-vars
+66:3  Warning: Unexpected console statement.  no-console
+138:31  Warning: Generic Object Injection Sink  security/detect-object-injection
+148:36  Warning: Generic Object Injection Sink  security/detect-object-injection
+164:31  Warning: Generic Object Injection Sink  security/detect-object-injection
+
+./src/components/common/modals/raf.js
+2:1  Warning: `next/image` import should occur after import of `@components/products/rating`  import/order
+3:1  Warning: `react` import should occur after import of `next/link`  import/order
+3:17  Warning: 'useEffect' is defined but never used.  no-unused-vars
+4:1  Warning: `react-redux` import should occur after import of `next/link`  import/order
+5:1  Warning: `next-intl` import should occur after import of `next/link`  import/order
+7:1  Warning: `@svg/index` import should occur after import of `@components/products/rating`  import/order
+7:10  Warning: 'Compare' is defined but never used.  no-unused-vars
+8:1  Warning: `@components/social` import should occur after import of `@components/products/rating`  import/order
+10:1  Warning: `@components/products/quantity` import should occur after import of `@components/products/product-tags`  import/order
+13:10  Warning: 'RatingFull' is defined but never used.  no-unused-vars
+13:22  Warning: 'RatingHalf' is defined but never used.  no-unused-vars
+14:1  Warning: `src/redux/features/cartSlice` import should occur after import of `next/link`  import/order
+16:3  Warning: 'initialOrderQuantity' is defined but never used.  no-unused-vars
+30:5  Warning: 'SKU' is assigned a value but never used.  no-unused-vars
+31:5  Warning: 'price' is assigned a value but never used.  no-unused-vars
+
+./src/components/common/off-canvas/index.js
+3:1  Warning: `next/image` import should occur before import of `react`  import/order
+4:1  Warning: `next/link` import should occur before import of `react`  import/order
+5:1  Warning: `next-intl` import should occur before import of `react`  import/order
+7:1  Warning: `@assets/img/shape/offcanvas-shape-1.png` import should occur before import of `react`  import/order
+8:1  Warning: There should be at least one empty line between import groups  import/order
+8:1  Warning: `@assets/img/categories/chaktech-logo.webp` import should occur before import of `react`  import/order
+9:1  Warning: There should be at least one empty line between import groups  import/order
+10:1  Warning: `@components/social` import should occur before import of `react`  import/order
+11:1  Warning: `@config/contact` import should occur before import of `react`  import/order
+12:1  Warning: `@components/forms/live-search-form` import should occur before import of `react`  import/order
+90:7  Error: Visible, non-interactive elements with click handlers must have at least one keyboard listener.  jsx-a11y/click-events-have-key-events
+90:7  Error: Avoid non-native interactive elements. If using native HTML is not possible, add an appropriate role and support for tabbing, mouse, keyboard, and touch inputs to an interactive content element.  jsx-a11y/no-static-element-interactions
+
+./src/components/common/off-canvas/mobile-menus.js
+4:1  Warning: `next/link` import should occur before import of `react`  import/order
+5:1  Warning: `next-intl` import should occur before import of `react`  import/order
+7:1  Warning: `@layout/menu-data` import should occur before import of `react`  import/order
+8:1  Warning: `@components/menu/mobile-category-menu` import should occur before import of `react`  import/order
+13:10  Warning: 'subMenu' is assigned a value but never used.  no-unused-vars
+13:19  Warning: 'setSubMenu' is assigned a value but never used.  no-unused-vars
+51:17  Warning: Anchor used as a button. Anchors are primarily expected to navigate. Use the button element instead. Learn more: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/HEAD/docs/rules/anchor-is-valid.md  jsx-a11y/anchor-is-valid
+
+./src/components/common/scroll-to-top/index.js
+2:1  Warning: `@lib/back-to-top` import should occur before import of `react`  import/order
+
+./src/components/common/shop-filtering/shop-category.js
+2:1  Warning: `next/navigation` import should occur before import of `react`  import/order
+4:1  Warning: `@components/error-message/error` import should occur before import of `react`  import/order
+6:1  Warning: `@components/loader/shop-category-loader` import should occur before import of `react`  import/order
+57:21  Warning: Anchor used as a button. Anchors are primarily expected to navigate. Use the button element instead. Learn more: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/HEAD/docs/rules/anchor-is-valid.md  jsx-a11y/anchor-is-valid
+57:21  Error: Visible, non-interactive elements with click handlers must have at least one keyboard listener.  jsx-a11y/click-events-have-key-events
+57:21  Error: Avoid non-native interactive elements. If using native HTML is not possible, add an appropriate role and support for tabbing, mouse, keyboard, and touch inputs to an interactive content element.  jsx-a11y/no-static-element-interactions
+
+./src/components/common/shop-filtering/shop-color.js
+58:17  Error: Visible, non-interactive elements with click handlers must have at least one keyboard listener.  jsx-a11y/click-events-have-key-events
+58:17  Error: Non-interactive elements should not be assigned mouse or keyboard event listeners.  jsx-a11y/no-noninteractive-element-interactions
+
+./src/components/common/shop-filtering/shop-model.js
+3:1  Warning: `next/navigation` import should occur before import of `react`  import/order
+5:1  Warning: `@svg/index` import should occur before import of `react`  import/order
+8:7  Warning: 'all_brands' is never reassigned. Use 'const' instead.  prefer-const
+37:11  Warning: 'searchBrands' is never reassigned. Use 'const' instead.  prefer-const
+108:19  Error: Visible, non-interactive elements with click handlers must have at least one keyboard listener.  jsx-a11y/click-events-have-key-events
+108:19  Error: Non-interactive elements should not be assigned mouse or keyboard event listeners.  jsx-a11y/no-noninteractive-element-interactions
+
+./src/components/common/shop-filtering/shop-price.js
+1:1  Warning: There should be at least one empty line between import groups  import/order
+1:17  Warning: 'useState' is defined but never used.  no-unused-vars
+
+./src/components/common/shop-filtering/single-category.js
+30:17  Warning: The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/HEAD/docs/rules/anchor-is-valid.md  jsx-a11y/anchor-is-valid
+33:17  Warning: The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/HEAD/docs/rules/anchor-is-valid.md  jsx-a11y/anchor-is-valid
+36:17  Warning: The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/HEAD/docs/rules/anchor-is-valid.md  jsx-a11y/anchor-is-valid
+
+./src/components/common/sidebar/cart-sidebar/empty-cart.js
+3:1  Warning: `react` import should occur after import of `next-intl`  import/order
+
+./src/components/common/sidebar/cart-sidebar/index.js
+3:1  Warning: There should be at least one empty line between import groups  import/order
+3:1  Warning: `next/link` import should occur before import of `react`  import/order
+5:1  Warning: There should be at least one empty line between import groups  import/order
+6:1  Warning: `@hooks/use-cart-info` import should occur before import of `react`  import/order
+7:1  Warning: There should be at least one empty line between import groups  import/order
+7:1  Warning: `@hooks/use-currency` import should occur before import of `react`  import/order
+8:1  Warning: There should be at least one empty line between import groups  import/order
+8:1  Warning: `./empty-cart` import should occur before import of `./single-cart-item`  import/order
+9:1  Warning: `@utils/posthog` import should occur before import of `react`  import/order
+79:7  Error: Visible, non-interactive elements with click handlers must have at least one keyboard listener.  jsx-a11y/click-events-have-key-events
+79:7  Error: Avoid non-native interactive elements. If using native HTML is not possible, add an appropriate role and support for tabbing, mouse, keyboard, and touch inputs to an interactive content element.  jsx-a11y/no-static-element-interactions
+
+./src/components/common/sidebar/cart-sidebar/single-cart-item.js
+2:1  Warning: `next/image` import should occur before import of `react`  import/order
+4:1  Warning: `next/link` import should occur before import of `react`  import/order
+6:1  Warning: `@hooks/use-currency` import should occur before import of `react`  import/order
+
+./src/components/common/sidebar/shop-sidebar/index.js
+2:1  Warning: There should be at least one empty line between import groups  import/order
+2:1  Warning: `next/navigation` import should occur before import of `react`  import/order
+6:1  Warning: `../../shop-filtering/shop-color` import should occur before import of `../../shop-filtering/shop-model`  import/order
+
+./src/components/contact/box-items.js
+1:1  Warning: `react` import should occur after import of `@config/contact`  import/order
+2:1  Warning: `next/image` import should occur after import of `@config/contact`  import/order
+4:1  Warning: `@components/social` import should occur after import of `@assets/img/contact/icon/contact-icon-2.png`  import/order
+6:1  Warning: `@assets/img/contact/icon/contact-icon-3.png` import should occur after import of `@assets/img/contact/icon/contact-icon-2.png`  import/order
+
+./src/components/contact/location-area.js
+1:1  Warning: `next/image` import should occur after import of `@lib/seo-config`  import/order
+4:8  Warning: 'location_icon_2' is defined but never used.  no-unused-vars
+5:8  Warning: 'location_icon_3' is defined but never used.  no-unused-vars
+
+./src/components/contact/top-bar.js
+3:1  Warning: `@assets/img/contact/contact-bg.png` import should occur before import of `react`  import/order
+
+./src/components/content-blocks/BlockRenderer.js
+2:1  Warning: There should be at least one empty line between import groups  import/order
+5:1  Warning: `./blocks/ImageBlock` import should occur before import of `./blocks/TextBlock`  import/order
+6:1  Warning: `./blocks/ProductListBlock` import should occur before import of `./blocks/TextBlock`  import/order
+7:1  Warning: `./blocks/CategoryGridBlock` import should occur before import of `./blocks/HeroBlock`  import/order
+8:1  Warning: `./blocks/CustomHTMLBlock` import should occur before import of `./blocks/HeroBlock`  import/order
+9:1  Warning: `./blocks/FeaturedProductsBlock` import should occur before import of `./blocks/HeroBlock`  import/order
+10:1  Warning: `./blocks/TestimonialsBlock` import should occur before import of `./blocks/TextBlock`  import/order
+11:1  Warning: `./blocks/NewsletterSignupBlock` import should occur before import of `./blocks/TextBlock`  import/order
+12:1  Warning: `./blocks/BannerBlock` import should occur before import of `./blocks/HeroBlock`  import/order
+13:1  Warning: `./blocks/CTABlock` import should occur before import of `./blocks/HeroBlock`  import/order
+
+./src/components/content-blocks/blocks/BannerBlock.js
+2:1  Warning: `react` import should occur after import of `next/link`  import/order
+
+./src/components/content-blocks/blocks/CTABlock.js
+3:1  Warning: `next/link` import should occur before import of `react`  import/order
+
+./src/components/content-blocks/blocks/CategoryGridBlock.js
+3:1  Warning: `next/link` import should occur before import of `react`  import/order
+4:1  Warning: `next/image` import should occur before import of `react`  import/order
+10:18  Warning: 'showAll' is assigned a value but never used.  no-unused-vars
+
+./src/components/content-blocks/blocks/FeaturedProductsBlock.js
+2:1  Warning: There should be at least one empty line between import groups  import/order
+
+./src/components/content-blocks/blocks/HeroBlock.js
+2:1  Warning: `react` import should occur after import of `next/link`  import/order
+3:8  Warning: 'Image' is defined but never used.  no-unused-vars
+
+./src/components/content-blocks/blocks/ImageBlock.js
+3:1  Warning: `next/image` import should occur before import of `react`  import/order
+
+./src/components/content-blocks/blocks/ProductListBlock.js
+3:1  Warning: `next/link` import should occur before import of `react`  import/order
+4:1  Warning: `next/image` import should occur before import of `react`  import/order
+31:15  Warning: 'productsData' is never reassigned. Use 'const' instead.  prefer-const
+
+./src/components/content-blocks/blocks/TestimonialsBlock.js
+47:19  Error: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`.  react/no-unescaped-entities
+47:38  Error: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`.  react/no-unescaped-entities
+
+./src/components/cta/index.js
+3:1  Warning: `next-intl` import should occur before import of `react`  import/order
+5:1  Warning: `@assets/img/cta/13/cta-bg-1.jpg` import should occur before import of `react`  import/order
+
+./src/components/email-verify-area.js
+2:1  Warning: `next/navigation` import should occur after import of `@utils/toast`  import/order
+3:1  Warning: `react` import should occur after import of `@utils/toast`  import/order
+12:25  Warning: 'isError' is assigned a value but never used.  no-unused-vars
+
+./src/components/error-message/error.js
+3:1  Warning: `next-intl` import should occur before import of `react`  import/order
+
+./src/components/faq/faq-area.js
+2:1  Warning: There should be at least one empty line between import groups  import/order
+
+./src/components/faq/faq-breadcrumb.js
+13:19  Warning: The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/HEAD/docs/rules/anchor-is-valid.md  jsx-a11y/anchor-is-valid
+
+./src/components/faq/faq-thumb.js
+2:1  Warning: `next/image` import should occur before import of `react`  import/order
+4:1  Warning: `@assets/img/faq/faq-img-2.jpg` import should occur before import of `react`  import/order
+
+./src/components/forget-password-area.js
+2:1  Warning: `react` import should occur after import of `@svg/eye-cut`  import/order
+3:1  Warning: `react-hook-form` import should occur after import of `@svg/eye-cut`  import/order
+4:1  Warning: `@hookform/resolvers/yup` import should occur after import of `@components/login-register/shapes`  import/order
+5:1  Warning: `yup` import should occur after import of `src/redux/features/auth/authApi`  import/order
+8:1  Warning: `@utils/toast` import should occur after import of `@svg/eye-cut`  import/order
+10:1  Warning: `@svg/lock` import should occur after import of `@svg/eye-cut`  import/order
+38:5  Warning: Unexpected console statement.  no-console
+89:27  Error: Visible, non-interactive elements with click handlers must have at least one keyboard listener.  jsx-a11y/click-events-have-key-events
+89:27  Error: Avoid non-native interactive elements. If using native HTML is not possible, add an appropriate role and support for tabbing, mouse, keyboard, and touch inputs to an interactive content element.  jsx-a11y/no-static-element-interactions
+119:27  Error: Visible, non-interactive elements with click handlers must have at least one keyboard listener.  jsx-a11y/click-events-have-key-events
+119:27  Error: Avoid non-native interactive elements. If using native HTML is not possible, add an appropriate role and support for tabbing, mouse, keyboard, and touch inputs to an interactive content element.  jsx-a11y/no-static-element-interactions
+
+./src/components/forgot/forgot-area.js
+3:1  Warning: `@components/login-register/shapes` import should occur before import of `next/link`  import/order
+4:1  Warning: `@components/forms/forgot-form` import should occur before import of `next/link`  import/order
+
+./src/components/forms/contact-form.js
+4:1  Warning: `react-hook-form` import should occur before import of `yup`  import/order
+5:1  Warning: `@hookform/resolvers/yup` import should occur before import of `react`  import/order
+6:1  Warning: `next-intl` import should occur before import of `react`  import/order
+8:1  Warning: `@components/error-message/error` import should occur before import of `react`  import/order
+27:5  Warning: Unexpected console statement.  no-console
+
+./src/components/forms/coupon-form.js
+2:17  Warning: 'useRef' is defined but never used.  no-unused-vars
+4:1  Warning: `next-intl` import should occur before import of `react`  import/order
+
+./src/components/forms/forgot-form.js
+4:1  Warning: `@hookform/resolvers/yup` import should occur before import of `react`  import/order
+6:1  Warning: `next-intl` import should occur before import of `react`  import/order
+8:1  Warning: `@svg/email` import should occur before import of `react`  import/order
+9:1  Warning: `src/redux/features/auth/authApi` import should occur before import of `yup`  import/order
+10:1  Warning: `@components/error-message/error` import should occur before import of `react`  import/order
+11:1  Warning: `@utils/toast` import should occur before import of `react`  import/order
+35:7  Warning: Unexpected console statement.  no-console
+
+./src/components/forms/live-search-form.js
+3:1  Warning: `next/navigation` import should occur before import of `react`  import/order
+4:1  Warning: `next-intl` import should occur before import of `react`  import/order
+5:1  Warning: `next/image` import should occur before import of `react`  import/order
+6:1  Warning: `next/link` import should occur before import of `react`  import/order
+7:1  Warning: `@svg/search` import should occur before import of `react`  import/order
+12:9  Warning: 'locale' is assigned a value but never used.  no-unused-vars
+16:77  Warning: 'searchError' is assigned a value but never used.  no-unused-vars
+146:7  Warning: Unexpected console statement.  no-console
+147:7  Warning: Unexpected console statement.  no-console
+
+./src/components/forms/login-form.js
+3:1  Warning: `next/link` import should occur before import of `react`  import/order
+5:1  Warning: `@hookform/resolvers/yup` import should occur before import of `react`  import/order
+7:1  Warning: `next-intl` import should occur before import of `react`  import/order
+9:1  Warning: `@svg/index` import should occur before import of `react`  import/order
+10:1  Warning: `@components/error-message/error` import should occur before import of `react`  import/order
+11:1  Warning: `src/redux/features/auth/authApi` import should occur before import of `yup`  import/order
+12:1  Warning: `@utils/toast` import should occur before import of `react`  import/order
+13:1  Warning: `next/navigation` import should occur before import of `react`  import/order
+44:11  Warning: Unexpected console statement.  no-console
+51:11  Warning: Unexpected console statement.  no-console
+90:13  Error: Visible, non-interactive elements with click handlers must have at least one keyboard listener.  jsx-a11y/click-events-have-key-events
+90:13  Error: Avoid non-native interactive elements. If using native HTML is not possible, add an appropriate role and support for tabbing, mouse, keyboard, and touch inputs to an interactive content element.  jsx-a11y/no-static-element-interactions
+
+./src/components/forms/register-form.js
+4:1  Warning: `@hookform/resolvers/yup` import should occur before import of `react`  import/order
+6:1  Warning: `next-intl` import should occur before import of `react`  import/order
+8:1  Warning: `@svg/index` import should occur before import of `react`  import/order
+9:1  Warning: `@components/error-message/error` import should occur before import of `react`  import/order
+10:1  Warning: `src/redux/features/auth/authApi` import should occur before import of `yup`  import/order
+11:1  Warning: `@utils/toast` import should occur before import of `react`  import/order
+100:13  Error: Visible, non-interactive elements with click handlers must have at least one keyboard listener.  jsx-a11y/click-events-have-key-events
+100:13  Error: Avoid non-native interactive elements. If using native HTML is not possible, add an appropriate role and support for tabbing, mouse, keyboard, and touch inputs to an interactive content element.  jsx-a11y/no-static-element-interactions
+124:13  Error: Visible, non-interactive elements with click handlers must have at least one keyboard listener.  jsx-a11y/click-events-have-key-events
+124:13  Error: Avoid non-native interactive elements. If using native HTML is not possible, add an appropriate role and support for tabbing, mouse, keyboard, and touch inputs to an interactive content element.  jsx-a11y/no-static-element-interactions
+
+./src/components/forms/search-form.js
+2:1  Warning: `react` import should occur after import of `next-intl`  import/order
+9:9  Warning: 'locale' is assigned a value but never used.  no-unused-vars
+
+./src/components/hero-banner/index.js
+2:1  Warning: `react` import should occur after import of `@svg/index`  import/order
+3:1  Warning: `next/dynamic` import should occur after import of `@svg/index`  import/order
+4:1  Warning: `next/image` import should occur after import of `@svg/index`  import/order
+5:1  Warning: `next-intl` import should occur after import of `@svg/index`  import/order
+10:10  Warning: 'RightArrow' is defined but never used.  no-unused-vars
+
+./src/components/hero-banner/swiper-slider.js
+3:1  Warning: `next/link` import should occur before import of `react`  import/order
+4:1  Warning: `next/image` import should occur before import of `react`  import/order
+5:1  Warning: `next-intl` import should occur before import of `react`  import/order
+7:1  Warning: `swiper/modules` import should occur before import of `swiper/react`  import/order
+12:1  Warning: `@svg/index` import should occur before import of `react`  import/order
+
+./src/components/invoice-area.js
+3:1  Warning: `dayjs` import should occur before import of `next/image`  import/order
+
+./src/components/language-switcher.js
+4:1  Warning: There should be at least one empty line between import groups  import/order
+4:1  Warning: `next/navigation` import should occur before import of `next-intl`  import/order
+5:1  Warning: There should be at least one empty line between import groups  import/order
+5:19  Warning: 'localeNames' is defined but never used.  no-unused-vars
+5:32  Warning: 'defaultLocale' is defined but never used.  no-unused-vars
+6:1  Warning: `react` import should occur before import of `../../i18n`  import/order
+22:9  Warning: 'router' is assigned a value but never used.  no-unused-vars
+23:9  Warning: 'pathname' is assigned a value but never used.  no-unused-vars
+118:12  Warning: Generic Object Injection Sink  security/detect-object-injection
+120:44  Warning: Generic Object Injection Sink  security/detect-object-injection
+189:51  Warning: Generic Object Injection Sink  security/detect-object-injection
+190:22  Warning: Generic Object Injection Sink  security/detect-object-injection
+
+./src/components/load-more-btn/index.js
+3:1  Warning: `next-intl` import should occur before import of `react`  import/order
+4:1  Warning: `@svg/load-more` import should occur before import of `react`  import/order
+
+./src/components/loader/category-loader.js
+1:1  Warning: There should be at least one empty line between import groups  import/order
+
+./src/components/loader/offer-loader.js
+1:1  Warning: There should be at least one empty line between import groups  import/order
+
+./src/components/loader/product-loader.js
+1:1  Warning: There should be at least one empty line between import groups  import/order
+
+./src/components/loader/shop-category-loader.js
+1:1  Warning: There should be at least one empty line between import groups  import/order
+
+./src/components/loader/shop-loader.js
+1:1  Warning: There should be at least one empty line between import groups  import/order
+
+./src/components/login-register/login-area.js
+3:1  Warning: There should be at least one empty line between import groups  import/order
+5:1  Warning: There should be at least one empty line between import groups  import/order
+6:1  Warning: `@components/forms/login-form` import should occur before import of `next/link`  import/order
+
+./src/components/login-register/register-area.js
+3:1  Warning: There should be at least one empty line between import groups  import/order
+5:1  Warning: There should be at least one empty line between import groups  import/order
+6:1  Warning: `@components/forms/register-form` import should occur before import of `next/link`  import/order
+
+./src/components/login-register/shapes.js
+1:1  Warning: `react` import should occur after import of `@assets/img/login/shape-4.png`  import/order
+2:1  Warning: `next/image` import should occur after import of `@assets/img/login/shape-4.png`  import/order
+
+./src/components/menu/category-menu.js
+4:1  Warning: `next/link` import should occur before import of `react`  import/order
+6:1  Warning: `@components/loader/shop-category-loader` import should occur before import of `react`  import/order
+7:1  Warning: `@utils/formatCategoryName` import should occur before import of `react`  import/order
+
+./src/components/menu/mobile-category-menu.js
+4:1  Warning: `next/link` import should occur before import of `react`  import/order
+5:1  Warning: `next-intl` import should occur before import of `react`  import/order
+7:1  Warning: `@utils/formatCategoryName` import should occur before import of `react`  import/order
+62:17  Warning: Anchor used as a button. Anchors are primarily expected to navigate. Use the button element instead. Learn more: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/HEAD/docs/rules/anchor-is-valid.md  jsx-a11y/anchor-is-valid
+
+./src/components/nav-link.js
+3:1  Warning: `next/navigation` import should occur before import of `react`  import/order
+8:3  Warning: Unexpected console statement.  no-console
+
+./src/components/offer-product/index.js
+2:1  Warning: `react` import should occur after import of `next-intl`  import/order
+4:1  Warning: There should be at least one empty line between import groups  import/order
+6:1  Warning: `./single-coupon` import should occur after import of `src/redux/features/coupon/couponApi`  import/order
+7:1  Warning: There should be at least one empty line between import groups  import/order
+7:1  Warning: `./coupon-placeholder` import should occur after import of `src/redux/features/coupon/couponApi`  import/order
+
+./src/components/offer-product/offer-timer.js
+4:1  Warning: `next-intl` import should occur before import of `react`  import/order
+
+./src/components/offer-product/single-coupon.js
+2:1  Warning: `react` import should occur after import of `next-intl`  import/order
+2:17  Warning: 'useState' is defined but never used.  no-unused-vars
+5:1  Warning: `react-copy-to-clipboard` import should occur after import of `next-intl`  import/order
+6:1  Warning: There should be at least one empty line between import groups  import/order
+20:15  Warning: The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/HEAD/docs/rules/anchor-is-valid.md  jsx-a11y/anchor-is-valid
+
+./src/components/order/pay-card-element.js
+1:17  Warning: 'useState' is defined but never used.  no-unused-vars
+2:1  Warning: `@stripe/react-stripe-js` import should occur before import of `react`  import/order
+
+./src/components/order-area.js
+5:1  Warning: `@components/loader/loader` import should occur before import of `react`  import/order
+6:1  Warning: `@layout/wrapper` import should occur before import of `react`  import/order
+7:1  Warning: `@layout/header` import should occur before import of `react`  import/order
+8:1  Warning: `@layout/footer` import should occur before import of `react`  import/order
+10:1  Warning: There should be at least one empty line between import groups  import/order
+10:1  Warning: `@components/error-message/error` import should occur before import of `react`  import/order
+45:5  Warning: Unexpected console statement.  no-console
+
+./src/components/product-details/breadcrumb.js
+2:1  Warning: `next/link` import should occur before import of `react`  import/order
+3:1  Warning: `@svg/home` import should occur before import of `react`  import/order
+24:19  Warning: The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/HEAD/docs/rules/anchor-is-valid.md  jsx-a11y/anchor-is-valid
+
+./src/components/product-details/prd-details-review.js
+1:1  Warning: `react` import should occur after import of `@components/forms/review-form`  import/order
+4:1  Warning: There should be at least one empty line between import groups  import/order
+5:1  Warning: There should be at least one empty line between import groups  import/order
+5:1  Warning: `./product-review-item` import should occur after import of `@components/forms/review-form`  import/order
+
+./src/components/product-details/product-details-area-main.js
+4:1  Warning: `next/navigation` import should occur before import of `react`  import/order
+6:1  Warning: `@components/cta` import should occur before import of `react`  import/order
+7:1  Warning: `@layout/footer` import should occur before import of `react`  import/order
+8:1  Warning: `@layout/header` import should occur before import of `react`  import/order
+9:1  Warning: `@layout/wrapper` import should occur before import of `react`  import/order
+10:1  Warning: `@components/product-details/breadcrumb` import should occur before import of `react`  import/order
+12:1  Warning: `@components/product-details/product-details-area` import should occur before import of `react`  import/order
+13:1  Warning: `@components/product-details/product-details-tab-area` import should occur before import of `react`  import/order
+14:1  Warning: `@components/product-details/related-products` import should occur before import of `react`  import/order
+15:1  Warning: `src/redux/features/cartSlice` import should occur before import of `src/redux/features/productApi`  import/order
+16:1  Warning: `@components/loader/details-loader` import should occur before import of `react`  import/order
+18:1  Warning: `@utils/posthog` import should occur before import of `react`  import/order
+24:7  Error: React Hook "useGetProductBySlugQuery" is called conditionally. React Hooks must be called in the exact same order in every component render.  react-hooks/rules-of-hooks
+
+./src/components/product-details/product-details-area.js
+3:1  Warning: `next/image` import should occur before import of `react`  import/order
+5:1  Warning: `next-intl` import should occur before import of `react`  import/order
+7:1  Warning: `@svg/index` import should occur before import of `react`  import/order
+8:1  Warning: `@components/social` import should occur before import of `react`  import/order
+9:1  Warning: There should be at least one empty line between import groups  import/order
+9:1  Warning: `@components/common/modals/buy-now-modal` import should occur before import of `react`  import/order
+12:1  Warning: `./product-details-categories` import should occur before import of `./product-details-price`  import/order
+13:1  Warning: `./product-details-tags` import should occur before import of `./product-quantity`  import/order
+14:1  Warning: There should be at least one empty line between import groups  import/order
+15:1  Warning: `src/redux/features/cartSlice` import should occur before import of `./product-details-price`  import/order
+16:1  Warning: `src/redux/features/wishlist-slice` import should occur before import of `./product-details-price`  import/order
+149:33  Warning: Generic Object Injection Sink  security/detect-object-injection
+165:38  Warning: Generic Object Injection Sink  security/detect-object-injection
+181:33  Warning: Generic Object Injection Sink  security/detect-object-injection
+
+./src/components/product-details/product-details-categories.js
+8:9  Warning: The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/HEAD/docs/rules/anchor-is-valid.md  jsx-a11y/anchor-is-valid
+
+./src/components/product-details/product-details-price.js
+2:1  Warning: `@hooks/use-currency` import should occur before import of `react`  import/order
+
+./src/components/product-details/product-details-tab-area.js
+1:1  Warning: There should be at least one empty line between import groups  import/order
+
+./src/components/product-details/product-details-tags.js
+8:9  Warning: The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/HEAD/docs/rules/anchor-is-valid.md  jsx-a11y/anchor-is-valid
+
+./src/components/product-details/product-faq.js
+3:1  Warning: `next-intl` import should occur before import of `react`  import/order
+6:9  Warning: 't' is assigned a value but never used.  no-unused-vars
+
+./src/components/product-details/product-quantity.js
+3:1  Warning: `@svg/index` import should occur before import of `react`  import/order
+20:9  Error: Visible, non-interactive elements with click handlers must have at least one keyboard listener.  jsx-a11y/click-events-have-key-events
+20:9  Error: Avoid non-native interactive elements. If using native HTML is not possible, add an appropriate role and support for tabbing, mouse, keyboard, and touch inputs to an interactive content element.  jsx-a11y/no-static-element-interactions
+29:9  Error: Visible, non-interactive elements with click handlers must have at least one keyboard listener.  jsx-a11y/click-events-have-key-events
+29:9  Error: Avoid non-native interactive elements. If using native HTML is not possible, add an appropriate role and support for tabbing, mouse, keyboard, and touch inputs to an interactive content element.  jsx-a11y/no-static-element-interactions
+
+./src/components/product-details/product-review-item.js
+2:1  Warning: `next/image` import should occur before import of `react`  import/order
+
+./src/components/product-details/related-products.js
+1:1  Warning: `react` import should occur after import of `@components/products/single-product`  import/order
+3:8  Warning: 'Loader' is defined but never used.  no-unused-vars
+5:1  Warning: `src/redux/features/productApi` import should occur after import of `@components/products/single-product`  import/order
+
+./src/components/products/index.js
+3:1  Warning: There should be at least one empty line between import groups  import/order
+3:1  Warning: `next-intl` import should occur before import of `react`  import/order
+6:1  Warning: There should be at least one empty line between import groups  import/order
+6:1  Warning: `./product-placeholder` import should occur before import of `./single-product`  import/order
+7:1  Warning: `src/redux/features/productApi` import should occur before import of `./single-product`  import/order
+12:9  Warning: 'tCommon' is assigned a value but never used.  no-unused-vars
+23:7  Warning: Unexpected console statement.  no-console
+73:13  Warning: 'errorInfo' is assigned a value but never used.  no-unused-vars
+91:6  Warning: React Hook useEffect has a missing dependency: 'isError'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+222:21  Error: Visible, non-interactive elements with click handlers must have at least one keyboard listener.  jsx-a11y/click-events-have-key-events
+222:21  Error: Non-interactive elements should not be assigned mouse or keyboard event listeners.  jsx-a11y/no-noninteractive-element-interactions
+
+./src/components/products/old-new-price.js
+2:1  Warning: `@hooks/use-currency` import should occur before import of `react`  import/order
+
+./src/components/products/product-categories.js
+8:9  Warning: The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/HEAD/docs/rules/anchor-is-valid.md  jsx-a11y/anchor-is-valid
+11:9  Warning: The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/HEAD/docs/rules/anchor-is-valid.md  jsx-a11y/anchor-is-valid
+14:9  Warning: The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/HEAD/docs/rules/anchor-is-valid.md  jsx-a11y/anchor-is-valid
+
+./src/components/products/product-tags.js
+8:9  Warning: The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/HEAD/docs/rules/anchor-is-valid.md  jsx-a11y/anchor-is-valid
+
+./src/components/products/quantity.js
+3:1  Warning: `@svg/index` import should occur before import of `react`  import/order
+11:10  Warning: 'quantity' is assigned a value but never used.  no-unused-vars
+11:19  Warning: 'setQuantity' is assigned a value but never used.  no-unused-vars
+23:9  Error: Visible, non-interactive elements with click handlers must have at least one keyboard listener.  jsx-a11y/click-events-have-key-events
+23:9  Error: Avoid non-native interactive elements. If using native HTML is not possible, add an appropriate role and support for tabbing, mouse, keyboard, and touch inputs to an interactive content element.  jsx-a11y/no-static-element-interactions
+32:9  Error: Visible, non-interactive elements with click handlers must have at least one keyboard listener.  jsx-a11y/click-events-have-key-events
+32:9  Error: Avoid non-native interactive elements. If using native HTML is not possible, add an appropriate role and support for tabbing, mouse, keyboard, and touch inputs to an interactive content element.  jsx-a11y/no-static-element-interactions
+
+./src/components/products/single-list-product.js
+3:1  Warning: `next/image` import should occur before import of `react`  import/order
+4:1  Warning: `next/link` import should occur before import of `react`  import/order
+5:1  Warning: `next/navigation` import should occur before import of `react`  import/order
+6:1  Warning: `next-intl` import should occur before import of `react`  import/order
+8:1  Warning: There should be at least one empty line between import groups  import/order
+8:1  Warning: `@svg/index` import should occur before import of `react`  import/order
+8:19  Warning: 'Compare' is defined but never used.  no-unused-vars
+9:1  Warning: There should be at least one empty line between import groups  import/order
+10:1  Warning: `react-redux` import should occur before import of `./rating`  import/order
+11:1  Warning: `src/redux/features/cartSlice` import should occur before import of `./rating`  import/order
+12:1  Warning: `src/redux/features/productSlice` import should occur before import of `./rating`  import/order
+13:1  Warning: `@hooks/use-currency` import should occur before import of `react`  import/order
+39:13  Error: Visible, non-interactive elements with click handlers must have at least one keyboard listener.  jsx-a11y/click-events-have-key-events
+39:13  Error: Avoid non-native interactive elements. If using native HTML is not possible, add an appropriate role and support for tabbing, mouse, keyboard, and touch inputs to an interactive content element.  jsx-a11y/no-static-element-interactions
+
+./src/components/products/single-product.js
+3:1  Warning: `next/image` import should occur before import of `react`  import/order
+4:1  Warning: `next/link` import should occur before import of `react`  import/order
+5:1  Warning: `next/navigation` import should occur before import of `react`  import/order
+7:1  Warning: `next-intl` import should occur before import of `react`  import/order
+9:1  Warning: There should be at least one empty line between import groups  import/order
+9:1  Warning: `@svg/index` import should occur before import of `react`  import/order
+9:19  Warning: 'Compare' is defined but never used.  no-unused-vars
+10:1  Warning: There should be at least one empty line between import groups  import/order
+10:10  Warning: 'RatingFull' is defined but never used.  no-unused-vars
+10:22  Warning: 'RatingHalf' is defined but never used.  no-unused-vars
+11:1  Warning: `@components/common/modals/product-modal` import should occur before import of `react`  import/order
+11:8  Warning: 'ProductModal' is defined but never used.  no-unused-vars
+12:1  Warning: There should be at least one empty line between import groups  import/order
+12:1  Warning: `@components/common/modals/buy-now-modal` import should occur before import of `react`  import/order
+13:1  Warning: There should be at least one empty line between import groups  import/order
+13:1  Warning: `./old-new-price` import should occur before import of `./rating`  import/order
+14:1  Warning: `src/redux/features/cartSlice` import should occur before import of `./rating`  import/order
+18:1  Warning: `src/redux/features/wishlist-slice` import should occur before import of `./rating`  import/order
+19:1  Warning: `src/redux/features/productSlice` import should occur before import of `./rating`  import/order
+20:1  Warning: `@utils/posthog` import should occur before import of `react`  import/order
+21:1  Warning: `@hooks/use-currency` import should occur before import of `react`  import/order
+26:36  Warning: 'price' is assigned a value but never used.  no-unused-vars
+63:9  Error: Visible, non-interactive elements with click handlers must have at least one keyboard listener.  jsx-a11y/click-events-have-key-events
+63:9  Error: Avoid non-native interactive elements. If using native HTML is not possible, add an appropriate role and support for tabbing, mouse, keyboard, and touch inputs to an interactive content element.  jsx-a11y/no-static-element-interactions
+
+./src/components/provider/main-provider.js
+5:1  Warning: `@utils/posthog` import should occur before import of `react`  import/order
+
+./src/components/search-area.js
+3:1  Warning: `next-intl` import should occur before import of `react`  import/order
+5:1  Warning: `@layout/wrapper` import should occur before import of `react`  import/order
+6:1  Warning: `@layout/header` import should occur before import of `react`  import/order
+7:1  Warning: `@components/cta` import should occur before import of `react`  import/order
+8:1  Warning: `@layout/footer` import should occur before import of `react`  import/order
+9:1  Warning: `@ui/NiceSelect` import should occur before import of `react`  import/order
+10:1  Warning: `@components/products/single-product` import should occur before import of `react`  import/order
+11:1  Warning: `@components/products/product-placeholder` import should occur before import of `react`  import/order
+12:1  Warning: `@components/common/sidebar/cart-sidebar/empty-cart` import should occur before import of `react`  import/order
+14:1  Warning: `@components/load-more-btn` import should occur before import of `react`  import/order
+15:1  Warning: `@components/common/breadcrumb/breadcrumb-2` import should occur before import of `react`  import/order
+48:9  Warning: 'all_products' is never reassigned. Use 'const' instead.  prefer-const
+
+./src/components/shop/prd-grid-items.js
+1:1  Warning: `react` import should occur after import of `@ui/Pagination`  import/order
+
+./src/components/shop/prd-list-items.js
+1:1  Warning: `react` import should occur after import of `@ui/Pagination`  import/order
+
+./src/components/shop/shop-area.js
+1:1  Warning: There should be at least one empty line between import groups  import/order
+1:1  Warning: `react` import should occur after import of `@components/common/sidebar/shop-sidebar`  import/order
+3:1  Warning: There should be at least one empty line between import groups  import/order
+3:1  Warning: `./shop-top-bar` import should occur after import of `./prd-list-items`  import/order
+4:1  Warning: There should be at least one empty line between import groups  import/order
+
+./src/components/shop/shop-main-area.js
+2:20  Warning: 'useEffect' is defined but never used.  no-unused-vars
+2:37  Warning: '/Users/salmenkhelifi/Documents/chaktech-ecommerce-react-next-js-admin-panel/chaktech-front-end/node_modules/react/index.js' imported multiple times.  import/no-duplicates
+3:19  Warning: '/Users/salmenkhelifi/Documents/chaktech-ecommerce-react-next-js-admin-panel/chaktech-front-end/node_modules/react/index.js' imported multiple times.  import/no-duplicates
+5:1  Warning: `@layout/wrapper` import should occur before import of `react`  import/order
+6:1  Warning: `@layout/header` import should occur before import of `react`  import/order
+7:1  Warning: `@components/cta` import should occur before import of `react`  import/order
+8:1  Warning: `@layout/footer` import should occur before import of `react`  import/order
+9:1  Warning: `@components/common/breadcrumb/shop-breadcrumb` import should occur before import of `react`  import/order
+10:1  Warning: `@components/shop/shop-area` import should occur before import of `react`  import/order
+12:1  Warning: `@components/products/product-placeholder` import should occur before import of `react`  import/order
+33:7  Warning: Unexpected console statement.  no-console
+84:9  Warning: 'all_products' is never reassigned. Use 'const' instead.  prefer-const
+
+./src/components/shop/shop-top-bar.js
+2:1  Warning: `react` import should occur after import of `@ui/NiceSelect`  import/order
+3:1  Warning: `next-intl` import should occur after import of `@ui/NiceSelect`  import/order
+
+./src/components/shop-banner/index.js
+2:1  Warning: `next/link` import should occur after import of `@svg/index`  import/order
+3:1  Warning: `next/image` import should occur after import of `@svg/index`  import/order
+4:1  Warning: `next-intl` import should occur after import of `@svg/index`  import/order
+8:10  Warning: 'RightArrow' is defined but never used.  no-unused-vars
+
+./src/components/shop-category/category-placeholder.js
+4:1  Warning: `swiper/modules` import should occur before import of `swiper/react`  import/order
+
+./src/components/shop-category/shop-category.js
+4:1  Warning: `swiper/modules` import should occur before import of `swiper/react`  import/order
+6:1  Warning: There should be at least one empty line between import groups  import/order
+6:1  Warning: `next-intl` import should occur before import of `react`  import/order
+9:1  Warning: There should be at least one empty line between import groups  import/order
+9:1  Warning: `./category-placeholder` import should occur before import of `./single-category`  import/order
+10:1  Warning: `src/redux/features/categoryApi` import should occur before import of `swiper/react`  import/order
+13:9  Warning: 't' is assigned a value but never used.  no-unused-vars
+14:9  Warning: 'tCategory' is assigned a value but never used.  no-unused-vars
+
+./src/components/shop-category/single-category.js
+3:8  Warning: 'Link' is defined but never used.  no-unused-vars
+6:1  Warning: `next-intl` import should occur before import of `react`  import/order
+14:9  Warning: Anchor used as a button. Anchors are primarily expected to navigate. Use the button element instead. Learn more: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/HEAD/docs/rules/anchor-is-valid.md  jsx-a11y/anchor-is-valid
+14:9  Error: Visible, non-interactive elements with click handlers must have at least one keyboard listener.  jsx-a11y/click-events-have-key-events
+14:9  Error: Avoid non-native interactive elements. If using native HTML is not possible, add an appropriate role and support for tabbing, mouse, keyboard, and touch inputs to an interactive content element.  jsx-a11y/no-static-element-interactions
+37:11  Warning: Anchor used as a button. Anchors are primarily expected to navigate. Use the button element instead. Learn more: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/HEAD/docs/rules/anchor-is-valid.md  jsx-a11y/anchor-is-valid
+37:11  Error: Visible, non-interactive elements with click handlers must have at least one keyboard listener.  jsx-a11y/click-events-have-key-events
+37:11  Error: Avoid non-native interactive elements. If using native HTML is not possible, add an appropriate role and support for tabbing, mouse, keyboard, and touch inputs to an interactive content element.  jsx-a11y/no-static-element-interactions
+
+./src/components/shop-feature/index.js
+3:1  Warning: `next-intl` import should occur before import of `react`  import/order
+5:1  Warning: `@svg/index` import should occur before import of `react`  import/order
+
+./src/components/shop-products/shop-products.js
+3:1  Warning: `next-intl` import should occur before import of `react`  import/order
+5:1  Warning: There should be at least one empty line between import groups  import/order
+5:1  Warning: `@data/products` import should occur before import of `react`  import/order
+6:1  Warning: There should be at least one empty line between import groups  import/order
+7:1  Warning: `@elements/section-wrapper` import should occur before import of `react`  import/order
+64:23  Error: Visible, non-interactive elements with click handlers must have at least one keyboard listener.  jsx-a11y/click-events-have-key-events
+64:23  Error: Non-interactive elements should not be assigned mouse or keyboard event listeners.  jsx-a11y/no-noninteractive-element-interactions
+
+./src/components/social/index.js
+2:1  Warning: `@config/contact` import should occur before import of `react`  import/order
+
+./src/components/teams/index.js
+6:1  Warning: `swiper/modules` import should occur before import of `swiper/react`  import/order
+9:1  Warning: There should be at least one empty line between import groups  import/order
+9:1  Warning: `@svg/index` import should occur before import of `next/link`  import/order
+
+./src/components/teams/single-team.js
+26:15  Warning: The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/HEAD/docs/rules/anchor-is-valid.md  jsx-a11y/anchor-is-valid
+
+./src/components/terms-policy/cookies-area.js
+1:8  Warning: 'Link' is defined but never used.  no-unused-vars
+2:1  Warning: `@config/contact` import should occur before import of `next/link`  import/order
+16:62  Error: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`.  react/no-unescaped-entities
+16:65  Error: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`.  react/no-unescaped-entities
+16:68  Error: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`.  react/no-unescaped-entities
+16:71  Error: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`.  react/no-unescaped-entities
+16:77  Error: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`.  react/no-unescaped-entities
+16:81  Error: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`.  react/no-unescaped-entities
+54:171  Error: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  react/no-unescaped-entities
+81:182  Error: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  react/no-unescaped-entities
+
+./src/components/terms-policy/policy-area.js
+2:1  Warning: `@config/contact` import should occur before import of `next/link`  import/order
+17:27  Error: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`.  react/no-unescaped-entities
+17:42  Error: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`.  react/no-unescaped-entities
+
+./src/components/terms-policy/refund-return-area.js
+3:1  Warning: `next-intl` import should occur before import of `react`  import/order
+4:1  Warning: `@config/contact` import should occur before import of `react`  import/order
+7:9  Warning: 't' is assigned a value but never used.  no-unused-vars
+
+./src/components/terms-policy/section-top-bar.js
+3:1  Warning: `@assets/img/contact/contact-bg.png` import should occur before import of `react`  import/order
+
+./src/components/terms-policy/terms-area.js
+2:1  Warning: `@config/contact` import should occur before import of `next/link`  import/order
+
+./src/components/user-dashboard/change-password.js
+3:1  Warning: `@hookform/resolvers/yup` import should occur before import of `react`  import/order
+7:1  Warning: `next-intl` import should occur before import of `react`  import/order
+9:1  Warning: `src/redux/features/auth/authApi` import should occur before import of `yup`  import/order
+10:1  Warning: `@components/error-message/error` import should occur before import of `react`  import/order
+11:1  Warning: `@utils/toast` import should occur before import of `react`  import/order
+43:7  Warning: Unexpected console statement.  no-console
+
+./src/components/user-dashboard/dashboard-area.js
+1:8  Warning: 'Link' is defined but never used.  no-unused-vars
+2:1  Warning: There should be at least one empty line between import groups  import/order
+6:1  Warning: `./profile-nav` import should occur before import of `./profile-shapes`  import/order
+7:1  Warning: `./my-orders` import should occur before import of `./order-info`  import/order
+8:1  Warning: `./change-password` import should occur before import of `./order-info`  import/order
+
+./src/components/user-dashboard/my-order-items.js
+2:1  Warning: `next/link` import should occur before import of `react`  import/order
+3:1  Warning: `dayjs` import should occur before import of `react`  import/order
+4:1  Warning: `@ui/Pagination` import should occur before import of `react`  import/order
+
+./src/components/user-dashboard/my-orders.js
+1:1  Warning: There should be at least one empty line between import groups  import/order
+
+./src/components/user-dashboard/order-info.js
+2:1  Warning: `@svg/index` import should occur before import of `react`  import/order
+
+./src/components/user-dashboard/profile-nav.js
+5:1  Warning: `next-intl` import should occur before import of `react`  import/order
+
+./src/components/user-dashboard/profile-shapes.js
+1:1  Warning: `react` import should occur after import of `@assets/img/login/shape-4.png`  import/order
+2:1  Warning: `next/image` import should occur after import of `@assets/img/login/shape-4.png`  import/order
+
+./src/components/user-dashboard/update-user.js
+3:1  Warning: `@hookform/resolvers/yup` import should occur before import of `react`  import/order
+7:1  Warning: `next-intl` import should occur before import of `react`  import/order
+9:1  Warning: `@svg/index` import should occur before import of `react`  import/order
+10:1  Warning: `src/redux/features/auth/authApi` import should occur before import of `yup`  import/order
+11:1  Warning: `@utils/toast` import should occur before import of `react`  import/order
+12:1  Warning: `@components/error-message/error` import should occur before import of `react`  import/order
+47:7  Warning: Unexpected console statement.  no-console
+
+./src/components/user-dashboard/user-dashboard-main-area.js
+3:1  Warning: `next/navigation` import should occur before import of `react`  import/order
+4:1  Warning: `next-intl` import should occur before import of `react`  import/order
+6:1  Warning: `@layout/header` import should occur before import of `react`  import/order
+7:1  Warning: `@layout/wrapper` import should occur before import of `react`  import/order
+8:1  Warning: `@layout/footer` import should occur before import of `react`  import/order
+10:1  Warning: `@components/user-dashboard/dashboard-area` import should occur before import of `react`  import/order
+11:1  Warning: `@components/loader/loader` import should occur before import of `react`  import/order
+12:1  Warning: `@components/error-message/error` import should occur before import of `react`  import/order
+20:5  Warning: 'error' is assigned a value but never used.  no-unused-vars
+
+./src/components/wishlist/single-wishlist.js
+6:1  Warning: `@svg/index` import should occur before import of `next/image`  import/order
+8:1  Warning: `src/redux/features/cartSlice` import should occur before import of `src/redux/features/wishlist-slice`  import/order
+12:1  Warning: `@hooks/use-currency` import should occur before import of `next/image`  import/order
+38:25  Warning: 'e' is defined but never used. Allowed unused args must match /^_/u.  no-unused-vars
+54:11  Error: Visible, non-interactive elements with click handlers must have at least one keyboard listener.  jsx-a11y/click-events-have-key-events
+54:11  Error: Avoid non-native interactive elements. If using native HTML is not possible, add an appropriate role and support for tabbing, mouse, keyboard, and touch inputs to an interactive content element.  jsx-a11y/no-static-element-interactions
+63:11  Error: Visible, non-interactive elements with click handlers must have at least one keyboard listener.  jsx-a11y/click-events-have-key-events
+63:11  Error: Avoid non-native interactive elements. If using native HTML is not possible, add an appropriate role and support for tabbing, mouse, keyboard, and touch inputs to an interactive content element.  jsx-a11y/no-static-element-interactions
+
+./src/components/wishlist/wishlist-area.js
+3:1  Warning: `next/link` import should occur before import of `react`  import/order
+6:1  Warning: There should be at least one empty line between import groups  import/order
+6:1  Warning: `@components/common/sidebar/cart-sidebar/empty-cart` import should occur before import of `react`  import/order
+
+./src/hooks/use-checkout-submit.js
+5:1  Warning: `react-hook-form` import should occur before import of `react-redux`  import/order
+6:1  Warning: `next/navigation` import should occur before import of `react`  import/order
+8:1  Warning: `@utils/toast` import should occur before import of `dayjs`  import/order
+10:1  Warning: `@components/loader/loader` import should occur before import of `dayjs`  import/order
+11:1  Warning: There should be at least one empty line between import groups  import/order
+12:1  Warning: There should be at least one empty line between import groups  import/order
+13:1  Warning: `src/redux/features/order/orderSlice` import should occur before import of `./use-cart-info`  import/order
+14:1  Warning: `src/redux/features/order/orderApi` import should occur before import of `./use-cart-info`  import/order
+17:1  Warning: `@utils/sessionToken` import should occur before import of `dayjs`  import/order
+18:1  Warning: `@utils/posthog` import should occur before import of `dayjs`  import/order
+19:1  Warning: `@utils/trackingUtils` import should occur before import of `dayjs`  import/order
+20:1  Warning: `@components/tracking/FacebookPixel` import should occur before import of `dayjs`  import/order
+29:10  Warning: 'couponInfo' is assigned a value but never used.  no-unused-vars
+37:21  Warning: 'setCardError' is assigned a value but never used.  no-unused-vars
+78:9  Warning: 'subTotal' is never reassigned. Use 'const' instead.  prefer-const
+79:9  Warning: 'discountTotal' is never reassigned. Use 'const' instead.  prefer-const
+171:9  Warning: 'orderInfo' is never reassigned. Use 'const' instead.  prefer-const
+
+./src/hooks/use-currency.js
+8:28  Warning: 'isError' is assigned a value but never used.  no-unused-vars
+
+./src/hooks/use-realtime-save.js
+3:1  Warning: `react-redux` import should occur before import of `src/redux/features/abandonedCheckout/abandonedCheckoutApi`  import/order
+4:1  Warning: `@utils/sessionToken` import should occur before import of `react`  import/order
+
+./src/hooks/use-remove-backdrop.js
+2:1  Warning: `next/navigation` import should occur before import of `react`  import/order
+
+./src/hooks/useMenu.ts
+49:49  Warning: Generic Object Injection Sink  security/detect-object-injection
+50:47  Warning: Generic Object Injection Sink  security/detect-object-injection
+51:17  Warning: 'setError' is assigned a value but never used.  no-unused-vars
+56:22  Warning: Variable Assigned to Object Injection Sink  security/detect-object-injection
+57:25  Warning: Variable Assigned to Object Injection Sink  security/detect-object-injection
+67:11  Warning: Generic Object Injection Sink  security/detect-object-injection
+69:32  Warning: Generic Object Injection Sink  security/detect-object-injection
+96:20  Warning: 'fetchError' is defined but never used. Allowed unused args must match /^_/u.  no-unused-vars
+113:15  Warning: Generic Object Injection Sink  security/detect-object-injection
+114:15  Warning: Generic Object Injection Sink  security/detect-object-injection
+133:17  Warning: Generic Object Injection Sink  security/detect-object-injection
+134:17  Warning: Generic Object Injection Sink  security/detect-object-injection
+150:15  Warning: Generic Object Injection Sink  security/detect-object-injection
+151:15  Warning: Generic Object Injection Sink  security/detect-object-injection
+172:13  Warning: Generic Object Injection Sink  security/detect-object-injection
+173:13  Warning: Generic Object Injection Sink  security/detect-object-injection
+209:18  Warning: Generic Object Injection Sink  security/detect-object-injection
+214:7  Warning: Generic Object Injection Sink  security/detect-object-injection
+219:6  Warning: React Hook useEffect has a missing dependency: 'cacheKey'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+
+./src/hooks/useSiteSettings.ts
+53:5  Warning: Generic Object Injection Sink  security/detect-object-injection
+53:43  Warning: Generic Object Injection Sink  security/detect-object-injection
+56:5  Warning: Generic Object Injection Sink  security/detect-object-injection
+58:17  Warning: 'setError' is assigned a value but never used.  no-unused-vars
+63:22  Warning: Variable Assigned to Object Injection Sink  security/detect-object-injection
+64:25  Warning: Variable Assigned to Object Injection Sink  security/detect-object-injection
+74:11  Warning: Generic Object Injection Sink  security/detect-object-injection
+76:32  Warning: Generic Object Injection Sink  security/detect-object-injection
+101:20  Warning: 'fetchError' is defined but never used. Allowed unused args must match /^_/u.  no-unused-vars
+111:15  Warning: Generic Object Injection Sink  security/detect-object-injection
+112:15  Warning: Generic Object Injection Sink  security/detect-object-injection
+124:17  Warning: Generic Object Injection Sink  security/detect-object-injection
+125:17  Warning: Generic Object Injection Sink  security/detect-object-injection
+134:15  Warning: Generic Object Injection Sink  security/detect-object-injection
+135:15  Warning: Generic Object Injection Sink  security/detect-object-injection
+149:13  Warning: Generic Object Injection Sink  security/detect-object-injection
+150:13  Warning: Generic Object Injection Sink  security/detect-object-injection
+172:18  Warning: Generic Object Injection Sink  security/detect-object-injection
+177:7  Warning: Generic Object Injection Sink  security/detect-object-injection
+
+./src/hooks/useTranslation.ts
+65:33  Error: Parsing error: '>' expected.
+
+./src/i18n/request.js
+1:34  Warning: '/Users/salmenkhelifi/Documents/chaktech-ecommerce-react-next-js-admin-panel/chaktech-front-end/node_modules/.pnpm/next-intl@3.26.5_next@15.5.6_@babel+core@7.28.5_react-dom@19.2.0_react@19.2.0__react@19.2.0_sass@1.94.2__react@19.2.0/node_modules/next-intl/server.d.ts' imported multiple times.  import/no-duplicates
+2:34  Warning: '/Users/salmenkhelifi/Documents/chaktech-ecommerce-react-next-js-admin-panel/chaktech-front-end/node_modules/.pnpm/next-intl@3.26.5_next@15.5.6_@babel+core@7.28.5_react-dom@19.2.0_react@19.2.0__react@19.2.0_sass@1.94.2__react@19.2.0/node_modules/next-intl/server.d.ts' imported multiple times.  import/no-duplicates
+3:1  Warning: There should be at least one empty line between import groups  import/order
+3:1  Warning: `next/headers` import should occur before import of `next-intl/server`  import/order
+
+./src/layout/copyright-text.js
+2:8  Warning: 'Link' is defined but never used.  no-unused-vars
+4:1  Warning: `next-intl` import should occur before import of `react`  import/order
+
+./src/layout/footer.js
+3:1  Warning: `next/image` import should occur before import of `next/link`  import/order
+6:1  Warning: `@assets/img/categories/chaktech-logo.webp` import should occur before import of `next/link`  import/order
+7:1  Warning: There should be at least one empty line between import groups  import/order
+7:1  Warning: `@components/social` import should occur before import of `next/link`  import/order
+8:1  Warning: There should be at least one empty line between import groups  import/order
+9:1  Warning: `@config/contact` import should occur before import of `next/link`  import/order
+10:1  Warning: `@lib/seo-config` import should occur before import of `next/link`  import/order
+11:1  Warning: `@hooks/useSiteSettings` import should occur before import of `next/link`  import/order
+12:1  Warning: `@hooks/useMenu` import should occur before import of `next/link`  import/order
+13:1  Warning: `@components/language-switcher` import should occur before import of `next/link`  import/order
+
+./src/layout/header.js
+2:1  Warning: `react` import should occur after import of `@hooks/useSiteSettings`  import/order
+3:1  Warning: `next/image` import should occur after import of `@hooks/useSiteSettings`  import/order
+4:1  Warning: `next/link` import should occur after import of `@hooks/useSiteSettings`  import/order
+5:1  Warning: There should be at least one empty line between import groups  import/order
+5:1  Warning: `react-redux` import should occur after import of `@hooks/useSiteSettings`  import/order
+7:1  Warning: There should be at least one empty line between import groups  import/order
+7:1  Warning: `./menus` import should occur after import of `@hooks/useSiteSettings`  import/order
+9:1  Warning: `@svg/index` import should occur after import of `@hooks/useSiteSettings`  import/order
+10:1  Warning: `@hooks/use-sticky` import should occur after import of `@components/forms/live-search-form`  import/order
+11:1  Warning: `@components/common/sidebar/cart-sidebar` import should occur after import of `@components/common/off-canvas`  import/order
+13:1  Warning: `@hooks/use-cart-info` import should occur after import of `@components/forms/live-search-form`  import/order
+15:1  Warning: `next-intl` import should occur after import of `@hooks/useSiteSettings`  import/order
+344:9  Error: Visible, non-interactive elements with click handlers must have at least one keyboard listener.  jsx-a11y/click-events-have-key-events
+344:9  Error: Avoid non-native interactive elements. If using native HTML is not possible, add an appropriate role and support for tabbing, mouse, keyboard, and touch inputs to an interactive content element.  jsx-a11y/no-static-element-interactions
+362:11  Error: Visible, non-interactive elements with click handlers must have at least one keyboard listener.  jsx-a11y/click-events-have-key-events
+362:11  Error: Avoid non-native interactive elements. If using native HTML is not possible, add an appropriate role and support for tabbing, mouse, keyboard, and touch inputs to an interactive content element.  jsx-a11y/no-static-element-interactions
+
+./src/layout/menus.js
+5:1  Warning: `@hooks/useMenu` import should occur before import of `next/link`  import/order
+6:1  Warning: `@components/menu/category-menu` import should occur before import of `next/link`  import/order
+7:1  Warning: `next-intl` import should occur before import of `react`  import/order
+
+./src/layout/wrapper.js
+5:1  Warning: `@components/common/scroll-to-top` import should occur before import of `react`  import/order
+7:1  Warning: `src/redux/features/cartSlice` import should occur before import of `src/redux/features/wishlist-slice`  import/order
+8:1  Warning: `src/redux/features/coupon/couponSlice` import should occur before import of `src/redux/features/wishlist-slice`  import/order
+9:1  Warning: `src/redux/features/order/orderSlice` import should occur before import of `src/redux/features/wishlist-slice`  import/order
+10:1  Warning: `@components/common/modals/product-modal` import should occur before import of `react`  import/order
+11:1  Warning: `@utils/toast` import should occur before import of `react`  import/order
+
+./src/lib/seo-utils.js
+471:16  Warning: Generic Object Injection Sink  security/detect-object-injection
+
+./src/lib/translations.ts
+18:9  Warning: Generic Object Injection Sink  security/detect-object-injection
+19:14  Warning: Generic Object Injection Sink  security/detect-object-injection
+33:7  Warning: Generic Object Injection Sink  security/detect-object-injection
+50:10  Warning: Generic Object Injection Sink  security/detect-object-injection
+
+./src/redux/api/apiSlice.js
+12:7  Warning: Unexpected console statement.  no-console
+34:49  Warning: 'endpoint' is defined but never used. Allowed unused args must match /^_/u.  no-unused-vars
+45:7  Warning: 'result' is never reassigned. Use 'const' instead.  prefer-const
+97:15  Warning: 'builder' is defined but never used. Allowed unused args must match /^_/u.  no-unused-vars
+
+./src/redux/features/auth/authApi.js
+1:10  Warning: 'notifySuccess' is defined but never used.  no-unused-vars
+2:1  Warning: There should be at least one empty line between import groups  import/order
+3:1  Warning: There should be at least one empty line between import groups  import/order
+4:1  Warning: `@utils/posthog` import should occur before import of `@utils/toast`  import/order
+
+./src/redux/features/cartSlice.js
+42:26  Warning: 'payload' is defined but never used. Allowed unused args must match /^_/u.  no-unused-vars
+45:26  Warning: 'payload' is defined but never used. Allowed unused args must match /^_/u.  no-unused-vars
+68:32  Warning: 'action' is defined but never used. Allowed unused args must match /^_/u.  no-unused-vars
+71:37  Warning: 'payload' is defined but never used. Allowed unused args must match /^_/u.  no-unused-vars
+
+./src/redux/features/coupon/couponSlice.js
+18:28  Warning: 'payload' is defined but never used. Allowed unused args must match /^_/u.  no-unused-vars
+
+./src/redux/features/order/orderApi.js
+1:1  Warning: There should be at least one empty line between import groups  import/order
+32:51  Warning: 'dispatch' is defined but never used. Allowed unused args must match /^_/u.  no-unused-vars
+
+./src/redux/features/order/orderSlice.js
+19:29  Warning: 'payload' is defined but never used. Allowed unused args must match /^_/u.  no-unused-vars
+
+./src/redux/features/productApi.js
+38:17  Warning: 'id' is defined but never used. Allowed unused args must match /^_/u.  no-unused-vars
+
+./src/redux/features/productSlice.js
+16:32  Warning: 'payload' is defined but never used. Allowed unused args must match /^_/u.  no-unused-vars
+
+./src/redux/features/wishlist-slice.js
+30:38  Warning: 'payload' is defined but never used. Allowed unused args must match /^_/u.  no-unused-vars
+
+./src/redux/store.js
+1:1  Warning: There should be at least one empty line between import groups  import/order
+4:8  Warning: Using exported name 'cartSlice' as identifier for default import.  import/no-named-as-default
+5:8  Warning: Using exported name 'couponSlice' as identifier for default import.  import/no-named-as-default
+6:8  Warning: Using exported name 'orderSlice' as identifier for default import.  import/no-named-as-default
+7:8  Warning: Using exported name 'wishlistSlice' as identifier for default import.  import/no-named-as-default
+8:1  Warning: `./features/productSlice` import should occur before import of `./features/wishlist-slice`  import/order
+8:8  Warning: Using exported name 'productSlice' as identifier for default import.  import/no-named-as-default
+9:1  Warning: `./features/abandonedCheckout/abandonedCheckoutSlice` import should occur before import of `./features/auth/authSlice`  import/order
+
+./src/svg/index.js
+5:1  Warning: `./right-arrow` import should occur before import of `./search`  import/order
+6:1  Warning: `./cart-2` import should occur before import of `./heart`  import/order
+7:1  Warning: `./heart-2` import should occur before import of `./search`  import/order
+8:1  Warning: `./compare` import should occur before import of `./heart`  import/order
+9:1  Warning: `./eye` import should occur before import of `./heart`  import/order
+10:1  Warning: `./payment` import should occur before import of `./search`  import/order
+11:1  Warning: `./refund` import should occur before import of `./search`  import/order
+12:1  Warning: `./shipping-car` import should occur before import of `./user`  import/order
+13:1  Warning: `./support` import should occur before import of `./user`  import/order
+14:1  Warning: `./minus` import should occur before import of `./search`  import/order
+15:1  Warning: `./plus` import should occur before import of `./search`  import/order
+16:1  Warning: `./times` import should occur before import of `./user`  import/order
+18:1  Warning: `./mobile` import should occur before import of `./search`  import/order
+19:1  Warning: `./dashboard` import should occur before import of `./heart`  import/order
+20:1  Warning: `./right-arrow-2` import should occur before import of `./search`  import/order
+21:1  Warning: `./play` import should occur before import of `./search`  import/order
+22:1  Warning: `./line` import should occur before import of `./search`  import/order
+23:1  Warning: `./shape-line` import should occur before import of `./user`  import/order
+24:1  Warning: `./home` import should occur before import of `./search`  import/order
+25:1  Warning: `./lists` import should occur before import of `./search`  import/order
+26:1  Warning: `./dots` import should occur before import of `./heart`  import/order
+27:1  Warning: `./next-arrow` import should occur before import of `./search`  import/order
+28:1  Warning: `./prev-arrow` import should occur before import of `./search`  import/order
+29:1  Warning: `./dots-2` import should occur before import of `./heart`  import/order
+30:1  Warning: `./general` import should occur before import of `./heart`  import/order
+31:1  Warning: `./eye-cut` import should occur before import of `./heart`  import/order
+32:1  Warning: `./lock` import should occur before import of `./search`  import/order
+33:1  Warning: `./user-2` import should occur before import of `./website`  import/order
+34:1  Warning: `./email` import should occur before import of `./heart`  import/order
+35:1  Warning: `./error-svg` import should occur before import of `./heart`  import/order
+36:1  Warning: `./right-arrow-3` import should occur before import of `./search`  import/order
+37:1  Warning: `./email-2` import should occur before import of `./heart`  import/order
+38:1  Warning: `./mobile-2` import should occur before import of `./search`  import/order
+39:1  Warning: `./location` import should occur before import of `./search`  import/order
+40:1  Warning: `./box` import should occur before import of `./cart`  import/order
+41:1  Warning: `./truck` import should occur before import of `./user`  import/order
+42:1  Warning: `./delivery` import should occur before import of `./heart`  import/order
+43:1  Warning: `./processing` import should occur before import of `./search`  import/order
+44:1  Warning: `./load-more` import should occur before import of `./search`  import/order
+
+./src/ui/NiceSelect.js
+6:44  Warning: Function Call Object Injection Sink  security/detect-object-injection
+
+./src/ui/Pagination.js
+1:1  Warning: There should be at least one empty line between import groups  import/order
+2:1  Warning: There should be at least one empty line between import groups  import/order
+3:1  Warning: `react-paginate` import should occur before import of `../svg/index`  import/order
+
+./src/utils/posthog.js
+10:8  Warning: Using exported name 'posthog' as identifier for default import.  import/no-named-as-default
+43:16  Warning: 'posthog' is defined but never used. Allowed unused args must match /^_/u.  no-unused-vars
+45:11  Warning: Unexpected console statement.  no-console
+
+info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/app/api-reference/config/eslint#disabling-rules
