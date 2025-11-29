@@ -13,13 +13,17 @@ import Footer from "@layout/footer";
 import Header from "@layout/header";
 import Wrapper from "@layout/wrapper";
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
-if (!API_BASE_URL) {
-  throw new Error("NEXT_PUBLIC_API_BASE_URL environment variable is not set");
+function getApiBaseUrl() {
+  const apiUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+  if (!apiUrl) {
+    throw new Error("NEXT_PUBLIC_API_BASE_URL environment variable is not set");
+  }
+  return apiUrl;
 }
 
 async function getHomepageBlocks(locale = "fr") {
   try {
+    const API_BASE_URL = getApiBaseUrl();
     const response = await fetch(
       `${API_BASE_URL}/content-blocks/homepage/${locale}`,
       { next: { revalidate: 60 } } // Revalidate every 60 seconds
@@ -48,7 +52,7 @@ async function getHomepageBlocks(locale = "fr") {
 async function getHomepageSEO(locale = "fr") {
   try {
     const response = await fetch(
-      `${API_BASE_URL}/pages/homepage/${locale}`,
+      `${getApiBaseUrl()}/pages/homepage/${locale}`,
       { next: { revalidate: 300 } } // Revalidate every 5 minutes
     );
 

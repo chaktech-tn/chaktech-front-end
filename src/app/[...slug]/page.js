@@ -8,13 +8,17 @@ import Wrapper from "@layout/wrapper";
 
 import { generateMetadata as generatePageMetadata } from "./metadata";
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
-if (!API_BASE_URL) {
-  throw new Error("NEXT_PUBLIC_API_BASE_URL environment variable is not set");
+function getApiBaseUrl() {
+  const apiUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+  if (!apiUrl) {
+    throw new Error("NEXT_PUBLIC_API_BASE_URL environment variable is not set");
+  }
+  return apiUrl;
 }
 
 async function getPage(slug, locale) {
   try {
+    const API_BASE_URL = getApiBaseUrl();
     const response = await fetch(
       `${API_BASE_URL}/api/pages/${slug}/${locale}`,
       { next: { revalidate: 60 } } // Revalidate every 60 seconds
@@ -62,6 +66,7 @@ export default async function DynamicPage({ params }) {
   // Fetch blocks for this page
   let blocks = [];
   try {
+    const API_BASE_URL = getApiBaseUrl();
     const blocksResponse = await fetch(
       `${API_BASE_URL}/api/content-blocks/${page.slug}/${locale}`,
       { next: { revalidate: 60 } }

@@ -3,6 +3,12 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      args:
+        - NEXT_PUBLIC_API_BASE_URL=${NEXT_PUBLIC_API_BASE_URL:-https://api.chaktech.tn}
+        - NEXT_PUBLIC_CURRENCY=${NEXT_PUBLIC_CURRENCY:-TND}
+        - NEXT_PUBLIC_APP_NAME=${NEXT_PUBLIC_APP_NAME:-ChakTech Store}
+        - NEXT_PUBLIC_DEFAULT_LOCALE=${NEXT_PUBLIC_DEFAULT_LOCALE:-fr}
+        - NEXT_PUBLIC_SUPPORTED_LOCALES=fr,ar,en
     container_name: chaktech-frontend
     restart: unless-stopped
     ports:
