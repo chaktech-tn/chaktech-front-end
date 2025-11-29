@@ -1,14 +1,15 @@
 "use client";
-import logo from "@assets/img/categories/chaktech-logo.webp";
-import LanguageSwitcher from "@components/language-switcher";
-import SocialLinks from "@components/social";
-import contactInfo from "@config/contact";
-import { useMenu } from "@hooks/useMenu";
-import { useSiteSettings } from "@hooks/useSiteSettings";
-import { siteConfig } from "@lib/seo-config";
 import Image from "next/image";
 import Link from "next/link";
 import { useTranslations, useLocale } from "next-intl";
+
+import logo from "@assets/img/categories/chaktech-logo.webp";
+import LanguageSwitcher from "@components/language-switcher";
+import SocialLinks from "@components/social";
+import { contactInfo } from "@config/contact";
+import { useMenu } from "@hooks/useMenu";
+import { useSiteSettings } from "@hooks/useSiteSettings";
+import { siteConfig } from "@lib/seo-config";
 
 import CopyrightText from "./copyright-text";
 
