@@ -1,30 +1,11 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-// Get API base URL - detect from current host, override env if needed
+// Get API base URL from environment variable only
 const getApiBaseUrl = () => {
-  // 1. Priority: Environment Variable (Production/Staging)
-  if (process.env.NEXT_PUBLIC_API_BASE_URL) {
-    return process.env.NEXT_PUBLIC_API_BASE_URL;
+  if (!process.env.NEXT_PUBLIC_API_BASE_URL) {
+    throw new Error("NEXT_PUBLIC_API_BASE_URL environment variable is not set");
   }
-
-  // 2. Browser-side dynamic detection for local network development
-  if (typeof window !== "undefined") {
-    const hostname = window.location.hostname;
-    
-    // Check if it's a local IP address (192.168.x.x, 10.x.x.x, 172.16-31.x.x)
-    const isLocalNetwork = 
-      /^192\.168\.\d{1,3}\.\d{1,3}$/.test(hostname) ||
-      /^10\.\d{1,3}\.\d{1,3}\.\d{1,3}$/.test(hostname) ||
-      /^172\.(1[6-9]|2\d|3[0-1])\.\d{1,3}\.\d{1,3}$/.test(hostname);
-
-    if (isLocalNetwork) {
-      const networkUrl = `http://${hostname}:5001`;
-      return networkUrl;
-    }
-  }
-
-  // 3. Fallback default
-  return "https://api.chaktech.tn";
+  return process.env.NEXT_PUBLIC_API_BASE_URL;
 };
 
 // Suppress rate limit errors in development mode

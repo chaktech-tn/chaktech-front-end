@@ -4,7 +4,10 @@ import { generateProductMetadata, generateProductStructuredData, generateBreadcr
 
 async function getProduct(id) {
   try {
-    const apiUrl = process.env.NEXT_PUBLIC_API_BASE_URL || 'https://api.chaktech.tn';
+    const apiUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+    if (!apiUrl) {
+      throw new Error("NEXT_PUBLIC_API_BASE_URL environment variable is not set");
+    }
     const res = await fetch(`${apiUrl}/products/${id}`, {
       cache: 'no-store', // or 'force-cache' for better performance
     });

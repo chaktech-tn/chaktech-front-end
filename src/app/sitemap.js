@@ -5,7 +5,10 @@ export const dynamic = 'force-dynamic';
 
 async function getAllProducts() {
   try {
-    const apiUrl = process.env.NEXT_PUBLIC_API_BASE_URL || 'https://api.chaktech.tn';
+    const apiUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+    if (!apiUrl) {
+      throw new Error("NEXT_PUBLIC_API_BASE_URL environment variable is not set");
+    }
     const res = await fetch(`${apiUrl}/products/show`, {
       next: { revalidate: 3600 }, // Revalidate every hour instead of no-store
     });
@@ -24,7 +27,10 @@ async function getAllProducts() {
 
 async function getAllCategories() {
   try {
-    const apiUrl = process.env.NEXT_PUBLIC_API_BASE_URL || 'https://api.chaktech.tn';
+    const apiUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+    if (!apiUrl) {
+      throw new Error("NEXT_PUBLIC_API_BASE_URL environment variable is not set");
+    }
     const res = await fetch(`${apiUrl}/category/show`, {
       next: { revalidate: 3600 }, // Revalidate every hour instead of no-store
     });
@@ -43,7 +49,10 @@ async function getAllCategories() {
 
 async function getAllBlogs() {
   try {
-    const apiUrl = process.env.NEXT_PUBLIC_API_BASE_URL || 'https://api.chaktech.tn';
+    const apiUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+    if (!apiUrl) {
+      throw new Error("NEXT_PUBLIC_API_BASE_URL environment variable is not set");
+    }
     const res = await fetch(`${apiUrl}/blog/all?limit=1000`, {
       next: { revalidate: 3600 }, // Revalidate every hour instead of no-store
     });
