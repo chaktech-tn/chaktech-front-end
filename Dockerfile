@@ -1,4 +1,4 @@
-FROM node:18-alpine AS builder
+FROM node:22-alpine AS builder
 
 # Install pnpm
 RUN corepack enable && corepack prepare pnpm@latest --activate
@@ -23,7 +23,7 @@ ENV NEXT_PUBLIC_SUPPORTED_LOCALES=${NEXT_PUBLIC_SUPPORTED_LOCALES}
 COPY package.json pnpm-lock.yaml* ./
 
 # Install dependencies
-RUN pnpm install --frozen-lockfile
+RUN pnpm install --no-frozen-lockfile
 
 # Copy application code
 COPY . .
@@ -32,7 +32,7 @@ COPY . .
 RUN pnpm run build
 
 # Production image
-FROM node:18-alpine AS runner
+FROM node:22-alpine AS runner
 
 # Install pnpm
 RUN corepack enable && corepack prepare pnpm@latest --activate
@@ -45,7 +45,7 @@ ENV NODE_ENV production
 COPY package.json pnpm-lock.yaml* ./
 
 # Install production dependencies only
-RUN pnpm install --frozen-lockfile --prod && pnpm store prune
+RUN pnpm install --no-frozen-lockfile --prod && pnpm store prune
 
 # Copy built application from builder
 COPY --from=builder /app/.next ./.next

@@ -91,7 +91,9 @@
     "onlyBuiltDependencies": [
       "@netlify/esbuild",
       "@parcel/watcher",
+      "@swc/core",
       "core-js",
+      "protobufjs",
       "sharp",
       "swiper",
       "unrs-resolver"
