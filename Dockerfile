@@ -25,7 +25,7 @@ ENV NEXT_PUBLIC_SUPPORTED_LOCALES=${NEXT_PUBLIC_SUPPORTED_LOCALES}
 COPY package.json pnpm-lock.yaml* ./
 
 # Install dependencies
-RUN pnpm install --no-frozen-lockfile
+RUN PNPM_CONFIG_STRICT_DEP_BUILDS=false pnpm install --no-frozen-lockfile
 
 # Copy application code
 COPY . .
@@ -48,7 +48,7 @@ ENV NODE_ENV production
 COPY package.json pnpm-lock.yaml* ./
 
 # Install production dependencies only
-RUN pnpm install --no-frozen-lockfile --prod && pnpm store prune
+RUN PNPM_CONFIG_STRICT_DEP_BUILDS=false pnpm install --no-frozen-lockfile --prod && pnpm store prune
 
 # Copy built application from builder
 COPY --from=builder /app/.next ./.next
