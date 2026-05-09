@@ -1,0 +1,92 @@
+// internal
+import Image from "next/image";
+import React from "react";
+
+import icon_1 from "@assets/img/contact/icon/contact-icon-1.png";
+import icon_3 from "@assets/img/contact/icon/contact-icon-2.png";
+import icon_2 from "@assets/img/contact/icon/contact-icon-3.png";
+import SocialLinks from "@components/social";
+import contactInfo from "@config/contact";
+
+// single item
+function SingleItem({ icon, title, content }) {
+  return (
+    <div className="col-xl-4 col-lg-4 col-md-6">
+      <div className="contact__item text-center mb-30 transition-3 white-bg">
+        <div className="contact__icon">
+          <Image src={icon} alt="icon" />
+        </div>
+        <div className="contact__content">
+          <span className="contact-item-subtitle">{title}</span>
+          {content}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+const BoxItems = () => {
+  return (
+    <div
+      className={`contact__item-area contact__translate-2`}
+    >
+      <div className="container">
+        <div className="row">
+          <SingleItem
+            icon={icon_1}
+            title="Contact"
+            content={
+              <>
+                <p>
+                  <a href={`mailto:${contactInfo.email.primary}`}>
+                    {contactInfo.email.primary}
+                  </a>
+                </p>
+                <p>
+                  <a href={`tel:${contactInfo.phone.tel}`}>
+                    {contactInfo.phone.formatted}
+                  </a>
+                </p>
+              </>
+            }
+          />
+          <SingleItem
+            icon={icon_2}
+            title="Localisation"
+            content={
+              <>
+                <p>
+                  <a
+                    rel="noopener noreferrer"
+                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(contactInfo.location.country)}`}
+                    target="_blank"
+                  >
+                    {contactInfo.location.country}
+                  </a>
+                </p>
+                <p style={{ marginTop: '10px', fontSize: '14px' }}>
+                  {contactInfo.location.description}
+                </p>
+              </>
+            }
+          />
+          <SingleItem
+            icon={icon_3}
+            title="Réseaux Sociaux"
+            content={
+              <>
+                {" "}
+                <p>Suivez-nous</p>
+                <div className="contact__social">
+                  <SocialLinks />
+                </div>
+              </>
+            }
+          />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default BoxItems;

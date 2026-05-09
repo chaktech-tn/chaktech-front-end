@@ -1,0 +1,48 @@
+// Bootstrap 5 uses @use internally — use @use with :prefix for SCSS modules
+@use 'bootstrap/scss/bootstrap' as *;
+@use 'react-modal-video/scss/modal-video.scss' as *;
+@use '@assets/scss/main.scss' as *;
+
+// CSS files: use @import url() or CSS @import at top (after @use blocks)
+// Note: swiper, slick-carousel, and react-tooltip CSS are bundled via JS imports
+// in their respective components to avoid SCSS deprecation warnings.
+// Keeping @import for these only — they don't trigger Bootstrap's import chain.
+@import url("swiper/css/bundle");
+@import url("slick-carousel/slick/slick.css");
+@import url("react-tooltip/dist/react-tooltip.css");
+@import '@assets/css/nice-select.css';
+
+:root {
+  --tp-ff-body: var(--tp-ff-inter);
+  --tp-ff-p: var(--tp-ff-inter);
+  --primary-color: #ee6d0a;
+  --secondary-color: #222529;
+  --accent-color: #e8430a;
+  --logo-url: none;
+  --favicon-url: none;
+  --site-name: 'ChakTech';
+  --tp-theme-1: var(--secondary-color);
+  --tp-theme-2: var(--primary-color);
+  --tp-theme-3: var(--accent-color);
+  --st-primary: var(--primary-color);
+}
+
+// Ensure numbers stay LTR in RTL layouts (standard practice)
+[dir="rtl"],
+.rtl {
+  // Numbers, prices, and numeric values should remain LTR
+  .amount,
+  .price,
+  [class*="price"],
+  [class*="amount"],
+  [class*="total"],
+  [class*="quantity"],
+  [class*="count"],
+  [class*="number"],
+  span[dir="ltr"] {
+    direction: ltr !important;
+    display: inline-block;
+    unicode-bidi: embed;
+    text-align: left;
+  }
+}

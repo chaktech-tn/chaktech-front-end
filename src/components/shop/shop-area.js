@@ -1,0 +1,91 @@
+// internal
+import React, { useState } from "react";
+
+import ShopSidebar from "@components/common/sidebar/shop-sidebar";
+
+import ProductGridItems from "./prd-grid-items";
+import ProductListItems from "./prd-list-items";
+import { ShopShortSelect, ShopShortTab, ShowingResult } from "./shop-top-bar";
+
+const ShopArea = ({ products,all_products,shortHandler }) => {
+  const [showingGridItems, setShowingGridItems] = useState(0);
+  const [showingListItems, setShowingListItems] = useState(0);
+  const [tabActive, setActiveTab] = useState("grid");
+  const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
+  const handleTab = (value) => {
+    setActiveTab(value);
+  };
+
+  return (
+    <section className="shop__area pb-60">
+      <div className="container">
+        <div className="shop__top mb-50">
+          <div className="row align-items-center">
+            <div className="col-lg-6 col-md-5">
+              <ShowingResult
+                show={
+                  tabActive === "grid" ? showingGridItems : showingListItems
+                }
+                total={products.length}
+              />
+            </div>
+            <div className="col-lg-6 col-md-7">
+              <div className="shop__sort d-flex flex-wrap justify-content-md-end align-items-center">
+                <ShopShortTab handleTab={handleTab} />
+                <ShopShortSelect shortHandler={shortHandler}/>
+                <button 
+                  className="d-lg-none ck-mobile-filter-btn" 
+                  onClick={() => setIsMobileFilterOpen(!isMobileFilterOpen)}
+                  style={{
+                    marginLeft: "15px",
+                    padding: "8px 16px",
+                    background: isMobileFilterOpen ? "#111" : "#ff8a00",
+                    color: "white",
+                    border: "none",
+                    borderRadius: "6px",
+                    fontWeight: "600",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "8px",
+                    transition: "all 0.2s ease"
+                  }}
+                >
+                  <i className="fa-solid fa-filter"></i>
+                  {isMobileFilterOpen ? "Fermer" : "Filtres"}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="shop__main">
+          <div className="row">
+            <div className={`col-lg-3 ${isMobileFilterOpen ? 'd-block mb-40' : 'd-none d-lg-block'}`}>
+              {/* sidebar start */}
+              <ShopSidebar all_products={all_products} />
+              {/* sidebar end */}
+            </div>
+            <div className="col-lg-9">
+              <div className="shop__tab-content mb-40">
+                <div className="tab-content" id="shop_tab_content">
+                  <ProductGridItems
+                    itemsPerPage={9}
+                    items={products}
+                    setShowingGridItems={setShowingGridItems}
+                  />
+                  <ProductListItems
+                    itemsPerPage={5}
+                    items={products}
+                    setShowingListItems={setShowingListItems}
+                  />
+                </div>
+                {/* pagination*/}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default ShopArea;

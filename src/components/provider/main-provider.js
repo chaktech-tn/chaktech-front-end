@@ -1,0 +1,29 @@
+"use client";
+// import { initPostHog } from "@utils/posthog";
+import { Provider } from "react-redux";
+import useAuthCheck from "@hooks/use-auth-check";
+
+import { store } from "src/redux/store";
+if (typeof window !== "undefined") {
+  require("bootstrap");
+}
+
+function AuthBootstrap({ children }) {
+  useAuthCheck();
+
+  return children;
+}
+
+export default function MainProvider({ children }) {
+  // Initialize PostHog on client-side mount
+  // PostHog disabled for now
+  // useEffect(() => {
+  //   initPostHog();
+  // }, []);
+
+  return (
+    <Provider store={store}>
+      <AuthBootstrap>{children}</AuthBootstrap>
+    </Provider>
+  );
+}
