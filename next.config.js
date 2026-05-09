@@ -211,11 +211,11 @@ const nextConfig = {
     ];
   },
   // Experimental features for better performance
-experimental: {
+  experimental: {
     optimizeCss: true,
-    sassOptions: {
-      quietDeps: true,
-    },
+  },
+  sassOptions: {
+    quietDeps: true,
   },
   transpilePackages: ["swiper"],
 };
