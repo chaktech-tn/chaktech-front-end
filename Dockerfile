@@ -54,13 +54,16 @@ RUN PNPM_CONFIG_STRICT_DEP_BUILDS=false pnpm install --no-frozen-lockfile --prod
 COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/next.config.js ./next.config.js
+COPY --from=builder /app/messages ./messages
+COPY --from=builder /app/src ./src
+COPY --from=builder /app/i18n.js ./i18n.js
 
 # Expose port
 EXPOSE 3001
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=3s --start-period=10s --retries=3 \
-  CMD node -e "require('http').get('http://localhost:3001/', (r) => {process.exit(r.statusCode === 200 ? 0 : 1)})"
+  CMD wget -q --spider http://127.0.0.1:3001/ || exit 1
 
 # Start Next.js
 CMD ["pnpm", "start"]

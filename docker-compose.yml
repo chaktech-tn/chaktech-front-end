@@ -23,7 +23,7 @@ services:
     networks:
       - chaktech-network
     healthcheck:
-      test: ["CMD", "sh", "-c", "node -e \"require('http').get('http://127.0.0.1:' + process.env.PORT + '/', (r) => {process.exit([200, 301, 302, 307, 308].includes(r.statusCode) ? 0 : 1)})\""]
+      test: ["CMD-SHELL", "wget -q --spider http://127.0.0.1:3001/ || exit 1"]
       interval: 30s
       timeout: 3s
       retries: 3
