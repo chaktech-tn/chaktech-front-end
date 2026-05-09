@@ -1,7 +1,9 @@
 FROM node:22-alpine AS builder
 
+ARG PNPM_VERSION=10.33.0
+
 # Install pnpm
-RUN corepack enable && corepack prepare pnpm@latest --activate
+RUN corepack enable && corepack prepare pnpm@${PNPM_VERSION} --activate
 
 WORKDIR /app
 
@@ -35,7 +37,8 @@ RUN pnpm run build
 FROM node:22-alpine AS runner
 
 # Install pnpm
-RUN corepack enable && corepack prepare pnpm@latest --activate
+ARG PNPM_VERSION=10.33.0
+RUN corepack enable && corepack prepare pnpm@${PNPM_VERSION} --activate
 
 WORKDIR /app
 
@@ -61,4 +64,3 @@ HEALTHCHECK --interval=30s --timeout=3s --start-period=10s --retries=3 \
 
 # Start Next.js
 CMD ["pnpm", "start"]
-
