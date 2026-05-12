@@ -2,13 +2,16 @@
 import React from "react";
 
 import BlockRenderer from "@components/content-blocks/BlockRenderer";
-// Legacy Shop components
-import ShopProducts from "@components/products";
-import ShopCategoryArea from "@components/shop-category/shop-category";
-// New Stitch UI components
-import StitchHeroBanner from "@components/hero-banner/stitch-hero-banner";
-import StitchGamingPromo from "@components/shop-banner/stitch-gaming-promo";
-import StitchFeatures from "@components/shop-feature/stitch-features";
+// Shopwise Components
+import ShopwiseHero from "@components/shopwise/ShopwiseHero";
+import ShopwiseFeatures from "@components/shopwise/ShopwiseFeatures";
+import ShopwiseCategories from "@components/shopwise/ShopwiseCategories";
+import ShopwiseProductGrid from "@components/shopwise/ShopwiseProductGrid";
+import ShopwisePromos from "@components/shopwise/ShopwisePromos";
+import ShopwiseFeaturedProduct from "@components/shopwise/ShopwiseFeaturedProduct";
+import ShopwiseTestimonials from "@components/shopwise/ShopwiseTestimonials";
+import ShopwiseNewsletter from "@components/shopwise/ShopwiseNewsletter";
+
 import { buildBackendUrl } from "@/lib/backend-url";
 // Layout Wrapper
 import Footer from "@layout/footer";
@@ -135,26 +138,22 @@ export async function generateMetadata() {
 }
 
 const HomeShop = async () => {
-  const blocks = await getHomepageBlocks("fr");
-  const hasDynamicBlocks = blocks && blocks.length > 0;
-
+  // We're forcing the new Shopwise UI components for now to showcase the redesign.
+  // The dynamic blocks from the backend would need to be updated to match this new design style.
   return (
     <Wrapper>
       <Header />
-      {/* Use dynamic blocks if available, otherwise use static components */}
-      {hasDynamicBlocks ? (
-        <BlockRenderer blocks={blocks} />
-      ) : (
-        <>
-          <StitchHeroBanner />
-          <ShopCategoryArea />
-          <div style={{ padding: "4rem 0" }}>
-            <ShopProducts />
-          </div>
-          <StitchGamingPromo />
-          <StitchFeatures />
-        </>
-      )}
+      <main className="bg-light">
+        <ShopwiseHero />
+        <ShopwiseFeatures />
+        <ShopwiseCategories />
+        <ShopwiseProductGrid title="New Arrivals" type="latest-product" />
+        <ShopwisePromos />
+        <ShopwiseProductGrid title="Best Sellers" type="best-selling" />
+        <ShopwiseFeaturedProduct />
+        <ShopwiseTestimonials />
+        <ShopwiseNewsletter />
+      </main>
       <Footer />
     </Wrapper>
   );
