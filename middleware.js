@@ -1,13 +1,5 @@
-import createMiddleware from 'next-intl/middleware';
-import { locales, defaultLocale } from './i18n';
+import { locales } from './i18n';
 import { NextResponse } from 'next/server';
-
-const intlMiddleware = createMiddleware({
-  locales,
-  defaultLocale,
-  localePrefix: 'never',
-  localeDetection: true,
-});
 
 export default function middleware(request) {
   const pathname = request.nextUrl.pathname;
@@ -50,12 +42,8 @@ export default function middleware(request) {
     }
   }
 
-  const response = intlMiddleware(request);
-
-  if (response instanceof NextResponse) {
-    response.headers.set('x-pathname', pathname);
-  }
-
+  const response = NextResponse.next();
+  response.headers.set('x-pathname', pathname);
   return response;
 }
 

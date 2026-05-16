@@ -14,16 +14,12 @@ const middleware = require('../middleware').default;
 
 describe('storefront middleware locale routing', () => {
   beforeEach(() => {
+    createMiddlewareMock.mockClear();
     intlMiddlewareMock.mockClear();
   });
 
-  test('configures next-intl for unprefixed locale routing', () => {
-    expect(createMiddlewareMock).toHaveBeenCalledWith(
-      expect.objectContaining({
-        localePrefix: 'never',
-        localeDetection: true,
-      })
-    );
+  test('does not configure next-intl middleware for unprefixed routing', () => {
+    expect(createMiddlewareMock).not.toHaveBeenCalled();
   });
 
   test('redirects /en to / and persists the locale cookie', () => {
@@ -50,13 +46,24 @@ describe('storefront middleware locale routing', () => {
     expect(response.cookies.get('NEXT_LOCALE')?.value).toBe('en');
   });
 
-  test('passes unprefixed paths through to next-intl', () => {
+  test('passes unprefixed paths through without invoking next-intl middleware', () => {
     const request = new NextRequest('https://dev.chaktech.tn/shop');
 
     const response = middleware(request);
 
-    expect(intlMiddlewareMock).toHaveBeenCalledWith(request);
+    expect(intlMiddlewareMock).not.toHaveBeenCalled();
     expect(response.headers.get('location')).toBeNull();
     expect(response.headers.get('x-pathname')).toBe('/shop');
+  });
+
+  test('passes the root path through without rewriting to a locale path', () => {
+    const request = new NextRequest('https://dev.chaktech.tn/');
+
+    const response = middleware(request);
+
+    expect(intlMiddlewareMock).not.toHaveBeenCalled();
+    expect(response.headers.get('location')).toBeNull();
+    expect(response.headers.get('x-middleware-rewrite')).toBeNull();
+    expect(response.headers.get('x-pathname')).toBe('/');
   });
 });
