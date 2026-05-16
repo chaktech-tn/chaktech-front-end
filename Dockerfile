@@ -2,6 +2,8 @@ FROM node:22-alpine AS builder
 
 WORKDIR /app
 
+ARG PNPM_VERSION=10.33.0
+
 # Accept build arguments for environment variables
 ARG NEXT_PUBLIC_API_BASE_URL
 ARG NEXT_PUBLIC_CURRENCY
@@ -20,10 +22,10 @@ ENV NEXT_PUBLIC_SUPPORTED_LOCALES=$NEXT_PUBLIC_SUPPORTED_LOCALES
 COPY package.json pnpm-lock.yaml* ./
 
 # Install pnpm
-RUN npm install -g pnpm
+RUN corepack enable && corepack prepare pnpm@${PNPM_VERSION} --activate
 
 # Install dependencies
-RUN pnpm install --no-frozen-lockfile
+RUN npm_config_dangerously_allow_all_builds=true pnpm install --no-frozen-lockfile
 
 # Copy application code
 COPY . .
@@ -38,14 +40,16 @@ WORKDIR /app
 
 ENV NODE_ENV production
 
+ARG PNPM_VERSION=10.33.0
+
 # Install pnpm
-RUN npm install -g pnpm
+RUN corepack enable && corepack prepare pnpm@${PNPM_VERSION} --activate
 
 # Copy package files
 COPY package.json pnpm-lock.yaml* ./
 
 # Install production dependencies only
-RUN pnpm install --prod --no-frozen-lockfile
+RUN npm_config_dangerously_allow_all_builds=true pnpm install --prod --no-frozen-lockfile
 
 # Copy built application from builder
 COPY --from=builder /app/.next ./.next
